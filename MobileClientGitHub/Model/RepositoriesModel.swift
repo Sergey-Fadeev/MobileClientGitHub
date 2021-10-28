@@ -12,7 +12,6 @@ import Combine
 
 class RepositoriesModel: ObservableObject {
     
-    
     var provider = Provider()
     var providerCancellable: Cancellable? = nil
     
@@ -32,18 +31,10 @@ class RepositoriesModel: ObservableObject {
             
             if let fullListRepo = RepositoriesList.init(dataRepo: jsonResult){
                 self.repositoriesList = fullListRepo
-                print("")
-                print("отработал addRepo в Model")
-                print("\(self.repositoriesList!.repositoryList?.count)")
             }
             else{
                 print("gvgvgvgvgv")
             }
         })
     }
-    
-    
-//    func addRepoList() {
-//        repositoriesList = provider.fetchRepositoriesList()
-//    }
 }

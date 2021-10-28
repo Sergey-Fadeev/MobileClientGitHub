@@ -12,31 +12,25 @@ import Combine
 
 class RepositoryListVM: ObservableObject {
     
-    var repositoryListCancellable: Cancellable? = nil
     
     @Published var repositoryList: RepositoriesList?
-    
-    
-//    init(model: RepositoriesModel) {
-//        weatherSingleton.repositoriesList = model.repositoriesList
-//        repositoryListCancellable = model
-//            .objectWillChange
-//            .sink(){ [self] in
-//                repositoryList? = model.repositoriesList!
-//            }
-//    }
+    var repositoryListCancellable: Cancellable? = nil
     
     
     init(model: RepositoriesModel) {
-        repositoryListCancellable = weatherSingleton
+        
+        repositoryList = model.repositoriesList
+        repositoryListCancellable = repositoriesSingleton
             .objectWillChange
-            .sink(){ [self] in
-                repositoryList? = weatherSingleton.repositoriesList!
-            }
+            .sink(receiveValue: {[weak self] in
+                DispatchQueue.main.async { [weak self] in
+                    self?.repositoryList = model.repositoriesList
+                }
+            })
     }
     
     
     func addRepositories(){
-        weatherSingleton.addRepo()
+        repositoriesSingleton.addRepo()
     }
 }

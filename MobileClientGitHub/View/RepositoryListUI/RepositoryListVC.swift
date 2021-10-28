@@ -10,12 +10,10 @@ import Combine
 
 class RepositoryListVC: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     
     var VM: RepositoryListVM!
-    
-    
     var VMCancellable: Cancellable? = nil
     
     
@@ -25,36 +23,36 @@ class RepositoryListVC: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         
-    
-        VM = .init(model: weatherSingleton)
+        VM = .init(model: repositoriesSingleton)
         VM.addRepositories()
-        
         VMCancellable = VM
             .objectWillChange
             .sink(){ [self]_ in
-                print("")
-                print("отработал синк в ВС")
-                print("\(VM.repositoryList?.repositoryList?.count)")
+                DispatchQueue.main.async { [weak self] in
+                    if self != nil{
+                        tableView.reloadData()
+                    }
+                }
         }
-        tableView.reloadData()
-        
-        // Do any additional setup after loading the view.
     }
 }
 
 
 extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (VM.repositoryList?.repositoryList?.count) ?? 2
+        return (VM.repositoryList?.repositoryList?.count) ?? 1
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! TableViewCell
+        cell.congigureCell(authorsName: (VM.repositoryList?.repositoryList![indexPath.row].owner!.login) ?? "", language: (VM.repositoryList?.repositoryList![indexPath.row].languagesURL) ?? "", projectName: (VM.repositoryList?.repositoryList![indexPath.row].name) ?? "", descriptionProject: VM.repositoryList?.repositoryList![indexPath.row].welcomeDescription ?? "")
         return cell
     }
-    
-    
 }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-let weatherSingleton = RepositoriesModel()
+let repositoriesSingleton = RepositoriesModel()
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
