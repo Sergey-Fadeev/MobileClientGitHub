@@ -8,6 +8,15 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var ownersImage: UIImageView!
+    @IBOutlet weak var authorsFullName: UILabel!
+    @IBOutlet weak var languageName: UILabel!
+    @IBOutlet weak var languageImage: UIImageView!
+    @IBOutlet weak var starLabel: UILabel!
+    @IBOutlet weak var forkLabel: UILabel!
+    @IBOutlet weak var projectNameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

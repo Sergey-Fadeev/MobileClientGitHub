@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
@@ -15,34 +13,49 @@ import Foundation
 
 import Foundation
 
+
+//struct Welcome: Codable {
+//    let welcomeElement: [WelcomeElement]?
+//
+//    static var placeholder: Self{
+//        return Welcome(welcomeElement: nil)
+//    }
+//}
+
+    
+
 // MARK: - WelcomeElement
-struct RepositoryJSON: Codable {
-    let id: Int
-    let nodeID, name, fullName: String
-    let welcomePrivate: Bool
-    let owner: Owner
-    let htmlURL: String
+struct ElementJSON: Codable {
+    let id: Int?
+    let nodeID, name, fullName: String?
+    let welcomePrivate: Bool?
+    let owner: Owner?
+    let htmlURL: String?
     let welcomeDescription: String?
-    let fork: Bool
-    let url, forksURL: String
-    let keysURL, collaboratorsURL: String
-    let teamsURL, hooksURL: String
-    let issueEventsURL: String
-    let eventsURL: String
-    let assigneesURL, branchesURL: String
-    let tagsURL: String
-    let blobsURL, gitTagsURL, gitRefsURL, treesURL: String
-    let statusesURL: String
-    let languagesURL, stargazersURL, contributorsURL, subscribersURL: String
-    let subscriptionURL: String
-    let commitsURL, gitCommitsURL, commentsURL, issueCommentURL: String
-    let contentsURL, compareURL: String
-    let mergesURL: String
-    let archiveURL: String
-    let downloadsURL: String
-    let issuesURL, pullsURL, milestonesURL, notificationsURL: String
-    let labelsURL, releasesURL: String
-    let deploymentsURL: String
+    let fork: Bool?
+    let url, forksURL: String?
+    let keysURL, collaboratorsURL: String?
+    let teamsURL, hooksURL: String?
+    let issueEventsURL: String?
+    let eventsURL: String?
+    let assigneesURL, branchesURL: String?
+    let tagsURL: String?
+    let blobsURL, gitTagsURL, gitRefsURL, treesURL: String?
+    let statusesURL: String?
+    let languagesURL, stargazersURL, contributorsURL, subscribersURL: String?
+    let subscriptionURL: String?
+    let commitsURL, gitCommitsURL, commentsURL, issueCommentURL: String?
+    let contentsURL, compareURL: String?
+    let mergesURL: String?
+    let archiveURL: String?
+    let downloadsURL: String?
+    let issuesURL, pullsURL, milestonesURL, notificationsURL: String?
+    let labelsURL, releasesURL: String?
+    let deploymentsURL: String?
+    
+    static var placeholder: Self{
+        return ElementJSON(id: nil, nodeID: nil, name: nil, fullName: nil, welcomePrivate: nil, owner: nil, htmlURL: nil, welcomeDescription: nil, fork: nil, url: nil, forksURL: nil, keysURL: nil, collaboratorsURL: nil, teamsURL: nil, hooksURL: nil, issueEventsURL: nil, eventsURL: nil, assigneesURL: nil, branchesURL: nil, tagsURL: nil, blobsURL: nil, gitTagsURL: nil, gitRefsURL: nil, treesURL: nil, statusesURL: nil, languagesURL: nil, stargazersURL: nil, contributorsURL: nil, subscribersURL: nil, subscriptionURL: nil, commitsURL: nil, gitCommitsURL: nil, commentsURL: nil, issueCommentURL: nil, contentsURL: nil, compareURL: nil, mergesURL: nil, archiveURL: nil, downloadsURL: nil, issuesURL: nil, pullsURL: nil, milestonesURL: nil, notificationsURL: nil, labelsURL: nil, releasesURL: nil, deploymentsURL: nil)
+    }
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -134,4 +147,5 @@ enum TypeEnum: String, Codable {
     case user = "User"
 }
 
-typealias RepositoryList = [RepositoryJSON]
+
+typealias FullJSON = [ElementJSON]?
