@@ -149,3 +149,4 @@ enum TypeEnum: String, Codable {
 
 
 typealias FullJSON = [ElementJSON]?
+

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		89044918272AB1C00007701A /* MobileClientGitHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89044917272AB1C00007701A /* MobileClientGitHubTests.swift */; };
 		89044921272AB24E0007701A /* GitHubAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89044920272AB24E0007701A /* GitHubAPITests.swift */; };
+		89A8E0822731A5DC002467B0 /* DetailInfoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8E0812731A5DC002467B0 /* DetailInfoJSON.swift */; };
 		89BE23D02727CFB900B44D5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE23CF2727CFB900B44D5A /* AppDelegate.swift */; };
 		89BE23D42727CFB900B44D5A /* RepositoryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE23D32727CFB900B44D5A /* RepositoryListVC.swift */; };
 		89BE23D72727CFB900B44D5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BE23D52727CFB900B44D5A /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		89044915272AB1C00007701A /* MobileClientGitHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileClientGitHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89044917272AB1C00007701A /* MobileClientGitHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileClientGitHubTests.swift; sourceTree = "<group>"; };
 		89044920272AB24E0007701A /* GitHubAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPITests.swift; sourceTree = "<group>"; };
+		89A8E0812731A5DC002467B0 /* DetailInfoJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoJSON.swift; sourceTree = "<group>"; };
 		89BE23CC2727CFB900B44D5A /* MobileClientGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileClientGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BE23CF2727CFB900B44D5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89BE23D32727CFB900B44D5A /* RepositoryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListVC.swift; sourceTree = "<group>"; };
@@ -88,6 +90,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		89A8E07F2731A568002467B0 /* RepositoriesList */ = {
+			isa = PBXGroup;
+			children = (
+				89BE23E62727D04500B44D5A /* JSON.swift */,
+				89EB0EF22729999D004F57A4 /* RepositoriesList.swift */,
+				89EB0ECA27280F88004F57A4 /* RepositoriesModel.swift */,
+			);
+			path = RepositoriesList;
+			sourceTree = "<group>";
+		};
+		89A8E0802731A588002467B0 /* RepositoriesDetailInfo */ = {
+			isa = PBXGroup;
+			children = (
+				89A8E0812731A5DC002467B0 /* DetailInfoJSON.swift */,
+			);
+			path = RepositoriesDetailInfo;
+			sourceTree = "<group>";
+		};
 		89BE23C32727CFB900B44D5A = {
 			isa = PBXGroup;
 			children = (
@@ -124,10 +144,9 @@
 		89BE23E32727D00000B44D5A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				89BE23E62727D04500B44D5A /* JSON.swift */,
+				89A8E0802731A588002467B0 /* RepositoriesDetailInfo */,
+				89A8E07F2731A568002467B0 /* RepositoriesList */,
 				89EB0EC827280896004F57A4 /* Provider.swift */,
-				89EB0EF22729999D004F57A4 /* RepositoriesList.swift */,
-				89EB0ECA27280F88004F57A4 /* RepositoriesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,6 +293,7 @@
 				89BE23D42727CFB900B44D5A /* RepositoryListVC.swift in Sources */,
 				89EB0EC927280896004F57A4 /* Provider.swift in Sources */,
 				89BE23D02727CFB900B44D5A /* AppDelegate.swift in Sources */,
+				89A8E0822731A5DC002467B0 /* DetailInfoJSON.swift in Sources */,
 				89EB0EF32729999D004F57A4 /* RepositoriesList.swift in Sources */,
 				89EB0ECB27280F88004F57A4 /* RepositoriesModel.swift in Sources */,
 				89EB0ECD27281773004F57A4 /* RepositoryListVM.swift in Sources */,
