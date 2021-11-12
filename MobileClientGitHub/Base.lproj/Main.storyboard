@@ -189,6 +189,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sms-hu-m2y"/>
+                    <connections>
+                        <outlet property="forksCount" destination="4HP-i9-Mk5" id="qYe-ee-4mm"/>
+                        <outlet property="imageLanguage" destination="kJ1-Zy-ySL" id="6N4-tS-jHE"/>
+                        <outlet property="imageOwner" destination="PSv-7w-tCE" id="qbk-k9-gqJ"/>
+                        <outlet property="languageName" destination="DiO-zs-FAH" id="UIA-pa-81D"/>
+                        <outlet property="nameOwner" destination="nDk-fH-GWU" id="XHd-4h-nve"/>
+                        <outlet property="projectDescription" destination="aEs-xc-E1g" id="KRZ-1Y-A1x"/>
+                        <outlet property="projectName" destination="dSb-HO-Jw1" id="BKi-LY-QDt"/>
+                        <outlet property="starsCount" destination="JrS-3h-Y1x" id="mqp-GO-q8U"/>
+                        <outlet property="tableView" destination="tq2-sZ-gRc" id="b65-Dp-kKH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SA1-qN-198" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -375,6 +386,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RPs-oS-tIn"/>
+                    <connections>
+                        <outlet property="forksCount" destination="ijN-wI-NQE" id="D4D-yA-UCb"/>
+                        <outlet property="imageLanguage" destination="i4n-GU-xps" id="qb6-fa-6Vt"/>
+                        <outlet property="imageOwner" destination="NIl-u3-D9n" id="oxX-WV-loG"/>
+                        <outlet property="languageName" destination="fJK-sE-cOe" id="bqx-OU-ZKk"/>
+                        <outlet property="nameOwner" destination="Nfw-Si-HVr" id="bdb-Ax-QPu"/>
+                        <outlet property="projectDescription" destination="pMP-1P-ITD" id="SEU-GA-Lfo"/>
+                        <outlet property="projectName" destination="Krp-z9-hJu" id="HPu-R6-aMb"/>
+                        <outlet property="starsCount" destination="sXa-5G-tMl" id="kaW-gM-QD0"/>
+                        <outlet property="tableView" destination="cio-5v-iq8" id="vKe-CN-Hy1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UES-6s-uGT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

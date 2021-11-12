@@ -9,6 +9,16 @@ import UIKit
 
 class FavoriteRepositoryDetailVC: UIViewController {
 
+    @IBOutlet weak var imageOwner: UIImageView!
+    @IBOutlet weak var nameOwner: UILabel!
+    @IBOutlet weak var imageLanguage: UIImageView!
+    @IBOutlet weak var languageName: UILabel!
+    @IBOutlet weak var starsCount: UILabel!
+    @IBOutlet weak var forksCount: UILabel!
+    @IBOutlet weak var projectName: UILabel!
+    @IBOutlet weak var projectDescription: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
