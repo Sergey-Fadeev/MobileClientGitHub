@@ -17,22 +17,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="InU-Is-a7Y">
-                        <rect key="frame" x="20" y="0.5" width="119.5" height="118.5"/>
+                        <rect key="frame" x="10" y="0.5" width="119.5" height="118.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="InU-Is-a7Y" secondAttribute="height" multiplier="1:1" id="jzF-Zl-mKC"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wa9-XR-Djb" userLabel="MainStack">
-                        <rect key="frame" x="139.5" y="0.0" width="328.5" height="119.5"/>
+                        <rect key="frame" x="129.5" y="0.0" width="338.5" height="119.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фадеев Сергей Александрович" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u7-2n-wkF">
-                                <rect key="frame" x="10" y="0.0" width="318.5" height="48"/>
+                                <rect key="frame" x="10" y="0.0" width="328.5" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="left" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="znY-ct-Qzo" userLabel="LanguageStack">
-                                <rect key="frame" x="10" y="48" width="318.5" height="35.5"/>
+                                <rect key="frame" x="10" y="48" width="328.5" height="35.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="W6D-VF-mTo">
                                         <rect key="frame" x="10" y="0.0" width="36" height="35.5"/>
@@ -41,7 +41,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lob-6r-aXu">
-                                        <rect key="frame" x="46" y="0.0" width="272.5" height="35.5"/>
+                                        <rect key="frame" x="46" y="0.0" width="282.5" height="35.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -58,10 +58,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvo-dO-bxe" userLabel="StarAndForkStack">
-                                <rect key="frame" x="10" y="83.5" width="318.5" height="36"/>
+                                <rect key="frame" x="10" y="83.5" width="328.5" height="36"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lfz-Ye-ie7" userLabel="StarStack">
-                                        <rect key="frame" x="0.0" y="0.0" width="159.5" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="164.5" height="36"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="82W-GA-XCl">
                                                 <rect key="frame" x="10" y="0.5" width="36" height="35"/>
@@ -70,7 +70,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Star" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTF-IL-3Ui">
-                                                <rect key="frame" x="46" y="0.0" width="113.5" height="36"/>
+                                                <rect key="frame" x="46" y="0.0" width="118.5" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfk-ep-41e" userLabel="ForkStack">
-                                        <rect key="frame" x="159.5" y="0.0" width="159" height="36"/>
+                                        <rect key="frame" x="164.5" y="0.0" width="164" height="36"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DdX-XJ-XsM">
                                                 <rect key="frame" x="0.0" y="0.0" width="35.5" height="36"/>
@@ -92,7 +92,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fork" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpg-fU-tnY">
-                                                <rect key="frame" x="35.5" y="0.0" width="123.5" height="36"/>
+                                                <rect key="frame" x="35.5" y="0.0" width="128.5" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -145,7 +145,7 @@
                     <constraint firstItem="InU-Is-a7Y" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.25" id="9fd-kE-Wqc"/>
                     <constraint firstItem="Wa9-XR-Djb" firstAttribute="leading" secondItem="InU-Is-a7Y" secondAttribute="trailing" id="F1J-rZ-4zb"/>
                     <constraint firstItem="DIq-ZW-pRm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="GgE-jd-0DF"/>
-                    <constraint firstItem="InU-Is-a7Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="HaS-mb-qfs"/>
+                    <constraint firstItem="InU-Is-a7Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="HaS-mb-qfs"/>
                     <constraint firstItem="Wa9-XR-Djb" firstAttribute="height" secondItem="InU-Is-a7Y" secondAttribute="height" id="LDM-fl-a4R"/>
                     <constraint firstAttribute="bottomMargin" secondItem="DIq-ZW-pRm" secondAttribute="bottom" id="Mcs-Sc-G1l"/>
                     <constraint firstItem="qhT-Za-q5r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="OYP-3a-nbu"/>
