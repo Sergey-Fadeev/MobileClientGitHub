@@ -21,7 +21,7 @@ class RepositoryListVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "repositoryCustomCell")
         
         VM = .init(model: repositoriesSingleton)
         VM.addRepositories()
@@ -53,7 +53,7 @@ extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCustomCell") as! TableViewCell
         cell.congigureCell(authorsName: (VM.repositoryList?.repositoryList![indexPath.row].owner!.login) ?? "", language: (VM.repositoryList?.repositoryList![indexPath.row].languagesURL) ?? "", projectName: (VM.repositoryList?.repositoryList![indexPath.row].name) ?? "", descriptionProject: VM.repositoryList?.repositoryList![indexPath.row].welcomeDescription ?? "")
         return cell
     }

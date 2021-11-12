@@ -148,15 +148,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tq2-sZ-gRc">
-                                <rect key="frame" x="0.0" y="383" width="414" height="479"/>
+                                <rect key="frame" x="0.0" y="393" width="414" height="469"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Последние 10 коммитов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2m-FE-KZB">
-                                <rect key="frame" x="10" y="354" width="404" height="29"/>
+                                <rect key="frame" x="10" y="364" width="404" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="h2m-FE-KZB" secondAttribute="height" multiplier="14:1" id="IxT-5v-jd4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -183,7 +183,7 @@
                             <constraint firstItem="W0s-Ew-y8c" firstAttribute="centerY" secondItem="PSv-7w-tCE" secondAttribute="centerY" id="gT8-9u-hbf"/>
                             <constraint firstItem="Xzp-g9-wep" firstAttribute="height" secondItem="PSv-7w-tCE" secondAttribute="height" multiplier="0.3" id="h5B-TV-pGy"/>
                             <constraint firstItem="tq2-sZ-gRc" firstAttribute="top" secondItem="h2m-FE-KZB" secondAttribute="bottom" id="hnJ-Sz-YTZ"/>
-                            <constraint firstItem="h2m-FE-KZB" firstAttribute="top" secondItem="aEs-xc-E1g" secondAttribute="bottom" id="nNK-tl-R7q"/>
+                            <constraint firstItem="h2m-FE-KZB" firstAttribute="top" secondItem="aEs-xc-E1g" secondAttribute="bottom" constant="10" id="nNK-tl-R7q"/>
                             <constraint firstItem="rKe-kg-ZSy" firstAttribute="trailing" secondItem="W0s-Ew-y8c" secondAttribute="trailing" id="uKW-1B-7ai"/>
                             <constraint firstItem="rKe-kg-ZSy" firstAttribute="bottom" secondItem="tq2-sZ-gRc" secondAttribute="bottom" id="w4X-ef-srt"/>
                         </constraints>
@@ -345,16 +345,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Последние 10 коммитов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkz-XM-J5g">
-                                <rect key="frame" x="0.0" y="354" width="414" height="29.5"/>
+                                <rect key="frame" x="0.0" y="364" width="414" height="29.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gkz-XM-J5g" secondAttribute="height" multiplier="14:1" id="b5O-fW-gLq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cio-5v-iq8">
-                                <rect key="frame" x="0.0" y="383.5" width="414" height="429.5"/>
+                                <rect key="frame" x="0.0" y="393.5" width="414" height="419.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -375,7 +375,7 @@
                             <constraint firstItem="LlH-ua-vm1" firstAttribute="leading" secondItem="NIl-u3-D9n" secondAttribute="trailing" constant="10" id="amr-cC-7ad"/>
                             <constraint firstItem="cio-5v-iq8" firstAttribute="leading" secondItem="Sh1-E9-xHd" secondAttribute="leading" id="fIM-k4-qta"/>
                             <constraint firstItem="Nfw-Si-HVr" firstAttribute="height" secondItem="NIl-u3-D9n" secondAttribute="height" multiplier="0.4" id="k5G-b6-YnX"/>
-                            <constraint firstItem="gkz-XM-J5g" firstAttribute="top" secondItem="pMP-1P-ITD" secondAttribute="bottom" id="kU9-6B-kXf"/>
+                            <constraint firstItem="gkz-XM-J5g" firstAttribute="top" secondItem="pMP-1P-ITD" secondAttribute="bottom" constant="10" id="kU9-6B-kXf"/>
                             <constraint firstItem="yEX-JP-fBJ" firstAttribute="height" secondItem="NIl-u3-D9n" secondAttribute="height" multiplier="0.3" id="lRD-HF-7ac"/>
                             <constraint firstAttribute="trailing" secondItem="LlH-ua-vm1" secondAttribute="trailing" id="lvJ-Ym-bqk"/>
                             <constraint firstItem="NIl-u3-D9n" firstAttribute="top" secondItem="Sh1-E9-xHd" secondAttribute="top" id="oTb-lu-Sqf"/>

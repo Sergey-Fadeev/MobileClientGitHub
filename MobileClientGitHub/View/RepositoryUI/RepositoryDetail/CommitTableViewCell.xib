@@ -9,15 +9,65 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CommitTableViewCell" customModule="MobileClientGitHub" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="191" id="KGk-i7-Jjw" customClass="CommitTableViewCell" customModule="MobileClientGitHub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="412" height="191"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="412" height="191"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="w9k-Su-9yQ">
+                        <rect key="frame" x="0.0" y="1" width="62" height="59.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="w9k-Su-9yQ" secondAttribute="height" multiplier="1:1" id="9tn-MP-1HZ"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bDA-ym-ENV">
+                        <rect key="frame" x="72" y="0.0" width="340" height="62"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Иванов Иван Иванович" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaO-if-VYt">
+                                <rect key="frame" x="0.0" y="0.0" width="340" height="31"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01.01.2019 18:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sra-jl-tm0">
+                                <rect key="frame" x="0.0" y="31" width="340" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="commitCustomCell" text="Сайт рыбатекст поможет дизайнеру, верстальщику" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGy-Ls-aXZ">
+                        <rect key="frame" x="30" y="62" width="362" height="129"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="zGy-Ls-aXZ" secondAttribute="bottom" id="7c0-0L-Cds"/>
+                    <constraint firstItem="bDA-ym-ENV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ctd-4o-9bw"/>
+                    <constraint firstItem="zGy-Ls-aXZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="E8A-YE-J73"/>
+                    <constraint firstItem="w9k-Su-9yQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KD9-ud-z9y"/>
+                    <constraint firstItem="w9k-Su-9yQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="XcQ-6P-B1R"/>
+                    <constraint firstAttribute="trailing" secondItem="bDA-ym-ENV" secondAttribute="trailing" id="d7t-Yt-1zM"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="zGy-Ls-aXZ" secondAttribute="trailing" id="dc2-b0-mU6"/>
+                    <constraint firstItem="zGy-Ls-aXZ" firstAttribute="top" secondItem="bDA-ym-ENV" secondAttribute="bottom" id="hz4-cX-xA3"/>
+                    <constraint firstItem="kaO-if-VYt" firstAttribute="height" secondItem="w9k-Su-9yQ" secondAttribute="height" multiplier="0.5" id="kOX-qo-Yxj"/>
+                    <constraint firstItem="Sra-jl-tm0" firstAttribute="height" secondItem="w9k-Su-9yQ" secondAttribute="height" multiplier="0.5" id="kmt-xv-w24"/>
+                    <constraint firstItem="bDA-ym-ENV" firstAttribute="leading" secondItem="w9k-Su-9yQ" secondAttribute="trailing" constant="10" id="tMI-zj-WKi"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="139" y="98"/>
+            <constraints>
+                <constraint firstItem="w9k-Su-9yQ" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.15" id="oxg-Bd-qUb"/>
+            </constraints>
+            <point key="canvasLocation" x="204.34782608695653" y="146.98660714285714"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="trash.square.fill" catalog="system" width="128" height="114"/>
+    </resources>
 </document>

@@ -15,6 +15,7 @@
 		8927943C273E798A009D05FB /* CommitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8927943A273E798A009D05FB /* CommitTableViewCell.xib */; };
 		8927943F273E79B0009D05FB /* FavoriteCommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8927943D273E79B0009D05FB /* FavoriteCommitTableViewCell.swift */; };
 		89279440273E79B0009D05FB /* FavoriteCommitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8927943E273E79B0009D05FB /* FavoriteCommitTableViewCell.xib */; };
+		89279442273E830A009D05FB /* CommitsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89279441273E830A009D05FB /* CommitsJSON.swift */; };
 		89A8DBE6273E5A8E001B1974 /* FavoritesRepositoryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8DBE5273E5A8E001B1974 /* FavoritesRepositoryListVC.swift */; };
 		89A8DBE9273E5AE3001B1974 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8DBE7273E5AE3001B1974 /* FavoritesTableViewCell.swift */; };
 		89A8DBEA273E5AE3001B1974 /* FavoritesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A8DBE8273E5AE3001B1974 /* FavoritesTableViewCell.xib */; };
@@ -53,6 +54,7 @@
 		8927943A273E798A009D05FB /* CommitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitTableViewCell.xib; sourceTree = "<group>"; };
 		8927943D273E79B0009D05FB /* FavoriteCommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCommitTableViewCell.swift; sourceTree = "<group>"; };
 		8927943E273E79B0009D05FB /* FavoriteCommitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCommitTableViewCell.xib; sourceTree = "<group>"; };
+		89279441273E830A009D05FB /* CommitsJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsJSON.swift; sourceTree = "<group>"; };
 		89A8DBE5273E5A8E001B1974 /* FavoritesRepositoryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRepositoryListVC.swift; sourceTree = "<group>"; };
 		89A8DBE7273E5AE3001B1974 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		89A8DBE8273E5AE3001B1974 /* FavoritesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewCell.xib; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				89A8E0812731A5DC002467B0 /* DetailInfoJSON.swift */,
+				89279441273E830A009D05FB /* CommitsJSON.swift */,
 			);
 			path = RepositoriesDetailInfo;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			files = (
 				89A8DBE9273E5AE3001B1974 /* FavoritesTableViewCell.swift in Sources */,
 				89BE23E72727D04500B44D5A /* JSON.swift in Sources */,
+				89279442273E830A009D05FB /* CommitsJSON.swift in Sources */,
 				8927943B273E798A009D05FB /* CommitTableViewCell.swift in Sources */,
 				89BE23F12727DA7600B44D5A /* TableViewCell.swift in Sources */,
 				89279436273E78C6009D05FB /* RepositoryDetailVC.swift in Sources */,

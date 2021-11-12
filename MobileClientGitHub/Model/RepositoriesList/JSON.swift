@@ -118,7 +118,7 @@ struct Owner: Codable {
     let subscriptionsURL, organizationsURL, reposURL: String
     let eventsURL: String
     let receivedEventsURL: String
-    let type: TypeEnum
+    let type: TypeEnumCommitsJSON
     let siteAdmin: Bool
 
     enum CodingKeys: String, CodingKey {
@@ -142,7 +142,7 @@ struct Owner: Codable {
     }
 }
 
-enum TypeEnum: String, Codable {
+enum TypeEnumCommitsJSON: String, Codable {
     case organization = "Organization"
     case user = "User"
 }
