@@ -48,6 +48,9 @@ extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
         return (VM.repositoryList?.repositoryList?.count) ?? 1
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "repositoryDetail", sender: tableView.cellForRow(at: indexPath))
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! TableViewCell

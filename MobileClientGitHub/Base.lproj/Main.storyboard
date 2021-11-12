@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Lh-hV-jXv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Lh-hV-jXv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Mobile Client GitHub-->
+        <!--Repository ListVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RepositoryListVC" customModule="MobileClientGitHub" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,27 +18,95 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DQy-U7-nyV">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="AccentColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="DQy-U7-nyV" secondAttribute="bottom" id="5Nn-Mu-Gbm"/>
                             <constraint firstItem="DQy-U7-nyV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CLr-FH-uEM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DQy-U7-nyV" secondAttribute="trailing" id="c8A-6K-byS"/>
                             <constraint firstItem="DQy-U7-nyV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="d2r-FF-Dfm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DQy-U7-nyV" secondAttribute="bottom" id="l7N-un-AIJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Mobile Client GitHub" largeTitleDisplayMode="always" id="uBf-aB-OWf"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="ZUb-pF-6sb"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="uBf-aB-OWf"/>
                     <connections>
                         <outlet property="tableView" destination="DQy-U7-nyV" id="cu4-nu-yQW"/>
+                        <segue destination="Ypi-5Z-BU7" kind="show" identifier="repositoryDetail" id="okH-hd-A30"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944.92753623188412" y="97.767857142857139"/>
+            <point key="canvasLocation" x="1737.68115942029" y="-222.32142857142856"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aDJ-He-aVa">
+            <objects>
+                <viewController id="Ypi-5Z-BU7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zmY-M7-Aqc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="rKe-kg-ZSy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sms-hu-m2y"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SA1-qN-198" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2533" y="-222"/>
+        </scene>
+        <!--Favorites Repository ListVC-->
+        <scene sceneID="vTf-2p-QL1">
+            <objects>
+                <viewController id="CRY-WT-QK0" customClass="FavoritesRepositoryListVC" customModule="MobileClientGitHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y54-Mc-QKG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1zF-8V-Psb">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ixX-fi-KWT"/>
+                        <color key="backgroundColor" name="AccentColor"/>
+                        <constraints>
+                            <constraint firstItem="ixX-fi-KWT" firstAttribute="bottom" secondItem="1zF-8V-Psb" secondAttribute="bottom" id="UjL-B5-ns0"/>
+                            <constraint firstItem="1zF-8V-Psb" firstAttribute="top" secondItem="ixX-fi-KWT" secondAttribute="top" id="Wdv-Zd-udH"/>
+                            <constraint firstItem="1zF-8V-Psb" firstAttribute="leading" secondItem="ixX-fi-KWT" secondAttribute="leading" id="hDK-9o-d38"/>
+                            <constraint firstItem="ixX-fi-KWT" firstAttribute="trailing" secondItem="1zF-8V-Psb" secondAttribute="trailing" id="mcp-Y8-C2a"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="7PK-cu-UgV"/>
+                    <navigationItem key="navigationItem" id="hFr-aQ-3To"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="1zF-8V-Psb" id="WBI-x8-YTS"/>
+                        <segue destination="I1C-RX-0dx" kind="show" identifier="favoritesRepositoryDetail" id="tmR-5N-K3m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tuY-5k-B5O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1738" y="430"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gXY-EG-H4X">
+            <objects>
+                <viewController id="I1C-RX-0dx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cfn-1Q-k2K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Sh1-E9-xHd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RPs-oS-tIn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UES-6s-uGT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2533" y="430"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nbw-QT-PCQ">
@@ -51,12 +119,31 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Pb6-2e-XNP"/>
+                        <segue destination="LgU-3k-hqn" kind="relationship" relationship="rootViewController" id="Pb6-2e-XNP"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rk6-SH-5X5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="97.767857142857139"/>
+        </scene>
+        <!--Mobile Client GitHub-->
+        <scene sceneID="o57-lb-KiJ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="LgU-3k-hqn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Mobile Client GitHub" id="Ac5-oH-dCW"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uPY-xb-0Fj">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="uo5-25-pL6"/>
+                        <segue destination="CRY-WT-QK0" kind="relationship" relationship="viewControllers" id="Dem-ns-mJH"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PnO-lY-MhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944.92753623188412" y="97.767857142857139"/>
         </scene>
     </scenes>
     <resources>

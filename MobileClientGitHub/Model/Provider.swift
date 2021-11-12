@@ -12,6 +12,7 @@ import Combine
 class Provider {
     
     private let mainURL = URL(string: "https://api.github.com/repositories")
+    
     private let detailInfoURL = "https://api.github.com/repos/"
     
     
@@ -35,6 +36,29 @@ class Provider {
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
+    
+    
+    
+    
+    func fetchAvatar(imageURLString: String?) -> AnyPublisher<Data?, Never> {
+        guard let imageURLString = imageURLString else {
+            return Just(nil)
+                .eraseToAnyPublisher()
+        }
+        let url = URL.init(string: imageURLString)
+        
+        guard let url = url else {
+            return Just(nil)
+                .eraseToAnyPublisher()
+        }
+        return
+            URLSession.shared.dataTaskPublisher(for:url)
+            .map { $0.data }
+            .catch { error in Just(nil)}
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+    
     
     
     func fetchDetailInfo(fullName: String) -> AnyPublisher<DetailInfo, Never>{
