@@ -13,11 +13,11 @@ import Combine
 class RepositoryListVM: ObservableObject {
     
     
-    @Published var repositoryList: RepositoriesList?
+    @Published var repositoryList: [ElementJSON]?
     var repositoryListCancellable: Cancellable? = nil
     
     
-    init(model: RepositoriesModel) {
+    init(model: Model) {
         
         repositoryList = model.repositoriesList
         repositoryListCancellable = repositoriesSingleton

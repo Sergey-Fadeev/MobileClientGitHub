@@ -10,13 +10,12 @@ import Combine
 
 
 
-class RepositoriesModel: ObservableObject {
+class Model: ObservableObject {
     
     var provider = Provider()
     var providerCancellable: Cancellable? = nil
     
-    
-    @Published var repositoriesList: RepositoriesList? = nil
+    @Published var repositoriesList: [ElementJSON]? = nil
     
     
     init() {
@@ -29,7 +28,7 @@ class RepositoriesModel: ObservableObject {
         providerCancellable = repoPublished.sink(receiveValue: { [self]
             jsonResult in
             
-            if let fullListRepo = RepositoriesList.init(dataRepo: jsonResult){
+            if let fullListRepo = jsonResult{
                 self.repositoriesList = fullListRepo
             }
             else{

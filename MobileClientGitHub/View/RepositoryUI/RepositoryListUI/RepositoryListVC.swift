@@ -45,7 +45,7 @@ extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (VM.repositoryList?.repositoryList?.count) ?? 1
+        return (VM.repositoryList?.count) ?? 1
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -54,7 +54,7 @@ extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCustomCell") as! TableViewCell
-        cell.congigureCell(authorsName: (VM.repositoryList?.repositoryList![indexPath.row].owner!.login) ?? "", language: (VM.repositoryList?.repositoryList![indexPath.row].languagesURL) ?? "", projectName: (VM.repositoryList?.repositoryList![indexPath.row].name) ?? "", descriptionProject: VM.repositoryList?.repositoryList![indexPath.row].welcomeDescription ?? "")
+        cell.congigureCell(authorsName: (VM.repositoryList?[indexPath.row].owner!.login) ?? "", language: (VM.repositoryList?[indexPath.row].languagesURL) ?? "", projectName: (VM.repositoryList?[indexPath.row].name) ?? "", descriptionProject: VM.repositoryList?[indexPath.row].welcomeDescription ?? "")
         return cell
     }
 }

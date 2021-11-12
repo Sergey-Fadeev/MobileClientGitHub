@@ -150,3 +150,189 @@ enum TypeEnumCommitsJSON: String, Codable {
 
 typealias FullJSON = [ElementJSON]?
 
+
+
+// MARK: - DetailInfoJSON
+
+struct DetailJSON: Codable {
+    let id: Int?
+    let nodeID, name, fullName: String?
+    let welcomePrivate: Bool?
+    let owner: OwnerDetail?
+    let htmlURL: String?
+    let welcomeDescription: String?
+    let fork: Bool?
+    let url, forksURL: String?
+    let keysURL, collaboratorsURL: String?
+    let teamsURL, hooksURL: String?
+    let issueEventsURL: String?
+    let eventsURL: String?
+    let assigneesURL, branchesURL: String?
+    let tagsURL: String?
+    let blobsURL, gitTagsURL, gitRefsURL, treesURL: String?
+    let statusesURL: String?
+    let languagesURL, stargazersURL, contributorsURL, subscribersURL: String?
+    let subscriptionURL: String?
+    let commitsURL, gitCommitsURL, commentsURL, issueCommentURL: String?
+    let contentsURL, compareURL: String?
+    let mergesURL: String?
+    let archiveURL: String?
+    let downloadsURL: String?
+    let issuesURL, pullsURL, milestonesURL, notificationsURL: String?
+    let labelsURL, releasesURL: String?
+    let deploymentsURL: String?
+    let createdAt, updatedAt, pushedAt: Date?
+    let gitURL, sshURL: String?
+    let cloneURL: String?
+    let svnURL: String?
+    let homepage: String?
+    let size, stargazersCount, watchersCount: Int?
+    let language: String?
+    let hasIssues, hasProjects, hasDownloads, hasWiki: Bool?
+    let hasPages: Bool?
+    let forksCount: Int?
+    let archived, disabled: Bool?
+    let openIssuesCount: Int?
+    let license: License?
+    let allowForking, isTemplate: Bool?
+    let visibility: String?
+    let forks, openIssues, watchers: Int?
+    let defaultBranch: String?
+    let networkCount, subscribersCount: Int?
+}
+
+
+struct License: Codable {
+    let key, name, spdxID: String
+    let url: String
+    let nodeID: String
+}
+
+
+struct OwnerDetail: Codable {
+    let login: String
+    let id: Int
+    let nodeID: String
+    let avatarURL: String
+    let gravatarID: String
+    let url, htmlURL, followersURL: String
+    let followingURL, gistsURL, starredURL: String
+    let subscriptionsURL, organizationsURL, reposURL: String
+    let eventsURL: String
+    let receivedEventsURL: String
+    let type: String
+    let siteAdmin: Bool
+}
+
+
+
+//// MARK: - WelcomeElement
+//struct WelcomeElement: Codable {
+//    let sha, nodeID: String
+//    let commit: Commit
+//    let url, htmlURL, commentsURL: String
+//    let author, committer: WelcomeAuthor
+//    let parents: [Parent]
+//
+//    enum CodingKeys: String, CodingKey {
+//        case sha
+//        case nodeID = "node_id"
+//        case commit, url
+//        case htmlURL = "html_url"
+//        case commentsURL = "comments_url"
+//        case author, committer, parents
+//    }
+//}
+//
+//// MARK: - WelcomeAuthor
+//struct WelcomeAuthor: Codable {
+//    let login: String
+//    let id: Int
+//    let nodeID: String
+//    let avatarURL: String
+//    let gravatarID: String
+//    let url, htmlURL, followersURL: String
+//    let followingURL, gistsURL, starredURL: String
+//    let subscriptionsURL, organizationsURL, reposURL: String
+//    let eventsURL: String
+//    let receivedEventsURL: String
+//    let siteAdmin: Bool
+//
+//    enum CodingKeys: String, CodingKey {
+//        case login, id
+//        case nodeID = "node_id"
+//        case avatarURL = "avatar_url"
+//        case gravatarID = "gravatar_id"
+//        case url
+//        case htmlURL = "html_url"
+//        case followersURL = "followers_url"
+//        case followingURL = "following_url"
+//        case gistsURL = "gists_url"
+//        case starredURL = "starred_url"
+//        case subscriptionsURL = "subscriptions_url"
+//        case organizationsURL = "organizations_url"
+//        case reposURL = "repos_url"
+//        case eventsURL = "events_url"
+//        case receivedEventsURL = "received_events_url"
+//        case type
+//        case siteAdmin = "site_admin"
+//    }
+//}
+//
+//
+//// MARK: - Commit
+//struct Commit: Codable {
+//    let author, committer: CommitAuthor
+//    let message: String
+//    let tree: Tree
+//    let url: String
+//    let commentCount: Int
+//    let verification: Verification
+//
+//    enum CodingKeys: String, CodingKey {
+//        case author, committer, message, tree, url
+//        case commentCount = "comment_count"
+//        case verification
+//    }
+//}
+//
+//// MARK: - CommitAuthor
+//struct CommitAuthor: Codable {
+//    let name, email: String
+//    let date: Date
+//}
+//
+//// MARK: - Tree
+//struct Tree: Codable {
+//    let sha: String
+//    let url: String
+//}
+//
+//// MARK: - Verification
+//struct Verification: Codable {
+//    let verified: Bool
+//    let reason: Reason
+//    let signature, payload: JSONNull?
+//}
+//
+//enum Reason: String, Codable {
+//    case unsigned = "unsigned"
+//}
+//
+//// MARK: - Parent
+//struct Parent: Codable {
+//    let sha: String
+//    let url, htmlURL: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case sha, url
+//        case htmlURL = "html_url"
+//    }
+//}
+//
+//typealias Welcome = [WelcomeElement]
+
+
+
+//https://api.github.com/repos/mojombo/grit/commits
+

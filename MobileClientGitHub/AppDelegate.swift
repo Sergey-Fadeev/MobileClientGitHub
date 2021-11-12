@@ -7,7 +7,7 @@
 
 import UIKit
 
-let repositoriesSingleton = RepositoriesModel()
+let repositoriesSingleton = Model()
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
