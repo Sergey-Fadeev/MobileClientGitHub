@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		89044918272AB1C00007701A /* MobileClientGitHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89044917272AB1C00007701A /* MobileClientGitHubTests.swift */; };
 		89044921272AB24E0007701A /* GitHubAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89044920272AB24E0007701A /* GitHubAPITests.swift */; };
+		89279436273E78C6009D05FB /* RepositoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89279435273E78C6009D05FB /* RepositoryDetailVC.swift */; };
+		89279438273E78F1009D05FB /* FavoriteRepositoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89279437273E78F1009D05FB /* FavoriteRepositoryDetailVC.swift */; };
 		89A8DBE6273E5A8E001B1974 /* FavoritesRepositoryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8DBE5273E5A8E001B1974 /* FavoritesRepositoryListVC.swift */; };
 		89A8DBE9273E5AE3001B1974 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8DBE7273E5AE3001B1974 /* FavoritesTableViewCell.swift */; };
 		89A8DBEA273E5AE3001B1974 /* FavoritesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A8DBE8273E5AE3001B1974 /* FavoritesTableViewCell.xib */; };
@@ -41,6 +43,8 @@
 		89044915272AB1C00007701A /* MobileClientGitHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileClientGitHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89044917272AB1C00007701A /* MobileClientGitHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileClientGitHubTests.swift; sourceTree = "<group>"; };
 		89044920272AB24E0007701A /* GitHubAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPITests.swift; sourceTree = "<group>"; };
+		89279435273E78C6009D05FB /* RepositoryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailVC.swift; sourceTree = "<group>"; };
+		89279437273E78F1009D05FB /* FavoriteRepositoryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDetailVC.swift; sourceTree = "<group>"; };
 		89A8DBE5273E5A8E001B1974 /* FavoritesRepositoryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRepositoryListVC.swift; sourceTree = "<group>"; };
 		89A8DBE7273E5AE3001B1974 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		89A8DBE8273E5AE3001B1974 /* FavoritesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewCell.xib; sourceTree = "<group>"; };
@@ -96,14 +100,49 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		89A8DBE4273E5543001B1974 /* FavoritesRepositoryListUI */ = {
+		89279431273E781A009D05FB /* RepositoryListUI */ = {
+			isa = PBXGroup;
+			children = (
+				89BE23D32727CFB900B44D5A /* RepositoryListVC.swift */,
+				89BE23EF2727DA7600B44D5A /* TableViewCell.swift */,
+				89BE23F02727DA7600B44D5A /* TableViewCell.xib */,
+			);
+			path = RepositoryListUI;
+			sourceTree = "<group>";
+		};
+		89279432273E7833009D05FB /* FavoriteRepositoryListVC */ = {
 			isa = PBXGroup;
 			children = (
 				89A8DBE5273E5A8E001B1974 /* FavoritesRepositoryListVC.swift */,
 				89A8DBE7273E5AE3001B1974 /* FavoritesTableViewCell.swift */,
 				89A8DBE8273E5AE3001B1974 /* FavoritesTableViewCell.xib */,
 			);
-			path = FavoritesRepositoryListUI;
+			path = FavoriteRepositoryListVC;
+			sourceTree = "<group>";
+		};
+		89279433273E785C009D05FB /* RepositoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				89279435273E78C6009D05FB /* RepositoryDetailVC.swift */,
+			);
+			path = RepositoryDetail;
+			sourceTree = "<group>";
+		};
+		89279434273E7875009D05FB /* FavoriteRepositoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				89279437273E78F1009D05FB /* FavoriteRepositoryDetailVC.swift */,
+			);
+			path = FavoriteRepositoryDetail;
+			sourceTree = "<group>";
+		};
+		89A8DBE4273E5543001B1974 /* FavoritesRepositoryUI */ = {
+			isa = PBXGroup;
+			children = (
+				89279432273E7833009D05FB /* FavoriteRepositoryListVC */,
+				89279434273E7875009D05FB /* FavoriteRepositoryDetail */,
+			);
+			path = FavoritesRepositoryUI;
 			sourceTree = "<group>";
 		};
 		89A8E07F2731A568002467B0 /* RepositoriesList */ = {
@@ -170,8 +209,8 @@
 		89BE23E42727D00B00B44D5A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				89BE23E82727D5FC00B44D5A /* RepositoryListUI */,
-				89A8DBE4273E5543001B1974 /* FavoritesRepositoryListUI */,
+				89BE23E82727D5FC00B44D5A /* RepositoryUI */,
+				89A8DBE4273E5543001B1974 /* FavoritesRepositoryUI */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,14 +223,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		89BE23E82727D5FC00B44D5A /* RepositoryListUI */ = {
+		89BE23E82727D5FC00B44D5A /* RepositoryUI */ = {
 			isa = PBXGroup;
 			children = (
-				89BE23D32727CFB900B44D5A /* RepositoryListVC.swift */,
-				89BE23EF2727DA7600B44D5A /* TableViewCell.swift */,
-				89BE23F02727DA7600B44D5A /* TableViewCell.xib */,
+				89279431273E781A009D05FB /* RepositoryListUI */,
+				89279433273E785C009D05FB /* RepositoryDetail */,
 			);
-			path = RepositoryListUI;
+			path = RepositoryUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,11 +347,13 @@
 				89A8DBE9273E5AE3001B1974 /* FavoritesTableViewCell.swift in Sources */,
 				89BE23E72727D04500B44D5A /* JSON.swift in Sources */,
 				89BE23F12727DA7600B44D5A /* TableViewCell.swift in Sources */,
+				89279436273E78C6009D05FB /* RepositoryDetailVC.swift in Sources */,
 				89BE23D42727CFB900B44D5A /* RepositoryListVC.swift in Sources */,
 				89EB0EC927280896004F57A4 /* Provider.swift in Sources */,
 				89A8DBE6273E5A8E001B1974 /* FavoritesRepositoryListVC.swift in Sources */,
 				89BE23D02727CFB900B44D5A /* AppDelegate.swift in Sources */,
 				89A8E0822731A5DC002467B0 /* DetailInfoJSON.swift in Sources */,
+				89279438273E78F1009D05FB /* FavoriteRepositoryDetailVC.swift in Sources */,
 				89EB0EF32729999D004F57A4 /* RepositoriesList.swift in Sources */,
 				89EB0ECB27280F88004F57A4 /* RepositoriesModel.swift in Sources */,
 				89EB0ECD27281773004F57A4 /* RepositoryListVM.swift in Sources */,
