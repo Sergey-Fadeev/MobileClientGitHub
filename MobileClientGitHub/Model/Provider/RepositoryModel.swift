@@ -27,15 +27,24 @@ class OwnerModel: ObservableObject{
     
     let provider = Provider()
     
-    var avatarCancellable: Cancellable? = nil
     
+    var avatarCancellable: Cancellable? = nil
     func loadAvatar(avatarStringURL: String){
         avatarCancellable = provider.fetchAvatar(avatarStringURL: avatarStringURL).sink { imageData in
             self.avatar = imageData
         }
     }
-    
     @Published var avatar: Data?
+    
+    
+    var detailInfoCancellable: Cancellable? = nil
+    func loadDetailInfo(fullNameRepository: String){
+        detailInfoCancellable = provider.fetchDetailInfo(fullNameRepository: fullNameRepository).sink(receiveValue: { json in
+            self.detailInfo = json
+        })
+    }
+    @Published var detailInfo: DetailJSON?
+    
     
     init(json: OwnerJSON) {
         self.json = json

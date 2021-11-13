@@ -31,11 +31,11 @@ class TableViewCell: UITableViewCell {
     
     func initialize(VM: RepositoryCellVM){
         self.VM = VM
-        updateUI(ownerName: VM.model.owner.json.login, avatarStringURL: VM.model.owner.json.avatarURL, title: VM.model.json.name, description: VM.model.json.description)
+        updateUI(ownerName: VM.model.owner.json.login, avatarStringURL: VM.model.owner.json.avatarURL, title: VM.model.json.name, description: VM.model.json.description, fullNameRepository: VM.model.json.fullName)
     }
     
     
-    private func updateUI(ownerName: String?, avatarStringURL: String?, title: String?, description: String?){
+    private func updateUI(ownerName: String?, avatarStringURL: String?, title: String?, description: String?, fullNameRepository:String?){
         self.authorsFullName.text = ownerName
         self.languageName.text = "Swift"
         self.projectNameLabel.text = title
@@ -56,6 +56,25 @@ class TableViewCell: UITableViewCell {
                     DispatchQueue.main.async { [weak self] in
                         if self != nil{
                             self!.ownersImageView.image = UIImage.init(data: VM.model.owner.avatar!)
+                        }
+                    }
+                }
+        }
+        
+        
+        if let data = VM.model.owner.detailInfo {
+            self.languageName.text = data.language
+        }
+        else{
+            self.languageName.text = nil                   //детальной информации
+            VM.addDetailInfo(fullNameRepository: fullNameRepository!)
+            
+            VMCancellable = VM.model.owner
+                .objectWillChange
+                .sink{ [self]_ in
+                    DispatchQueue.main.async { [weak self] in
+                        if self != nil{
+                            self!.languageName.text = VM.model.owner.detailInfo?.language
                         }
                     }
                 }

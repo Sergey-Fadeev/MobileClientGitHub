@@ -19,4 +19,8 @@ class RepositoryCellVM {
     func addAvatar(avatarStringURL: String){
         model.owner.loadAvatar(avatarStringURL: avatarStringURL)
     }
+    
+    func addDetailInfo(fullNameRepository: String){
+        model.owner.loadDetailInfo(fullNameRepository: fullNameRepository)
+    }
 }
