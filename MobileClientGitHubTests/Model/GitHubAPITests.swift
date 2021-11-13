@@ -40,14 +40,14 @@ class GitHubAPITests: XCTestCase {
     
     func test_repositories() {
         
-        let baseURL = URL(string: "https://api.github.com/repositories")!
+        let baseURL = URL(string: "https://api.github.com/repos/mojombo/grit")!
                
         let (data, urlResponse, error) = URLSession.shared.synchronousDataTask(with: baseURL)
         
         let json_str = String.init(data: data!, encoding: .utf8)
         
-        let repoJson = try! JSONDecoder().decode(FullJSON.self, from: data!)
-        print(repoJson?.first)
+        let repoJson = try! JSONDecoder().decode(DetailJSON.self, from: data!)
+        print(repoJson)
         
     }
 }

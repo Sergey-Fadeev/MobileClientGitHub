@@ -43,13 +43,13 @@ class TableViewCell: UITableViewCell {
         
         if let data = VM.model.owner.avatar {
             self.ownersImageView.image = UIImage.init(data: data)
-    
+
         }
         else{
             self.ownersImageView.image = nil                  //загрузка аватара
-            
+
             VM.addAvatar(avatarStringURL: avatarStringURL!)
-            
+
             VMCancellable = VM.model.owner
                 .objectWillChange
                 .sink{ [self]_ in
@@ -64,9 +64,11 @@ class TableViewCell: UITableViewCell {
         
         if let data = VM.model.owner.detailInfo {
             self.languageName.text = data.language
+            self.starLabel.text = String(data.stargazersCount!)
+            self.forkLabel.text = String(data.forksCount!)
         }
         else{
-            self.languageName.text = nil                   //детальной информации
+            self.languageName.text = nil                   //pагрузка детальной информации
             VM.addDetailInfo(fullNameRepository: fullNameRepository!)
             
             VMCancellable = VM.model.owner
@@ -74,7 +76,9 @@ class TableViewCell: UITableViewCell {
                 .sink{ [self]_ in
                     DispatchQueue.main.async { [weak self] in
                         if self != nil{
-                            self!.languageName.text = VM.model.owner.detailInfo?.language
+                            self?.languageName.text = VM.model.owner.detailInfo?.language
+                            self?.starLabel.text = String(VM.model.owner.detailInfo?.stargazersCount! ?? 0)
+                            self?.forkLabel.text = String(VM.model.owner.detailInfo?.forksCount! ?? 0)
                         }
                     }
                 }

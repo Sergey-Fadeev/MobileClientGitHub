@@ -54,7 +54,7 @@ class Provider {
     
     func fetchDetailInfo(fullNameRepository: String?) -> AnyPublisher<DetailJSON, Never> {
         
-        let baseURL: String = "https://api.github.com/repos/"
+        let baseURL: String = "https://Vasiliy-Vasilyev:33KAlyAminA1922@api.github.com/repos/"
         
         guard fullNameRepository != nil, let url = URL.init(string: baseURL + fullNameRepository!) else {
             return Just(DetailJSON.placeholder)

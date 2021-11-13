@@ -39,17 +39,4 @@ class Model: ObservableObject {
             self.repositoriesList = fullListRepo
         })
     }
-    
-    
-    func loadAvatar(avatartStringURL: String){
-        let avatarPublisher = provider.fetchAvatar(avatarStringURL: avatartStringURL)
-        providerCancellable = avatarPublisher.sink(receiveValue: { [self]
-            dataImage in
-            
-            guard dataImage != nil else {
-                print("\(#function) Error")
-                return
-            }
-        })
-    }
 }
