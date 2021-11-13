@@ -38,26 +38,41 @@ class Provider {
     }
     
     
-    
-    
-    func fetchAvatar(imageURLString: String?) -> AnyPublisher<Data?, Never> {
-        guard let imageURLString = imageURLString else {
-            return Just(nil)
-                .eraseToAnyPublisher()
-        }
-        let url = URL.init(string: imageURLString)
-        
-        guard let url = url else {
-            return Just(nil)
+    func fetchAvatar(avatarStringURL: String?) -> AnyPublisher<Data, Never> {
+        guard avatarStringURL != nil, let url = URL.init(string: avatarStringURL!) else {
+            return Just(Data())
                 .eraseToAnyPublisher()
         }
         return
             URLSession.shared.dataTaskPublisher(for:url)
             .map { $0.data }
-            .catch { error in Just(nil)}
+            .catch { error in Just(Data())}
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
+    
+    
+//    func fetchAvatar(url: URL) {
+//        URLSession.shared.dataTask(with: url) { (data, response, error) in
+//            // Handle Error
+//            if let error = error {
+//                print("DataTask error: \(error.localizedDescription)")
+//                return
+//            }
+//            
+//            guard let data = data else {
+//                // Handle Empty Data
+//                print("Empty Data")
+//                return
+//            }
+//            
+//            DispatchQueue.main.async {
+//                if let image = UIImage(data: data) {
+//                    self.moviePoster.image = image
+//                }
+//            }
+//        }.resume()
+//    }
     
     
     

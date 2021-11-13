@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -124,7 +123,7 @@
                         </constraints>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Project" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhT-Za-q5r">
-                        <rect key="frame" x="20" y="119.5" width="438" height="44"/>
+                        <rect key="frame" x="16" y="119.5" width="446" height="44.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="qhT-Za-q5r" secondAttribute="height" multiplier="10:1" id="NTH-tj-xSI"/>
                         </constraints>
@@ -133,7 +132,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="repositoryCustomCell" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIq-ZW-pRm">
-                        <rect key="frame" x="20" y="163.5" width="438" height="172.5"/>
+                        <rect key="frame" x="16" y="164" width="446" height="172"/>
                         <string key="text">Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -165,7 +164,7 @@
                 <outlet property="forkLabel" destination="Qpg-fU-tnY" id="kgC-aJ-dH9"/>
                 <outlet property="languageImage" destination="W6D-VF-mTo" id="OuH-53-Qvl"/>
                 <outlet property="languageName" destination="lob-6r-aXu" id="QIL-cQ-lga"/>
-                <outlet property="ownersImage" destination="InU-Is-a7Y" id="9LX-MP-Fwq"/>
+                <outlet property="ownersImageView" destination="InU-Is-a7Y" id="9LX-MP-Fwq"/>
                 <outlet property="projectNameLabel" destination="qhT-Za-q5r" id="GNw-Wg-wbd"/>
                 <outlet property="starLabel" destination="kTF-IL-3Ui" id="b0s-qA-LmQ"/>
             </connections>

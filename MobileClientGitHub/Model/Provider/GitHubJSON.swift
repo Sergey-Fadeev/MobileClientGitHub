@@ -6,32 +6,16 @@
 //
 
 import Foundation
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
 
-import Foundation
-
-
-//struct Welcome: Codable {
-//    let welcomeElement: [WelcomeElement]?
-//
-//    static var placeholder: Self{
-//        return Welcome(welcomeElement: nil)
-//    }
-//}
-
-    
 
 // MARK: - WelcomeElement
 struct ElementJSON: Codable {
     let id: Int?
     let nodeID, name, fullName: String?
     let welcomePrivate: Bool?
-    let owner: Owner?
+    let owner: OwnerJSON?
     let htmlURL: String?
-    let welcomeDescription: String?
+    let description: String?
     let fork: Bool?
     let url, forksURL: String?
     let keysURL, collaboratorsURL: String?
@@ -54,7 +38,7 @@ struct ElementJSON: Codable {
     let deploymentsURL: String?
     
     static var placeholder: Self{
-        return ElementJSON(id: nil, nodeID: nil, name: nil, fullName: nil, welcomePrivate: nil, owner: nil, htmlURL: nil, welcomeDescription: nil, fork: nil, url: nil, forksURL: nil, keysURL: nil, collaboratorsURL: nil, teamsURL: nil, hooksURL: nil, issueEventsURL: nil, eventsURL: nil, assigneesURL: nil, branchesURL: nil, tagsURL: nil, blobsURL: nil, gitTagsURL: nil, gitRefsURL: nil, treesURL: nil, statusesURL: nil, languagesURL: nil, stargazersURL: nil, contributorsURL: nil, subscribersURL: nil, subscriptionURL: nil, commitsURL: nil, gitCommitsURL: nil, commentsURL: nil, issueCommentURL: nil, contentsURL: nil, compareURL: nil, mergesURL: nil, archiveURL: nil, downloadsURL: nil, issuesURL: nil, pullsURL: nil, milestonesURL: nil, notificationsURL: nil, labelsURL: nil, releasesURL: nil, deploymentsURL: nil)
+        return ElementJSON(id: nil, nodeID: nil, name: nil, fullName: nil, welcomePrivate: nil, owner: nil, htmlURL: nil, description: nil, fork: nil, url: nil, forksURL: nil, keysURL: nil, collaboratorsURL: nil, teamsURL: nil, hooksURL: nil, issueEventsURL: nil, eventsURL: nil, assigneesURL: nil, branchesURL: nil, tagsURL: nil, blobsURL: nil, gitTagsURL: nil, gitRefsURL: nil, treesURL: nil, statusesURL: nil, languagesURL: nil, stargazersURL: nil, contributorsURL: nil, subscribersURL: nil, subscriptionURL: nil, commitsURL: nil, gitCommitsURL: nil, commentsURL: nil, issueCommentURL: nil, contentsURL: nil, compareURL: nil, mergesURL: nil, archiveURL: nil, downloadsURL: nil, issuesURL: nil, pullsURL: nil, milestonesURL: nil, notificationsURL: nil, labelsURL: nil, releasesURL: nil, deploymentsURL: nil)
     }
 
     enum CodingKeys: String, CodingKey {
@@ -65,7 +49,7 @@ struct ElementJSON: Codable {
         case welcomePrivate = "private"
         case owner
         case htmlURL = "html_url"
-        case welcomeDescription = "description"
+        case description = "description"
         case fork, url
         case forksURL = "forks_url"
         case keysURL = "keys_url"
@@ -107,7 +91,7 @@ struct ElementJSON: Codable {
 }
 
 // MARK: - Owner
-struct Owner: Codable {
+struct OwnerJSON: Codable {
     let login: String
     let id: Int
     let nodeID: String

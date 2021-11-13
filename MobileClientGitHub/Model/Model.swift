@@ -15,24 +15,40 @@ class Model: ObservableObject {
     var provider = Provider()
     var providerCancellable: Cancellable? = nil
     
-    @Published var repositoriesList: [ElementJSON]? = nil
+    @Published var repositoriesList: [RepositoryModel]? = nil
     
     
     init() {
     }
     
     
-    func addRepo() {
+    func initializeRepositories() {
         
-        let repoPublished = provider.fetchRepositories()
-        providerCancellable = repoPublished.sink(receiveValue: { [self]
+        let repositoriesPublisher = provider.fetchRepositories()
+        providerCancellable = repositoriesPublisher.sink(receiveValue: { [self]
             jsonResult in
-            
-            if let fullListRepo = jsonResult{
-                self.repositoriesList = fullListRepo
+            guard jsonResult != nil else {
+                print("\(#function) Error")
+                return
             }
-            else{
-                print("gvgvgvgvgv")
+            
+            let fullListRepo = jsonResult!.map({
+                return RepositoryModel.init(json: $0)
+            })
+            
+            self.repositoriesList = fullListRepo
+        })
+    }
+    
+    
+    func loadAvatar(avatartStringURL: String){
+        let avatarPublisher = provider.fetchAvatar(avatarStringURL: avatartStringURL)
+        providerCancellable = avatarPublisher.sink(receiveValue: { [self]
+            dataImage in
+            
+            guard dataImage != nil else {
+                print("\(#function) Error")
+                return
             }
         })
     }

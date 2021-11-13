@@ -13,9 +13,10 @@ import Combine
 class RepositoryListVM: ObservableObject {
     
     
-    @Published var repositoryList: [ElementJSON]?
+    @Published var repositoryList: [RepositoryModel]?
     var repositoryListCancellable: Cancellable? = nil
     
+
     
     init(model: Model) {
         
@@ -30,7 +31,25 @@ class RepositoryListVM: ObservableObject {
     }
     
     
+    func numberOfRowsInSection(section: Int) -> Int {
+        guard repositoryList != nil else{
+            return 0
+        }
+        guard repositoryList?.count != nil else{
+            return 0
+        }
+        return repositoryList!.count
+    }
+    
+    
+    func cellForRowAt(indexPath: IndexPath) -> RepositoryModel {
+        guard repositoryList != nil else{
+            return RepositoryModel.init(json: ElementJSON.placeholder)
+        }
+        return (repositoryList?[indexPath.row])!
+    }
+    
     func addRepositories(){
-        repositoriesSingleton.addRepo()
+        repositoriesSingleton.initializeRepositories()
     }
 }

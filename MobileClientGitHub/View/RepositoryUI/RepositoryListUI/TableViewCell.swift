@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 class TableViewCell: UITableViewCell {
     
-    @IBOutlet private weak var ownersImage: UIImageView!
+    @IBOutlet private weak var ownersImageView: UIImageView!
     @IBOutlet private weak var authorsFullName: UILabel!
     @IBOutlet private weak var languageName: UILabel!
     @IBOutlet private weak var languageImage: UIImageView!
@@ -17,6 +18,9 @@ class TableViewCell: UITableViewCell {
     @IBOutlet private weak var forkLabel: UILabel!
     @IBOutlet private weak var projectNameLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    
+    var VM: RepositoryCellVM!
+    var VMCancellable: Cancellable? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,11 +28,38 @@ class TableViewCell: UITableViewCell {
     }
     
     
-    func congigureCell(authorsName: String, language: String, projectName: String, descriptionProject: String){
-        authorsFullName.text = authorsName
-        languageName.text = language
-        projectNameLabel.text = projectName
-        descriptionLabel.text = descriptionProject
+    
+    func initialize(VM: RepositoryCellVM){
+        self.VM = VM
+        updateUI(ownerName: VM.model.owner.json.login, avatarStringURL: VM.model.owner.json.avatarURL, title: VM.model.json.name, description: VM.model.json.description)
+    }
+    
+    
+    private func updateUI(ownerName: String?, avatarStringURL: String?, title: String?, description: String?){
+        self.authorsFullName.text = ownerName
+        self.languageName.text = "Swift"
+        self.projectNameLabel.text = title
+        self.descriptionLabel.text = description
+        
+        if let data = VM.model.owner.avatar {
+            self.ownersImageView.image = UIImage.init(data: data)
+    
+        }
+        else{
+            self.ownersImageView.image = nil
+            
+            VM.addAvatar(avatarStringURL: avatarStringURL!)
+            
+            VMCancellable = VM.model.owner
+                .objectWillChange
+                .sink{ [self]_ in
+                    DispatchQueue.main.async { [weak self] in
+                        if self != nil{
+                            self!.ownersImageView.image = UIImage.init(data: VM.model.owner.avatar!)
+                        }
+                    }
+                }
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -19,9 +19,7 @@ class RepositoryListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "repositoryCustomCell")
+        
         
         VM = .init(model: repositoriesSingleton)
         VM.addRepositories()
@@ -30,6 +28,9 @@ class RepositoryListVC: UIViewController {
             .sink(){ [self]_ in
                 DispatchQueue.main.async { [weak self] in
                     if self != nil{
+                        tableView.delegate = self
+                        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "repositoryCustomCell")
+                        self?.tableView.dataSource = self
                         tableView.reloadData()
                     }
                 }
@@ -54,7 +55,11 @@ extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCustomCell") as! TableViewCell
-        cell.congigureCell(authorsName: (VM.repositoryList?[indexPath.row].owner!.login) ?? "", language: (VM.repositoryList?[indexPath.row].languagesURL) ?? "", projectName: (VM.repositoryList?[indexPath.row].name) ?? "", descriptionProject: VM.repositoryList?[indexPath.row].welcomeDescription ?? "")
+        
+        let cellModel = VM.cellForRowAt(indexPath: indexPath)
+        let cellVM = RepositoryCellVM.init(model: cellModel)
+        cell.initialize(VM: cellVM)
+        
         return cell
     }
 }
