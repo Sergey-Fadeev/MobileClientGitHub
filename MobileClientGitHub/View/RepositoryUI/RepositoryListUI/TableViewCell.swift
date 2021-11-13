@@ -46,7 +46,7 @@ class TableViewCell: UITableViewCell {
     
         }
         else{
-            self.ownersImageView.image = nil
+            self.ownersImageView.image = nil                  //загрузка аватара
             
             VM.addAvatar(avatarStringURL: avatarStringURL!)
             

@@ -142,7 +142,7 @@ struct DetailJSON: Codable {
     let id: Int?
     let nodeID, name, fullName: String?
     let welcomePrivate: Bool?
-    let owner: OwnerDetail?
+    let owner: OwnerDetailJSON?
     let htmlURL: String?
     let welcomeDescription: String?
     let fork: Bool?
@@ -183,6 +183,10 @@ struct DetailJSON: Codable {
     let forks, openIssues, watchers: Int?
     let defaultBranch: String?
     let networkCount, subscribersCount: Int?
+    
+    static var placeholder: Self{
+        return DetailJSON(id: nil, nodeID: nil, name: nil, fullName: nil, welcomePrivate: nil, owner: nil, htmlURL: nil, welcomeDescription: nil, fork: nil, url: nil, forksURL: nil, keysURL: nil, collaboratorsURL: nil, teamsURL: nil, hooksURL: nil, issueEventsURL: nil, eventsURL: nil, assigneesURL: nil, branchesURL: nil, tagsURL: nil, blobsURL: nil, gitTagsURL: nil, gitRefsURL: nil, treesURL: nil, statusesURL: nil, languagesURL: nil, stargazersURL: nil, contributorsURL: nil, subscribersURL: nil, subscriptionURL: nil, commitsURL: nil, gitCommitsURL: nil, commentsURL: nil, issueCommentURL: nil, contentsURL: nil, compareURL: nil, mergesURL: nil, archiveURL: nil, downloadsURL: nil, issuesURL: nil, pullsURL: nil, milestonesURL: nil, notificationsURL: nil, labelsURL: nil, releasesURL: nil, deploymentsURL: nil, createdAt: nil, updatedAt: nil, pushedAt: nil, gitURL: nil, sshURL: nil, cloneURL: nil, svnURL: nil, homepage: nil, size: nil, stargazersCount: nil, watchersCount: nil, language: nil, hasIssues: nil, hasProjects: nil, hasDownloads: nil, hasWiki: nil, hasPages: nil, forksCount: nil, archived: nil, disabled: nil, openIssuesCount: nil, license: nil, allowForking: nil, isTemplate: nil, visibility: nil, forks: nil, openIssues: nil, watchers: nil, defaultBranch: nil, networkCount: nil, subscribersCount: nil)
+    }
 }
 
 
@@ -193,7 +197,7 @@ struct License: Codable {
 }
 
 
-struct OwnerDetail: Codable {
+struct OwnerDetailJSON: Codable {
     let login: String
     let id: Int
     let nodeID: String
