@@ -7,50 +7,157 @@
 
 
 import Foundation
+import UIKit
 import Combine
-
 
 
 class RepositoryDetailVM: ObservableObject {
     
+    let model: RepositoryModel
     
-    @Published var repositoryList: [RepositoryModel]?
-    var repositoryListCancellable: Cancellable? = nil
+    var login: String{
+        return model.owner.json.login
+    }
     
-
     
-    init(model: Model) {
+    var title: String{
+        if let title = model.json.name{
+            return title
+        }
+        else{
+            return ""
+        }
+    }
+    
+    
+    var description: String{
+        if let description = model.json.description{
+            return description
+        }
+        else{
+            return ""
+        }
+    }
+    
+    
+    var fullName: String{
+        if let fullName = model.json.fullName{
+            return fullName
+        }
+        else{
+            return ""
+        }
+    }
+    
+    
+    var language: String{
+        if let language = model.detailInfo?.language{
+            return language
+        }
+        else{
+            return ""
+        }
+    }
+    
+    
+    var starCount: String{
+        if let starCount = model.detailInfo?.stargazersCount{
+            return String(starCount)
+        }
+        else{
+            return ""
+        }
+    }
+    
+    
+    var forkCount: String{
+        if let forkCount = model.detailInfo?.forksCount{
+            return String(forkCount)
+        }
+        else{
+            return ""
+        }
+    }
+    
+    
+    var avatar: UIImage{
+        if let avatar = model.owner.avatar{
+            return UIImage.init(data: avatar)!
+        }
+        else{
+            return UIImage.init(systemName: "pencil.slash")!
+        }
+    }
+    
+    
+    weak var UI: RepositoryDetailVC!
+    
+    
+    private var avatalCancellable: Cancellable? = nil
+    
+    
+    private var detailInfoCancellable: Cancellable? = nil
+    
+    
+    init(model: RepositoryModel) {
+        self.model = model
         
-        repositoryList = model.repositoriesList
-        repositoryListCancellable = modelSingleton
+        avatalCancellable = model.owner
             .objectWillChange
-            .sink(receiveValue: {[weak self] in
+            .sink{ [self]_ in
                 DispatchQueue.main.async { [weak self] in
-                    self?.repositoryList = model.repositoriesList
+                    if self != nil{
+                        self!.UI.ownersImageView.image = avatar
+                    }
                 }
-            })
+            }
+        
+        detailInfoCancellable = model.owner
+            .objectWillChange
+            .sink{ [self]_ in
+                DispatchQueue.main.async { [weak self] in
+                    if self != nil{
+                        self?.UI.languageName.text = self?.language
+                        self?.UI.starLabel.text = self?.starCount
+                        self?.UI.forkLabel.text = self?.forkCount
+                    }
+                }
+            }
+        
+        //если комиты есть
+//        tableView.delegate = self
+//        tableView.dataSource = self
+//        tableView.register(UINib(nibName: "CommitTableViewCell", bundle: nil), forCellReuseIdentifier: "commitCustomCell")
+        
+        
     }
     
     
-    func numberOfRowsInSection(section: Int) -> Int {
-        guard repositoryList != nil else{
-            return 0
-        }
-        guard repositoryList?.count != nil else{
-            return 0
-        }
-        return repositoryList!.count
+    func updateUI(){
+        loadAvatar()
+        loadDetailInfo()
+        
+        UI.authorsFullName.text = login
+        UI.projectNameLabel.text = title
+        UI.descriptionLabel.text = description
+        UI.ownersImageView.image = avatar
+        
+        UI.languageName.text = language
+        UI.starLabel.text = starCount
+        UI.forkLabel.text = forkCount
     }
     
     
-    func cellForRowAt(indexPath: IndexPath) -> RepositoryModel {
-        guard repositoryList != nil else{
-            return RepositoryModel.init(json: ElementJSON.placeholder)
+    func loadAvatar(){
+        if !model.owner.avatarLoaded{
+            model.owner.loadAvatar(avatarStringURL: model.owner.json.avatarURL)
         }
-        return (repositoryList?[indexPath.row])!
     }
     
-    func addRepositories(){
-        modelSingleton.initializeRepositories()
+    
+    func loadDetailInfo(){
+        if !model.detailInfoLoaded, let url = model.json.fullName{
+            model.loadDetailInfo(fullNameRepository: url)
+        }
     }
 }

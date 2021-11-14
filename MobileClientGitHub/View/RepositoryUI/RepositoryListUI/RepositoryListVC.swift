@@ -35,13 +35,16 @@ extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let detailedVC = sender as! RepositoryDetailVC
-        print("asasa")
+        if segue.identifier == "repositoryDetail"{
+            let destination = segue.destination as! RepositoryDetailVC
+            
+            let model = (sender as! RepositoryViewCell).VM.model
+            let VM = RepositoryDetailVM.init(model: model)
+            destination.initialize(VM: VM)
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
         performSegue(withIdentifier: "repositoryDetail", sender: tableView.cellForRow(at: indexPath))
     }
     

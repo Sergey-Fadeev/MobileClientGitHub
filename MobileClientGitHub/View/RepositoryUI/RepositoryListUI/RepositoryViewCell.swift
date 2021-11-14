@@ -29,7 +29,6 @@ class RepositoryViewCell: UITableViewCell {
     }
     
     
-    
     func initialize(VM: RepositoryCellVM){
         self.VM = VM
         self.VM.UI = self

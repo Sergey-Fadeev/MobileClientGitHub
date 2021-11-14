@@ -25,10 +25,16 @@ class RepositoryDetailVC: UIViewController {
     var VM: RepositoryDetailVM!
     
     
+    func initialize(VM: RepositoryDetailVM){
+        self.VM = VM
+        self.VM.UI = self
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        VM.updateUI()
     }
 }
 
