@@ -14,6 +14,23 @@ class RepositoryModel: ObservableObject{
     let json: ElementJSON
     let owner: OwnerModel
     
+    
+    var detailInfoCancellable: Cancellable? = nil
+    func loadDetailInfo(fullNameRepository: String){
+        detailInfoCancellable = repositoriesSingleton.provider.fetchDetailInfo(fullNameRepository: fullNameRepository).sink(receiveValue: {
+            json in
+            self.detailInfo = json
+            self.detailInfoLoaded = true
+        })
+    }
+    
+    
+    private(set) var detailInfoLoaded = false
+    
+    
+    @Published var detailInfo: DetailJSON?
+    
+    
     init(json: ElementJSON) {
         self.json = json
         self.owner = .init(json: json.owner!)
@@ -25,27 +42,21 @@ class OwnerModel: ObservableObject{
     
     let json: OwnerJSON
     
-    let provider = Provider()
-    
     
     var avatarCancellable: Cancellable? = nil
     func loadAvatar(avatarStringURL: String){
-        avatarCancellable = provider.fetchAvatar(avatarStringURL: avatarStringURL).sink { imageData in
+        avatarCancellable = repositoriesSingleton.provider.fetchAvatar(avatarStringURL: avatarStringURL).sink { imageData in
             self.avatar = imageData
+            self.avatarLoaded = true
         }
     }
+    
+    
+    private(set) var avatarLoaded = false
+    
+    
     @Published var avatar: Data?
-    
-    
-    var detailInfoCancellable: Cancellable? = nil
-    func loadDetailInfo(fullNameRepository: String){
-        detailInfoCancellable = provider.fetchDetailInfo(fullNameRepository: fullNameRepository).sink(receiveValue: {
-            json in
-            self.detailInfo = json
-        })
-    }
-    @Published var detailInfo: DetailJSON?
-    
+
     
     init(json: OwnerJSON) {
         self.json = json

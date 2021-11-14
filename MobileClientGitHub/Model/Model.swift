@@ -12,7 +12,9 @@ import Combine
 
 class Model: ObservableObject {
     
-    var provider = Provider()
+    let provider = Provider()
+    
+    
     var providerCancellable: Cancellable? = nil
     
     @Published var repositoriesList: [RepositoryModel]? = nil

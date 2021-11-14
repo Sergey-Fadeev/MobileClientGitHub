@@ -11,9 +11,9 @@ import Combine
 
 class Provider {
     
-    private let mainURL = URL(string: "https://api.github.com/repositories")
+    private let mainURL = URL(string: "https://Vasiliy-Vasilyev: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@api.github.com/repositories")
     
-    private let detailInfoURL = "https://api.github.com/repos/"
+    private let detailInfoURL = "https://Vasiliy-Vasilyev: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@api.github.com/repos/"
     
     
     private func absoluteURL(fullName: String) -> URL? {
