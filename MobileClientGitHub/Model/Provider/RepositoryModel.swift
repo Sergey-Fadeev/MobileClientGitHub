@@ -13,7 +13,9 @@ class RepositoryModel: ObservableObject{
     
     let json: ElementJSON
     let owner: OwnerModel
-    //модель коммитов
+    
+    
+    @Published var commits: [CommitElement]?
     
     var detailInfoCancellable: Cancellable? = nil
     func loadDetailInfo(fullNameRepository: String){
@@ -23,6 +25,21 @@ class RepositoryModel: ObservableObject{
             self.detailInfoLoaded = true
         })
     }
+    
+    
+    
+    private(set) var commitsLoaded = false
+    
+    var commitsCancellable: Cancellable? = nil
+    
+    func loadCommits(fullNameRepository: String){
+        commitsCancellable = modelSingleton.provider.fetchCommits(fullNameRepository: fullNameRepository).sink(receiveValue: {
+            json in
+            self.commits = json
+            self.commitsLoaded = true
+        })
+    }
+    
     
     
     private(set) var detailInfoLoaded = false

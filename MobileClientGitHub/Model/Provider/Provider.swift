@@ -70,6 +70,24 @@ class Provider {
     }
     
     
+    func fetchCommits(fullNameRepository: String?) -> AnyPublisher<CommitsJSONArray, Never> {
+        
+        let baseURL: String = "https://Vasiliy-Vasilyev:33KAlyAminA1922@api.github.com/repos/"
+        
+        guard fullNameRepository != nil, let url = URL.init(string: "\(baseURL)\(fullNameRepository!)/commits") else {
+            return Just(CommitElement.placeholder)
+                .eraseToAnyPublisher()
+        }
+        return
+            URLSession.shared.dataTaskPublisher(for:url)
+            .map { $0.data }
+            .decode(type: CommitsJSONArray.self, decoder: JSONDecoder())
+            .catch { error in Just(CommitElement.placeholder)}
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+    
+    
 //    func fetchDetailInfo(fullName: String) -> AnyPublisher<DetailJSON, Never>{
 //
 //
