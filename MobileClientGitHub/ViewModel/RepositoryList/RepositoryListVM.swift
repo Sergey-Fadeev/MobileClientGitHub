@@ -25,7 +25,13 @@ class RepositoryListVM {
     
     
     init(model: [RepositoryModel]?, UI: RepositoryListVC) {
-        repositoryList = model
+        if let model = model{
+            repositoryList = model
+            UI.tableView.delegate = UI
+            UI.tableView.register(UINib(nibName: "RepositoryCell", bundle: nil), forCellReuseIdentifier: "repositoryCustomCell")
+            UI.tableView.dataSource = UI
+        }
+        
         self.UI = UI
         
         repositoryListCancellable = modelSingleton
@@ -35,7 +41,7 @@ class RepositoryListVM {
                     self?.repositoryList = modelSingleton.repositoriesList
                     
                     self?.UI.tableView.delegate = self?.UI
-                    self?.UI.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "repositoryCustomCell")
+                    self?.UI.tableView.register(UINib(nibName: "RepositoryCell", bundle: nil), forCellReuseIdentifier: "repositoryCustomCell")
                     self?.UI.tableView.dataSource = self?.UI
                     
                     self?.UI.tableView.reloadData()

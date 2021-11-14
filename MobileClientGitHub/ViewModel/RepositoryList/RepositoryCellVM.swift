@@ -87,16 +87,19 @@ class RepositoryCellVM {
     }
     
     
-    weak var UI: TableViewCell!
+    weak var UI: RepositoryViewCell!
     
     
-    var VMCancellable: Cancellable? = nil
+    private var avatalCancellable: Cancellable? = nil
+    
+    
+    private var detailInfoCancellable: Cancellable? = nil
     
     
     init(model: RepositoryModel) {
         self.model = model
         
-        VMCancellable = model.owner
+        avatalCancellable = model.owner
             .objectWillChange
             .sink{ [self]_ in
                 DispatchQueue.main.async { [weak self] in
@@ -106,7 +109,7 @@ class RepositoryCellVM {
                 }
             }
         
-        VMCancellable = model.owner
+        detailInfoCancellable = model.owner
             .objectWillChange
             .sink{ [self]_ in
                 DispatchQueue.main.async { [weak self] in

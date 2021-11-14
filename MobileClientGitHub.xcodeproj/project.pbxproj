@@ -10,7 +10,7 @@
 		89044918272AB1C00007701A /* MobileClientGitHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89044917272AB1C00007701A /* MobileClientGitHubTests.swift */; };
 		89044921272AB24E0007701A /* GitHubAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89044920272AB24E0007701A /* GitHubAPITests.swift */; };
 		8915F7E827410F19002B584A /* RepositoryDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915F7E727410F19002B584A /* RepositoryDetailVM.swift */; };
-		8915F7EA27410F24002B584A /* RepositoryDetailCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915F7E927410F24002B584A /* RepositoryDetailCellVM.swift */; };
+		8915F7EA27410F24002B584A /* CommitCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915F7E927410F24002B584A /* CommitCellVM.swift */; };
 		89279436273E78C6009D05FB /* RepositoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89279435273E78C6009D05FB /* RepositoryDetailVC.swift */; };
 		89279438273E78F1009D05FB /* FavoriteRepositoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89279437273E78F1009D05FB /* FavoriteRepositoryDetailVC.swift */; };
 		8927943B273E798A009D05FB /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89279439273E798A009D05FB /* CommitTableViewCell.swift */; };
@@ -28,8 +28,8 @@
 		89BE23D92727CFBB00B44D5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BE23D82727CFBB00B44D5A /* Assets.xcassets */; };
 		89BE23DC2727CFBB00B44D5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BE23DA2727CFBB00B44D5A /* LaunchScreen.storyboard */; };
 		89BE23E72727D04500B44D5A /* GitHubJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE23E62727D04500B44D5A /* GitHubJSON.swift */; };
-		89BE23F12727DA7600B44D5A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE23EF2727DA7600B44D5A /* TableViewCell.swift */; };
-		89BE23F22727DA7600B44D5A /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BE23F02727DA7600B44D5A /* TableViewCell.xib */; };
+		89BE23F12727DA7600B44D5A /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE23EF2727DA7600B44D5A /* RepositoryCell.swift */; };
+		89BE23F22727DA7600B44D5A /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BE23F02727DA7600B44D5A /* RepositoryCell.xib */; };
 		89EB0EC927280896004F57A4 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB0EC827280896004F57A4 /* Provider.swift */; };
 		89EB0ECB27280F88004F57A4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB0ECA27280F88004F57A4 /* Model.swift */; };
 		89EB0ECD27281773004F57A4 /* RepositoryListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB0ECC27281773004F57A4 /* RepositoryListVM.swift */; };
@@ -50,7 +50,7 @@
 		89044917272AB1C00007701A /* MobileClientGitHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileClientGitHubTests.swift; sourceTree = "<group>"; };
 		89044920272AB24E0007701A /* GitHubAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPITests.swift; sourceTree = "<group>"; };
 		8915F7E727410F19002B584A /* RepositoryDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailVM.swift; sourceTree = "<group>"; };
-		8915F7E927410F24002B584A /* RepositoryDetailCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailCellVM.swift; sourceTree = "<group>"; };
+		8915F7E927410F24002B584A /* CommitCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitCellVM.swift; sourceTree = "<group>"; };
 		89279435273E78C6009D05FB /* RepositoryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailVC.swift; sourceTree = "<group>"; };
 		89279437273E78F1009D05FB /* FavoriteRepositoryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryDetailVC.swift; sourceTree = "<group>"; };
 		89279439273E798A009D05FB /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
@@ -70,8 +70,8 @@
 		89BE23DB2727CFBB00B44D5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89BE23DD2727CFBB00B44D5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89BE23E62727D04500B44D5A /* GitHubJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubJSON.swift; sourceTree = "<group>"; };
-		89BE23EF2727DA7600B44D5A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		89BE23F02727DA7600B44D5A /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		89BE23EF2727DA7600B44D5A /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		89BE23F02727DA7600B44D5A /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		89EB0EC827280896004F57A4 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		89EB0ECA27280F88004F57A4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		89EB0ECC27281773004F57A4 /* RepositoryListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListVM.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				8915F7E727410F19002B584A /* RepositoryDetailVM.swift */,
-				8915F7E927410F24002B584A /* RepositoryDetailCellVM.swift */,
+				8915F7E927410F24002B584A /* CommitCellVM.swift */,
 			);
 			path = RepositoryDetail;
 			sourceTree = "<group>";
@@ -134,8 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				89BE23D32727CFB900B44D5A /* RepositoryListVC.swift */,
-				89BE23EF2727DA7600B44D5A /* TableViewCell.swift */,
-				89BE23F02727DA7600B44D5A /* TableViewCell.xib */,
+				89BE23EF2727DA7600B44D5A /* RepositoryCell.swift */,
+				89BE23F02727DA7600B44D5A /* RepositoryCell.xib */,
 			);
 			path = RepositoryListUI;
 			sourceTree = "<group>";
@@ -348,7 +348,7 @@
 			files = (
 				89BE23DC2727CFBB00B44D5A /* LaunchScreen.storyboard in Resources */,
 				89279440273E79B0009D05FB /* FavoriteCommitTableViewCell.xib in Resources */,
-				89BE23F22727DA7600B44D5A /* TableViewCell.xib in Resources */,
+				89BE23F22727DA7600B44D5A /* RepositoryCell.xib in Resources */,
 				89BE23D92727CFBB00B44D5A /* Assets.xcassets in Resources */,
 				89A8DBEA273E5AE3001B1974 /* FavoritesTableViewCell.xib in Resources */,
 				8927943C273E798A009D05FB /* CommitTableViewCell.xib in Resources */,
@@ -374,9 +374,9 @@
 			files = (
 				89A8DBE9273E5AE3001B1974 /* FavoritesTableViewCell.swift in Sources */,
 				89BE23E72727D04500B44D5A /* GitHubJSON.swift in Sources */,
-				8915F7EA27410F24002B584A /* RepositoryDetailCellVM.swift in Sources */,
+				8915F7EA27410F24002B584A /* CommitCellVM.swift in Sources */,
 				8927943B273E798A009D05FB /* CommitTableViewCell.swift in Sources */,
-				89BE23F12727DA7600B44D5A /* TableViewCell.swift in Sources */,
+				89BE23F12727DA7600B44D5A /* RepositoryCell.swift in Sources */,
 				89279436273E78C6009D05FB /* RepositoryDetailVC.swift in Sources */,
 				89BE23D42727CFB900B44D5A /* RepositoryListVC.swift in Sources */,
 				89279448273FDF21009D05FB /* RepositoryCellVM.swift in Sources */,

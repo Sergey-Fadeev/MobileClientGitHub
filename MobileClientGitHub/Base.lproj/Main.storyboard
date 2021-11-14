@@ -190,14 +190,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="sms-hu-m2y"/>
                     <connections>
-                        <outlet property="forksCount" destination="4HP-i9-Mk5" id="qYe-ee-4mm"/>
-                        <outlet property="imageLanguage" destination="kJ1-Zy-ySL" id="6N4-tS-jHE"/>
-                        <outlet property="imageOwner" destination="PSv-7w-tCE" id="qbk-k9-gqJ"/>
-                        <outlet property="languageName" destination="DiO-zs-FAH" id="UIA-pa-81D"/>
-                        <outlet property="nameOwner" destination="nDk-fH-GWU" id="XHd-4h-nve"/>
-                        <outlet property="projectDescription" destination="aEs-xc-E1g" id="KRZ-1Y-A1x"/>
-                        <outlet property="projectName" destination="dSb-HO-Jw1" id="BKi-LY-QDt"/>
-                        <outlet property="starsCount" destination="JrS-3h-Y1x" id="mqp-GO-q8U"/>
+                        <outlet property="authorsFullName" destination="nDk-fH-GWU" id="1WN-ZC-Z92"/>
+                        <outlet property="descriptionLabel" destination="aEs-xc-E1g" id="8KS-by-VyR"/>
+                        <outlet property="forkLabel" destination="4HP-i9-Mk5" id="RBb-jU-1af"/>
+                        <outlet property="languageImage" destination="kJ1-Zy-ySL" id="ouI-Rb-3T8"/>
+                        <outlet property="languageName" destination="DiO-zs-FAH" id="VSX-xO-apK"/>
+                        <outlet property="ownersImageView" destination="PSv-7w-tCE" id="Xgc-cl-d1b"/>
+                        <outlet property="projectNameLabel" destination="dSb-HO-Jw1" id="PmU-q7-aFC"/>
+                        <outlet property="starLabel" destination="JrS-3h-Y1x" id="Ryi-wV-vUs"/>
                         <outlet property="tableView" destination="tq2-sZ-gRc" id="b65-Dp-kKH"/>
                     </connections>
                 </viewController>

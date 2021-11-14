@@ -8,7 +8,7 @@
 import UIKit
 
 
-class TableViewCell: UITableViewCell {
+class RepositoryViewCell: UITableViewCell {
     
     @IBOutlet weak var ownersImageView: UIImageView!
     @IBOutlet weak var authorsFullName: UILabel!
@@ -18,6 +18,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var forkLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
     
     var VM: RepositoryCellVM!
     

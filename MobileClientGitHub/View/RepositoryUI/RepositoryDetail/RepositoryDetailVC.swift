@@ -9,21 +9,26 @@ import UIKit
 
 class RepositoryDetailVC: UIViewController {
 
-    @IBOutlet weak var imageOwner: UIImageView!
-    @IBOutlet weak var nameOwner: UILabel!
-    @IBOutlet weak var imageLanguage: UIImageView!
+    @IBOutlet weak var ownersImageView: UIImageView!
+    @IBOutlet weak var authorsFullName: UILabel!
     @IBOutlet weak var languageName: UILabel!
-    @IBOutlet weak var starsCount: UILabel!
-    @IBOutlet weak var forksCount: UILabel!
-    @IBOutlet weak var projectName: UILabel!
-    @IBOutlet weak var projectDescription: UILabel!
+    @IBOutlet weak var languageImage: UIImageView!
+    @IBOutlet weak var starLabel: UILabel!
+    @IBOutlet weak var forkLabel: UILabel!
+    @IBOutlet weak var projectNameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    var VM: RepositoryDetailVM!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "CommitTableViewCell", bundle: nil), forCellReuseIdentifier: "commitCustomCell")
+       
     }
 }
 

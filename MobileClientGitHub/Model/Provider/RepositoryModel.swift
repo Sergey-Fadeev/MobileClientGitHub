@@ -13,7 +13,7 @@ class RepositoryModel: ObservableObject{
     
     let json: ElementJSON
     let owner: OwnerModel
-    
+    //модель коммитов
     
     var detailInfoCancellable: Cancellable? = nil
     func loadDetailInfo(fullNameRepository: String){

@@ -34,12 +34,19 @@ extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
         return (VM.repositoryList?.count) ?? 1
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailedVC = sender as! RepositoryDetailVC
+        print("asasa")
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
         performSegue(withIdentifier: "repositoryDetail", sender: tableView.cellForRow(at: indexPath))
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCustomCell") as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCustomCell") as! RepositoryViewCell
         
         let cellModel = VM.cellForRowAt(indexPath: indexPath)
         let cellVM = RepositoryCellVM.init(model: cellModel)
