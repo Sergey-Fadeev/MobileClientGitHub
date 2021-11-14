@@ -11,5 +11,84 @@ import Combine
 
 
 class CommitCellVM {
-   
+    
+    let model: CommitModel
+    
+    
+    weak var UI: CommitTableViewCell!
+    
+    
+    private var avatalCancellable: Cancellable? = nil
+    
+    
+    init(model: CommitModel) {
+        self.model = model
+        
+        avatalCancellable = model
+            .objectWillChange
+            .sink{ [self]_ in
+                DispatchQueue.main.async { [weak self] in
+                    if self != nil{
+                        self!.UI.authorAvatar.image = avatar
+                    }
+                }
+            }
+    }
+    
+    
+    var authorName: String{
+        if let value = model.json.author?.login{
+            return String(value)
+        }
+        else{
+            return ""
+        }
+    }
+    
+    
+    var commitDescription: String{
+        if let value = model.json.commit?.message{
+            return String(value)
+        }
+        else{
+            return ""
+        }
+    }
+    
+    
+    var commitDate: String{
+        if let value = model.json.commit?.author.date{
+            return String(value)
+        }
+        else{
+            return ""
+        }
+    }
+    
+    
+    var avatar: UIImage{
+        if let avatar = model.avatar{
+            return UIImage.init(data: avatar)!
+        }
+        else{
+            return UIImage.init(systemName: "pencil.slash")!
+        }
+    }
+    
+    
+    func updateUI(){
+        loadAvatar()
+        
+        UI.authorName.text = authorName
+        UI.commitDescription.text = commitDescription
+        UI.commitDate.text = commitDate
+        UI.authorAvatar.image = avatar
+    }
+    
+    
+    func loadAvatar(){
+        if !model.avatarLoaded{
+            model.loadAvatar()
+        }
+    }
 }

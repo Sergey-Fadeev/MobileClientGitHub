@@ -146,8 +146,15 @@ class RepositoryCellVM {
     
     
     func loadDetailInfo(){
-        if !model.detailInfoLoaded, let url = model.json.fullName{
-            model.loadDetailInfo(fullNameRepository: url)
+        if !model.detailInfoLoaded{
+            model.loadDetailInfo()
+        }
+    }
+    
+    
+    func loadCommits(){
+        if !model.commitsLoaded{
+            model.loadCommits()
         }
     }
 }

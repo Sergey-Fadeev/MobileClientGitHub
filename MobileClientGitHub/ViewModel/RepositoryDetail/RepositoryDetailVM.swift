@@ -11,7 +11,7 @@ import UIKit
 import Combine
 
 
-class RepositoryDetailVM: ObservableObject {
+class RepositoryDetailVM {
     
     let model: RepositoryModel
     
@@ -90,19 +90,32 @@ class RepositoryDetailVM: ObservableObject {
     }
     
     
+    var commits: [CommitModel]{
+        if let commits = model.commits{
+            return commits
+        }
+        else{
+            return []
+        }
+    }
+    
+    
     weak var UI: RepositoryDetailVC!
     
     
-    private var avatalCancellable: Cancellable? = nil
+    private var avatarCancellable: Cancellable? = nil
     
     
     private var detailInfoCancellable: Cancellable? = nil
     
     
+    private var commitsCancellable: Cancellable? = nil
+    
+    
     init(model: RepositoryModel) {
         self.model = model
         
-        avatalCancellable = model.owner
+        avatarCancellable = model.owner
             .objectWillChange
             .sink{ [self]_ in
                 DispatchQueue.main.async { [weak self] in
@@ -124,12 +137,16 @@ class RepositoryDetailVM: ObservableObject {
                 }
             }
         
-        //если комиты есть
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//        tableView.register(UINib(nibName: "CommitTableViewCell", bundle: nil), forCellReuseIdentifier: "commitCustomCell")
-        
-        
+        commitsCancellable = model.$commits
+            .sink(receiveValue: { [weak self] _ in
+                DispatchQueue.main.async { [weak self] in
+//                    self?.UI.tableView.delegate = self?.UI
+//                    self?.UI.tableView.register(UINib(nibName: "CommitTableViewCell", bundle: nil), forCellReuseIdentifier: "commitCustomCell")
+//                    self?.UI.tableView.dataSource = self?.UI
+                    
+                    self?.UI.tableView.reloadData()
+                }
+            })
     }
     
     
@@ -145,6 +162,14 @@ class RepositoryDetailVM: ObservableObject {
         UI.languageName.text = language
         UI.starLabel.text = starCount
         UI.forkLabel.text = forkCount
+        
+        loadCommits()
+        UI.tableView.reloadData()
+    }
+    
+    
+    func cellModel(at indexPath: IndexPath) -> CommitModel? {
+        return commits[indexPath.row]
     }
     
     
@@ -156,8 +181,15 @@ class RepositoryDetailVM: ObservableObject {
     
     
     func loadDetailInfo(){
-        if !model.detailInfoLoaded, let url = model.json.fullName{
-            model.loadDetailInfo(fullNameRepository: url)
+        if !model.detailInfoLoaded{
+            model.loadDetailInfo()
+        }
+    }
+    
+    
+    func loadCommits(){
+        if !model.commitsLoaded{
+            model.loadCommits()
         }
     }
 }

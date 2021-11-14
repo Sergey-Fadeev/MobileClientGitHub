@@ -15,11 +15,11 @@ class RepositoryModel: ObservableObject{
     let owner: OwnerModel
     
     
-    @Published var commits: [CommitElement]?
-    
     var detailInfoCancellable: Cancellable? = nil
-    func loadDetailInfo(fullNameRepository: String){
-        detailInfoCancellable = modelSingleton.provider.fetchDetailInfo(fullNameRepository: fullNameRepository).sink(receiveValue: {
+    func loadDetailInfo(){
+        guard let url = json.fullName else { return }
+        
+        detailInfoCancellable = modelSingleton.provider.fetchDetailInfo(fullNameRepository: url).sink(receiveValue: {
             json in
             self.detailInfo = json
             self.detailInfoLoaded = true
@@ -27,25 +27,31 @@ class RepositoryModel: ObservableObject{
     }
     
     
-    
-    private(set) var commitsLoaded = false
-    
-    var commitsCancellable: Cancellable? = nil
-    
-    func loadCommits(fullNameRepository: String){
-        commitsCancellable = modelSingleton.provider.fetchCommits(fullNameRepository: fullNameRepository).sink(receiveValue: {
-            json in
-            self.commits = json
-            self.commitsLoaded = true
-        })
-    }
-    
-    
-    
     private(set) var detailInfoLoaded = false
     
     
     @Published var detailInfo: DetailJSON?
+    
+    
+    
+    private(set) var commitsLoaded = false
+    
+    
+    var commitsCancellable: Cancellable? = nil
+    
+    
+    @Published var commits: [CommitModel]?
+    
+    
+    func loadCommits(){
+        guard let url = json.fullName else { return }
+        
+        commitsCancellable = modelSingleton.provider.fetchCommits(fullNameRepository: url).sink(receiveValue: {
+            json in
+            self.commits = json.map({ CommitModel.init(json: $0)})
+            self.commitsLoaded = true
+        })
+    }
     
     
     init(json: ElementJSON) {
@@ -76,6 +82,33 @@ class OwnerModel: ObservableObject{
 
     
     init(json: OwnerJSON) {
+        self.json = json
+    }
+}
+
+
+class CommitModel: ObservableObject{
+    let json: CommitElement
+    
+    
+    var avatarCancellable: Cancellable? = nil
+    func loadAvatar(){
+        guard let url = json.author?.avatarURL else { return }
+        
+        avatarCancellable = modelSingleton.provider.fetchAvatar(avatarStringURL: url).sink { imageData in
+            self.avatar = imageData
+            self.avatarLoaded = true
+        }
+    }
+    
+    
+    private(set) var avatarLoaded = false
+    
+    
+    @Published var avatar: Data?
+    
+    
+    init(json: CommitElement) {
         self.json = json
     }
 }

@@ -28,12 +28,16 @@ class RepositoryDetailVC: UIViewController {
     func initialize(VM: RepositoryDetailVM){
         self.VM = VM
         self.VM.UI = self
-        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "CommitTableViewCell", bundle: nil), forCellReuseIdentifier: "commitCustomCell")
+        tableView.dataSource = self
+        
         VM.updateUI()
     }
 }
@@ -42,11 +46,18 @@ class RepositoryDetailVC: UIViewController {
 extension RepositoryDetailVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        return min(VM.commits.count, 10)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "commitCustomCell") as! CommitTableViewCell
+        
+        let cellModel = VM.cellModel(at: indexPath)!
+        let VM = CommitCellVM.init(model: cellModel)
+        cell.initialize(VM: VM)
+        
+        
         return cell
     }
 }

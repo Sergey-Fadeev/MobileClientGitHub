@@ -64,6 +64,12 @@
             <constraints>
                 <constraint firstItem="w9k-Su-9yQ" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.15" id="oxg-Bd-qUb"/>
             </constraints>
+            <connections>
+                <outlet property="authorAvatar" destination="w9k-Su-9yQ" id="SgQ-3e-NwB"/>
+                <outlet property="authorName" destination="kaO-if-VYt" id="CMR-C9-48Z"/>
+                <outlet property="commitDate" destination="Sra-jl-tm0" id="8Pj-BI-5Wz"/>
+                <outlet property="commitDescription" destination="zGy-Ls-aXZ" id="QGN-9v-GPb"/>
+            </connections>
             <point key="canvasLocation" x="204.34782608695653" y="146.98660714285714"/>
         </tableViewCell>
     </objects>
