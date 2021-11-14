@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="customCell" selectionStyle="default" indentationWidth="10" rowHeight="347" id="KGk-i7-Jjw" customClass="RepositoryViewCell" customModule="MobileClientGitHub" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="478" height="347"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="customCell" selectionStyle="default" indentationWidth="10" rowHeight="348" id="KGk-i7-Jjw" customClass="RepositoryViewCell" customModule="MobileClientGitHub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="478" height="348"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="478" height="347"/>
+                <rect key="frame" x="0.0" y="0.0" width="478" height="348"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="InU-Is-a7Y">
@@ -104,7 +104,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="repositoryCustomCell" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIq-ZW-pRm">
-                        <rect key="frame" x="10" y="176.5" width="468" height="160.5"/>
+                        <rect key="frame" x="10" y="176.5" width="468" height="161.5"/>
                         <string key="text">Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -143,7 +143,7 @@
                 <outlet property="projectNameLabel" destination="qhT-Za-q5r" id="GNw-Wg-wbd"/>
                 <outlet property="starLabel" destination="kTF-IL-3Ui" id="b0s-qA-LmQ"/>
             </connections>
-            <point key="canvasLocation" x="102.89855072463769" y="191.85267857142856"/>
+            <point key="canvasLocation" x="367" y="147"/>
         </tableViewCell>
     </objects>
     <resources>
