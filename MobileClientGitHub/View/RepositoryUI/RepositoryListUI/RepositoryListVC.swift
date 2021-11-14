@@ -6,35 +6,20 @@
 //
 
 import UIKit
-import Combine
+
 
 class RepositoryListVC: UIViewController {
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     
     var VM: RepositoryListVM!
-    var VMCancellable: Cancellable? = nil
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        VM = .init(model: repositoriesSingleton)
-        VM.addRepositories()
-        VMCancellable = VM
-            .objectWillChange
-            .sink(){ [self]_ in
-                DispatchQueue.main.async { [weak self] in
-                    if self != nil{
-                        tableView.delegate = self
-                        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "repositoryCustomCell")
-                        self?.tableView.dataSource = self
-                        tableView.reloadData()
-                    }
-                }
-        }
+        self.VM = .init(model: modelSingleton.repositoriesList, UI: self)
     }
 }
 

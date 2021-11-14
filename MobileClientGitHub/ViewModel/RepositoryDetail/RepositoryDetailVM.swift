@@ -1,16 +1,17 @@
 //
-//  RepositoryListVM.swift
+//  RepositoryDetailVM.swift
 //  MobileClientGitHub
 //
-//  Created by Sergey on 26.10.2021.
+//  Created by Sergey on 14.11.2021.
 //
+
 
 import Foundation
 import Combine
 
 
 
-class RepositoryListVM: ObservableObject {
+class RepositoryDetailVM: ObservableObject {
     
     
     @Published var repositoryList: [RepositoryModel]?
@@ -21,7 +22,7 @@ class RepositoryListVM: ObservableObject {
     init(model: Model) {
         
         repositoryList = model.repositoriesList
-        repositoryListCancellable = repositoriesSingleton
+        repositoryListCancellable = modelSingleton
             .objectWillChange
             .sink(receiveValue: {[weak self] in
                 DispatchQueue.main.async { [weak self] in
@@ -50,6 +51,6 @@ class RepositoryListVM: ObservableObject {
     }
     
     func addRepositories(){
-        repositoriesSingleton.initializeRepositories()
+        modelSingleton.initializeRepositories()
     }
 }

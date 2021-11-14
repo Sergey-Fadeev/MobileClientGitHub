@@ -17,7 +17,7 @@ class RepositoryModel: ObservableObject{
     
     var detailInfoCancellable: Cancellable? = nil
     func loadDetailInfo(fullNameRepository: String){
-        detailInfoCancellable = repositoriesSingleton.provider.fetchDetailInfo(fullNameRepository: fullNameRepository).sink(receiveValue: {
+        detailInfoCancellable = modelSingleton.provider.fetchDetailInfo(fullNameRepository: fullNameRepository).sink(receiveValue: {
             json in
             self.detailInfo = json
             self.detailInfoLoaded = true
@@ -45,7 +45,7 @@ class OwnerModel: ObservableObject{
     
     var avatarCancellable: Cancellable? = nil
     func loadAvatar(avatarStringURL: String){
-        avatarCancellable = repositoriesSingleton.provider.fetchAvatar(avatarStringURL: avatarStringURL).sink { imageData in
+        avatarCancellable = modelSingleton.provider.fetchAvatar(avatarStringURL: avatarStringURL).sink { imageData in
             self.avatar = imageData
             self.avatarLoaded = true
         }
