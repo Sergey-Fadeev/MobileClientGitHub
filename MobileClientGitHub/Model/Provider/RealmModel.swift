@@ -10,6 +10,8 @@ import RealmSwift
 
 
 class RepositoryRealm: Object{
+    
+    @Persisted var id: Int
     @Persisted var json: Data
     @Persisted var owner: OwnerRealm
     
@@ -21,6 +23,8 @@ class RepositoryRealm: Object{
     
     init(model: RepositoryModel) {
         super.init()
+        
+        self.id = model.json.id!
         
         self.json = try! JSONSerialization.data(withJSONObject: model.json)
         self.owner = OwnerRealm.init(model: model.owner)

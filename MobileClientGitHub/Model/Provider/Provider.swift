@@ -6,10 +6,12 @@
 //
 
 import Foundation
-import UIKit
 import Combine
+import RealmSwift
 
 class Provider {
+    
+    let realm = try! Realm()
     
     private let mainURL = URL(string: "https://Vasiliy-Vasilyev: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@api.github.com/repositories")
     
@@ -88,19 +90,43 @@ class Provider {
     }
     
     
-//    func fetchDetailInfo(fullName: String) -> AnyPublisher<DetailJSON, Never>{
-//
-//
-//        guard let url = absoluteURL(fullName: fullName) else {
-//            return Just(DetailJSON.init(id: nil, nodeID: nil, name: nil, fullName: nil, welcomePrivate: nil, owner: nil, htmlURL: nil, welcomeDescription: nil, fork: nil, url: nil, forksURL: nil, keysURL: nil, collaboratorsURL: nil, teamsURL: nil, hooksURL: nil, issueEventsURL: nil, eventsURL: nil, assigneesURL: nil, branchesURL: nil, tagsURL: nil, blobsURL: nil, gitTagsURL: nil, gitRefsURL: nil, treesURL: nil, statusesURL: nil, languagesURL: nil, stargazersURL: nil, contributorsURL: nil, subscribersURL: nil, subscriptionURL: nil, commitsURL: nil, gitCommitsURL: nil, commentsURL: nil, issueCommentURL: nil, contentsURL: nil, compareURL: nil, mergesURL: nil, archiveURL: nil, downloadsURL: nil, issuesURL: nil, pullsURL: nil, milestonesURL: nil, notificationsURL: nil, labelsURL: nil, releasesURL: nil, deploymentsURL: nil, createdAt: nil, updatedAt: nil, pushedAt: nil, gitURL: nil, sshURL: nil, cloneURL: nil, svnURL: nil, homepage: nil, size: nil, stargazersCount: nil, watchersCount: nil, language: nil, hasIssues: nil, hasProjects: nil, hasDownloads: nil, hasWiki: nil, hasPages: nil, forksCount: nil, archived: nil, disabled: nil, openIssuesCount: nil, license: nil, allowForking: nil, isTemplate: nil, visibility: nil, forks: nil, openIssues: nil, watchers: nil, defaultBranch: nil, networkCount: nil, subscribersCount: nil))
-//                .eraseToAnyPublisher()
-//        }
-//        return
-//            URLSession.shared.dataTaskPublisher(for:url)
-//            .map { $0.data }
-//            .decode(type: DetailJSON.self, decoder: JSONDecoder())
-//            .catch { error in Just(DetailJSON.init(id: nil, nodeID: nil, name: nil, fullName: nil, welcomePrivate: nil, owner: nil, htmlURL: nil, welcomeDescription: nil, fork: nil, url: nil, forksURL: nil, keysURL: nil, collaboratorsURL: nil, teamsURL: nil, hooksURL: nil, issueEventsURL: nil, eventsURL: nil, assigneesURL: nil, branchesURL: nil, tagsURL: nil, blobsURL: nil, gitTagsURL: nil, gitRefsURL: nil, treesURL: nil, statusesURL: nil, languagesURL: nil, stargazersURL: nil, contributorsURL: nil, subscribersURL: nil, subscriptionURL: nil, commitsURL: nil, gitCommitsURL: nil, commentsURL: nil, issueCommentURL: nil, contentsURL: nil, compareURL: nil, mergesURL: nil, archiveURL: nil, downloadsURL: nil, issuesURL: nil, pullsURL: nil, milestonesURL: nil, notificationsURL: nil, labelsURL: nil, releasesURL: nil, deploymentsURL: nil, createdAt: nil, updatedAt: nil, pushedAt: nil, gitURL: nil, sshURL: nil, cloneURL: nil, svnURL: nil, homepage: nil, size: nil, stargazersCount: nil, watchersCount: nil, language: nil, hasIssues: nil, hasProjects: nil, hasDownloads: nil, hasWiki: nil, hasPages: nil, forksCount: nil, archived: nil, disabled: nil, openIssuesCount: nil, license: nil, allowForking: nil, isTemplate: nil, visibility: nil, forks: nil, openIssues: nil, watchers: nil, defaultBranch: nil, networkCount: nil, subscribersCount: nil))}
-//            .receive(on: RunLoop.main)
-//            .eraseToAnyPublisher()
-//    }
+    func saveToFavorites(repositoryModel: RepositoryModel){
+        let repositoryRealmObject: RepositoryRealm = .init(model: repositoryModel)
+        try! realm.write{
+            realm.add(repositoryRealmObject)
+        }
+    }
+    
+    
+    func deleteFromFavorites(repositoryModel: RepositoryModel){
+        var results: Results<RepositoryRealm>!
+        results = realm.objects(RepositoryRealm.self)
+        
+        for item in results{
+            if item.id == repositoryModel.json.id{
+                try! realm.write{
+                    realm.delete(item)
+                }
+            }
+        }
+    }
+    
+    
+    func getRepositories() -> [RepositoryModel]?{
+        var results: Results<RepositoryRealm>!
+        results = realm.objects(RepositoryRealm.self)
+        
+        var repositoriesModelArray = [RepositoryModel]()
+        
+        guard !realm.isEmpty else{
+//            repositoriesModelArray.append(RepositoryModel.init(json: ElementJSON.placeholder))
+            return nil
+        }
+        
+        for item in results{
+            let repositoryModel = item.toModel()
+            repositoriesModelArray.append(repositoryModel)
+        }
+        return repositoriesModelArray
+    }
 }
