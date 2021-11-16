@@ -70,6 +70,9 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kJ1-Zy-ySL">
                                                 <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="kJ1-Zy-ySL" secondAttribute="height" multiplier="1:1" id="UB9-QY-JxR"/>
+                                                </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiO-zs-FAH">
                                                 <rect key="frame" x="31" y="0.0" width="259.5" height="31"/>
@@ -186,7 +189,7 @@
                             <constraint firstItem="rKe-kg-ZSy" firstAttribute="trailing" secondItem="dSb-HO-Jw1" secondAttribute="trailing" id="iFQ-D5-vIW"/>
                             <constraint firstItem="ouG-MX-G3m" firstAttribute="height" secondItem="PSv-7w-tCE" secondAttribute="height" multiplier="0.3" id="iJn-hL-7ds"/>
                             <constraint firstItem="tq2-sZ-gRc" firstAttribute="top" secondItem="1Uh-L0-kck" secondAttribute="bottom" id="jxm-Ua-EM2"/>
-                            <constraint firstItem="kJ1-Zy-ySL" firstAttribute="width" secondItem="PSv-7w-tCE" secondAttribute="width" multiplier="0.3" id="m1L-Gi-A6A"/>
+                            <constraint firstItem="kJ1-Zy-ySL" firstAttribute="height" secondItem="PSv-7w-tCE" secondAttribute="height" multiplier="0.3" id="l9u-zB-nI9"/>
                             <constraint firstItem="PSv-7w-tCE" firstAttribute="top" secondItem="rKe-kg-ZSy" secondAttribute="top" constant="10" id="n9q-Oy-4Ql"/>
                             <constraint firstItem="tq2-sZ-gRc" firstAttribute="leading" secondItem="rKe-kg-ZSy" secondAttribute="leading" id="tPz-lB-1Q2"/>
                             <constraint firstAttribute="trailing" secondItem="1Uh-L0-kck" secondAttribute="trailing" constant="10" id="uvM-eT-5cF"/>

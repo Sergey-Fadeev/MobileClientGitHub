@@ -9,9 +9,9 @@ import Foundation
 import Combine
 import RealmSwift
 
+let realm = try! Realm()
+
 class Provider {
-    
-    let realm = try! Realm()
     
     private let mainURL = URL(string: "https://Vasiliy-Vasilyev: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@api.github.com/repositories")
     
@@ -124,7 +124,6 @@ class Provider {
                 realm.add(realmObject)
             }
         }
-        print("!!!!!!!!!\(results)")
     }
     
     
@@ -149,7 +148,6 @@ class Provider {
                 }
             }
         }
-        print("!!!!!!!!!\(results)")
     }
     
     

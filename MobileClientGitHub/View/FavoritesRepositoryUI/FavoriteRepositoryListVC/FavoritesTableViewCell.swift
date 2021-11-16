@@ -9,13 +9,13 @@ import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var ownerImage: UIImageView!
-    @IBOutlet weak var ownerName: UILabel!
-    @IBOutlet weak var languageImage: UIImageView!
-    @IBOutlet weak var languageName: UILabel!
-    @IBOutlet weak var forksCount: UILabel!
-    @IBOutlet weak var starsCount: UILabel!
-    @IBOutlet weak var projectName: UILabel!
+    @IBOutlet private weak var ownerImage: UIImageView!
+    @IBOutlet private weak var ownerName: UILabel!
+    @IBOutlet private weak var languageImage: UIImageView!
+    @IBOutlet private weak var languageName: UILabel!
+    @IBOutlet private weak var forksCount: UILabel!
+    @IBOutlet private weak var starsCount: UILabel!
+    @IBOutlet private weak var projectName: UILabel!
     
     @IBOutlet weak var projectDescription: UILabel!
     
@@ -28,6 +28,25 @@ class FavoritesTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    func configureCell(ownerName: String?, projectName: String?, ownerImage: Data?, languageName: String?, starsCount: Int?, forksCount: Int?, projectDescription: String?){
+        self.ownerName.text = ownerName ?? ""
+        self.projectName.text = projectName ?? ""
+        self.ownerImage.image = UIImage(data: ownerImage!) ?? UIImage(systemName: "pencil.slash")
+        self.languageName.text = languageName ?? ""
+        self.projectDescription.text = projectDescription ?? ""
+        if starsCount != nil{
+            self.starsCount.text = String(starsCount!)
+        }else{
+            self.starsCount.text = ""
+        }
+        if forksCount != nil{
+            self.forksCount.text = String(forksCount!)
+        }else{
+            self.forksCount.text = ""
+        }
     }
     
 }

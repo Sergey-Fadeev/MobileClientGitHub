@@ -22,6 +22,8 @@ class RepositoryRealm: Object{
     @Persisted var languageName: String
     @Persisted var projectName: String
     @Persisted var projectdescription: String
+    @Persisted var starsCount: Int?
+    @Persisted var forksCount: Int?
     @Persisted var owner: OwnerRealm?
     @Persisted var commits: List<CommitRealm>//list<объекты релм>
     
@@ -33,6 +35,8 @@ class RepositoryRealm: Object{
         self.projectName = model.json.name ?? ""
         self.languageName = model.detailInfo?.language ?? ""
         self.projectdescription = model.json.description ?? ""
+        self.starsCount = model.detailInfo?.stargazersCount
+        self.forksCount = model.detailInfo?.forksCount
         self.owner = OwnerRealm.init(model: model.owner)
         
         if let commits = model.commits{
