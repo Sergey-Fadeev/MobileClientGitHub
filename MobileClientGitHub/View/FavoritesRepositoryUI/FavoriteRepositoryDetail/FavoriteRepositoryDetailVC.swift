@@ -28,7 +28,7 @@ class FavoriteRepositoryDetailVC: UIViewController {
         super.viewDidLoad()
         tableViewCommit.delegate = self
         tableViewCommit.dataSource = self
-        tableViewCommit.register(UINib(nibName: "FavoriteCommitTableViewCell", bundle: nil), forCellReuseIdentifier: "favoriteCommitCustomCell")
+        tableViewCommit.register(UINib(nibName: "FavoriteCommitTableViewCell", bundle: nil), forCellReuseIdentifier: "favoriteCommitCell")
         
         
         self.nameOwner.text = viewModel?.owner?.name
@@ -70,11 +70,8 @@ extension FavoriteRepositoryDetailVC: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableViewCommit.dequeueReusableCell(withIdentifier: "favoriteCommitCustomCell") as! FavoriteCommitTableViewCell
+        let cell = tableViewCommit.dequeueReusableCell(withIdentifier: "favoriteCommitCell") as! FavoriteCommitTableViewCell
         cell.configure(ownerName: viewModel?.commits[indexPath.row].nameAuthor, ownerAvatar: viewModel?.commits[indexPath.row].avatarAuthor, commitDescription: viewModel?.commits[indexPath.row].commitDescription, dateOfCommit: viewModel?.commits[indexPath.row].dateCommit)
-        
-        
-        cell.configure(ownerName: "", ownerAvatar: nil, commitDescription: "", dateOfCommit: "")
         
         return cell
     }

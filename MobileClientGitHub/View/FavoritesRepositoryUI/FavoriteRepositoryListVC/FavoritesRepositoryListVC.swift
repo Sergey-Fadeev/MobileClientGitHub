@@ -34,7 +34,7 @@ class FavoritesRepositoryListVC: UIViewController {
                 DispatchQueue.main.async { [weak self] in
                     self?.repositoryListRealm = self!.viewModel.repositoryList
                     self!.tableView.reloadData()
-                    if self!.repositoryListRealm!.count > 0{
+                    if self!.repositoryListRealm != nil && self!.repositoryListRealm!.count > 0{
                         self!.favoritesIsEmptyLabel.isHidden = true
                     }
                     else{

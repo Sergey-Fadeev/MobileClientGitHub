@@ -428,7 +428,7 @@
                         <outlet property="projectDescription" destination="pMP-1P-ITD" id="SEU-GA-Lfo"/>
                         <outlet property="projectName" destination="Krp-z9-hJu" id="HPu-R6-aMb"/>
                         <outlet property="starsCount" destination="sXa-5G-tMl" id="kaW-gM-QD0"/>
-                        <outlet property="tableView" destination="cio-5v-iq8" id="vKe-CN-Hy1"/>
+                        <outlet property="tableViewCommit" destination="cio-5v-iq8" id="JMc-Ej-CMh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UES-6s-uGT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
