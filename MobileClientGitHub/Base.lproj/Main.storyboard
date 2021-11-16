@@ -226,20 +226,32 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Список избранного пуст" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVa-I8-0YZ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ixX-fi-KWT"/>
                         <color key="backgroundColor" name="AccentColor"/>
                         <constraints>
+                            <constraint firstItem="TVa-I8-0YZ" firstAttribute="leading" secondItem="ixX-fi-KWT" secondAttribute="leading" id="Mxg-u8-CVL"/>
+                            <constraint firstItem="ixX-fi-KWT" firstAttribute="trailing" secondItem="TVa-I8-0YZ" secondAttribute="trailing" id="NJb-2l-YTx"/>
                             <constraint firstItem="ixX-fi-KWT" firstAttribute="bottom" secondItem="1zF-8V-Psb" secondAttribute="bottom" id="UjL-B5-ns0"/>
                             <constraint firstItem="1zF-8V-Psb" firstAttribute="top" secondItem="ixX-fi-KWT" secondAttribute="top" id="Wdv-Zd-udH"/>
+                            <constraint firstItem="TVa-I8-0YZ" firstAttribute="top" secondItem="ixX-fi-KWT" secondAttribute="top" id="e3L-Qy-rLg"/>
                             <constraint firstItem="1zF-8V-Psb" firstAttribute="leading" secondItem="ixX-fi-KWT" secondAttribute="leading" id="hDK-9o-d38"/>
                             <constraint firstItem="ixX-fi-KWT" firstAttribute="trailing" secondItem="1zF-8V-Psb" secondAttribute="trailing" id="mcp-Y8-C2a"/>
+                            <constraint firstItem="ixX-fi-KWT" firstAttribute="bottom" secondItem="TVa-I8-0YZ" secondAttribute="bottom" id="w98-Ha-qPX"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="7PK-cu-UgV"/>
                     <navigationItem key="navigationItem" id="hFr-aQ-3To"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="favoritesIsEmptyLabel" destination="TVa-I8-0YZ" id="wO3-3L-CJK"/>
                         <outlet property="tableView" destination="1zF-8V-Psb" id="WBI-x8-YTS"/>
                         <segue destination="I1C-RX-0dx" kind="show" identifier="favoritesRepositoryDetail" id="tmR-5N-K3m"/>
                     </connections>

@@ -12,11 +12,14 @@ import RealmSwift
 class FavoritesRepositoryListVC: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var favoritesIsEmptyLabel: UILabel!
     
     var viewModel: FavoriteRepositoryListVM!
     var viewModelCancellable: Cancellable? = nil
     
     var repositoryListRealm: List<RepositoryRealm>? = nil
+    
+//    var listIshidden: Bool = false
     
     
     override func viewDidLoad() {
@@ -24,16 +27,22 @@ class FavoritesRepositoryListVC: UIViewController {
         
         viewModel = .init()
         
-        
+        self.favoritesIsEmptyLabel.isHidden = false
         viewModelCancellable =  viewModel?
             .objectWillChange
             .sink(receiveValue: { [weak self] in
                 DispatchQueue.main.async { [weak self] in
                     self?.repositoryListRealm = self!.viewModel.repositoryList
                     self!.tableView.reloadData()
+                    if self!.repositoryListRealm!.count > 0{
+                        self!.favoritesIsEmptyLabel.isHidden = true
+                    }
+                    else{
+                        self!.favoritesIsEmptyLabel.text = "Список избранного пуст"
+                        self!.favoritesIsEmptyLabel.isHidden = false
+                    }
                 }
             })
-        viewModel.getRepositoryList()
         
         tableView.delegate = self
         tableView.dataSource = self
