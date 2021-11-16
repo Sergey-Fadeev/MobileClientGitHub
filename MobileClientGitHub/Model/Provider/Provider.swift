@@ -91,42 +91,95 @@ class Provider {
     
     
     func saveToFavorites(repositoryModel: RepositoryModel){
-        let repositoryRealmObject: RepositoryRealm = .init(model: repositoryModel)
-        try! realm.write{
-            realm.add(repositoryRealmObject)
+        
+        var saved: Bool = false
+        
+        guard !realm.isEmpty else{
+            let realmObject = RepositoryRealmObject()
+            realmObject.userLogin = userLogin
+            realmObject.repositoryListRealm.append(RepositoryRealm.init(model: repositoryModel))
+            try! realm.write{
+                realm.add(realmObject)
+            }
+            return
+        }
+        
+        var results: Results<RepositoryRealmObject>!
+        results = realm.objects(RepositoryRealmObject.self)
+        
+        for item in results{
+            if item.userLogin == userLogin{
+                item.repositoryListRealm.append(RepositoryRealm.init(model: repositoryModel))
+                saved = true
+            }
+        }
+        
+        if !saved{
+            let realmObject = RepositoryRealmObject()
+            realmObject.userLogin = userLogin
+            realmObject.repositoryListRealm.append(RepositoryRealm.init(model: repositoryModel))
+            try! realm.write{
+                realm.add(realmObject)
+            }
         }
     }
     
     
     func deleteFromFavorites(repositoryModel: RepositoryModel){
-        var results: Results<RepositoryRealm>!
-        results = realm.objects(RepositoryRealm.self)
+        
+        guard !realm.isEmpty else{
+            return
+        }
+        
+        var results: Results<RepositoryRealmObject>!
+        results = realm.objects(RepositoryRealmObject.self)
         
         for item in results{
-            if item.id == repositoryModel.json.id{
-                try! realm.write{
-                    realm.delete(item)
+            if item.userLogin == userLogin{
+                for value in item.repositoryListRealm{
+                    if value.id == repositoryModel.json.id{
+//                        let index = item.repositoryListRealm.index{$0 === value}
+                        realm.delete(value)
+                    }
                 }
             }
         }
     }
     
     
-    func getRepositories() -> [RepositoryModel]?{
-        var results: Results<RepositoryRealm>!
-        results = realm.objects(RepositoryRealm.self)
+    func getRepositories() -> List<RepositoryRealm>?{
+        var results: Results<RepositoryRealmObject>!
+        results = realm.objects(RepositoryRealmObject.self)
         
-        var repositoriesModelArray = [RepositoryModel]()
+        var repositoriesModelArray: List<RepositoryRealm>? = nil
         
         guard !realm.isEmpty else{
-//            repositoriesModelArray.append(RepositoryModel.init(json: ElementJSON.placeholder))
             return nil
         }
         
         for item in results{
-            let repositoryModel = item.toModel()
-            repositoriesModelArray.append(repositoryModel)
+            if item.userLogin == userLogin{
+                repositoriesModelArray = item.repositoryListRealm
+            }
         }
         return repositoriesModelArray
+    }
+    
+    
+    func containsInFavorites(repositoryModel: RepositoryModel)->Bool {
+        var contains: Bool = false
+        var results: Results<RepositoryRealmObject>!
+        results = realm.objects(RepositoryRealmObject.self)
+        
+        guard !realm.isEmpty else{
+            return contains
+        }
+        for item in results {
+            
+            if item.userLogin == userLogin && item.repositoryListRealm.contains(RepositoryRealm.init(model: repositoryModel)){
+                contains = true
+            }
+        }
+        return contains
     }
 }

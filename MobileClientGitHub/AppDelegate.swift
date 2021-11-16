@@ -8,6 +8,7 @@
 import UIKit
 
 let modelSingleton = Model()
+let userLogin: String = "Serega"
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
