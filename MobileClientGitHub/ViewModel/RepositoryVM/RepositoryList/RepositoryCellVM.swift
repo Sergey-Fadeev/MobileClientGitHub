@@ -136,6 +136,15 @@ class RepositoryCellVM {
         UI.languageName.text = language
         UI.starLabel.text = starCount
         UI.forkLabel.text = forkCount
+        
+        if !containsInFavorites(){
+            UI.saveButtonOutlet.tintColor = UIColor.systemGreen
+            UI.saveButtonOutlet.setTitle("Add", for: .normal)
+        }
+        else{
+            UI.saveButtonOutlet.tintColor = UIColor.gray
+            UI.saveButtonOutlet.setTitle("Added", for: .normal)
+        }
     }
     
     
@@ -162,5 +171,13 @@ class RepositoryCellVM {
     
     func saveToFavorites(){
         provider.saveToFavorites(repositoryModel: model)
+    }
+    
+    func containsInFavorites() -> Bool{
+        return provider.containsInFavorites(repositoryModel: model)
+    }
+    
+    func deleteFromFavorites(){
+        provider.deleteFromFavorites(repositoryModel: model)
     }
 }

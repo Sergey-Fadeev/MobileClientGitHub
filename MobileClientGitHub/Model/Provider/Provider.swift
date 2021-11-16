@@ -124,7 +124,6 @@ class Provider {
                 realm.add(realmObject)
             }
         }
-        print("!!!!!!!!\(results)")
     }
     
     
@@ -142,11 +141,14 @@ class Provider {
                 for value in item.repositoryListRealm{
                     if value.id == repositoryModel.json.id{
 //                        let index = item.repositoryListRealm.index{$0 === value}
-                        realm.delete(value)
+                        try! realm.write{
+                            realm.delete(value)
+                        }
                     }
                 }
             }
         }
+        print("!!!!!!!!!\(results)")
     }
     
     

@@ -31,8 +31,16 @@ class RepositoryViewCell: UITableViewCell {
     
     
     @IBAction func saveButton(_ sender: Any) {
-        VM.saveToFavorites()
-        saveButtonOutlet.backgroundColor = .gray
+        if !VM.containsInFavorites(){
+            VM.saveToFavorites()
+            saveButtonOutlet.tintColor = UIColor.gray
+            saveButtonOutlet.setTitle("Added", for: .normal)
+        }
+        else{
+            VM.deleteFromFavorites()
+            saveButtonOutlet.tintColor = .systemGreen
+            saveButtonOutlet.setTitle("Add", for: .normal)
+        }
     }
     
     
