@@ -83,6 +83,9 @@ class CommitCellVM {
         UI.commitDescription.text = commitDescription
         UI.commitDate.text = commitDate
         UI.authorAvatar.image = avatar
+        
+        UI.authorAvatar.layer.cornerRadius = UI.authorAvatar.frame.size.width / 2
+        UI.authorAvatar.clipsToBounds = true
     }
     
     

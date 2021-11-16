@@ -133,6 +133,9 @@ class RepositoryCellVM {
         UI.descriptionLabel.text = description
         UI.ownersImageView.image = avatar
         
+        UI.ownersImageView.layer.cornerRadius = UI.ownersImageView.frame.size.width / 2 - 10
+        UI.ownersImageView.clipsToBounds = true
+        
         UI.languageName.text = language
         UI.starLabel.text = starCount
         UI.forkLabel.text = forkCount
@@ -145,6 +148,8 @@ class RepositoryCellVM {
             UI.saveButtonOutlet.tintColor = UIColor.gray
             UI.saveButtonOutlet.setTitle("Added", for: .normal)
         }
+        
+        UI.reloadInputViews()
     }
     
     

@@ -159,6 +159,9 @@ class RepositoryDetailVM {
         UI.descriptionLabel.text = description
         UI.ownersImageView.image = avatar
         
+        UI.ownersImageView.layer.cornerRadius = UI.ownersImageView.frame.size.width / 2
+        UI.ownersImageView.clipsToBounds = true
+        
         UI.languageName.text = language
         UI.starLabel.text = starCount
         UI.forkLabel.text = forkCount
