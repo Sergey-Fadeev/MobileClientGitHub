@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FavoriteRepositoryDetailVC: UIViewController {
 
@@ -17,13 +18,47 @@ class FavoriteRepositoryDetailVC: UIViewController {
     @IBOutlet weak var forksCount: UILabel!
     @IBOutlet weak var projectName: UILabel!
     @IBOutlet weak var projectDescription: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewCommit: UITableView!
+    
+    
+    var viewModel: RepositoryRealm? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "FavoriteCommitTableViewCell", bundle: nil), forCellReuseIdentifier: "favoriteCommitCustomCell")
+        tableViewCommit.delegate = self
+        tableViewCommit.dataSource = self
+        tableViewCommit.register(UINib(nibName: "FavoriteCommitTableViewCell", bundle: nil), forCellReuseIdentifier: "favoriteCommitCustomCell")
+        
+        
+        self.nameOwner.text = viewModel?.owner?.name
+        self.projectName.text = viewModel?.projectName
+        
+        if viewModel?.owner?.avatar != nil{
+            self.imageOwner.image = UIImage.init(data: (viewModel?.owner?.avatar)!)
+        }
+        else{
+            self.imageOwner.image = UIImage.init(systemName: "pencil.slash")
+        }
+        self.imageOwner.layer.cornerRadius = self.imageOwner.frame.size.width / 2
+        self.imageOwner.clipsToBounds = true
+        
+        self.languageName.text = viewModel?.languageName ?? ""
+        
+        if let stars = viewModel?.starsCount{
+            self.starsCount.text = String(stars)
+        }
+        else{
+            self.starsCount.text = ""
+        }
+        if let forks = viewModel?.forksCount{
+            self.forksCount.text = String(forks)
+        }
+        else{
+            self.forksCount.text = ""
+        }
+        self.projectDescription.text = viewModel?.projectdescription ?? ""
+        
     }
 }
 
@@ -31,11 +66,16 @@ class FavoriteRepositoryDetailVC: UIViewController {
 extension FavoriteRepositoryDetailVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        viewModel?.commits.count ?? 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCommitCustomCell") as! FavoriteCommitTableViewCell
+        let cell = tableViewCommit.dequeueReusableCell(withIdentifier: "favoriteCommitCustomCell") as! FavoriteCommitTableViewCell
+        cell.configure(ownerName: viewModel?.commits[indexPath.row].nameAuthor, ownerAvatar: viewModel?.commits[indexPath.row].avatarAuthor, commitDescription: viewModel?.commits[indexPath.row].commitDescription, dateOfCommit: viewModel?.commits[indexPath.row].dateCommit)
+        
+        
+        cell.configure(ownerName: "", ownerAvatar: nil, commitDescription: "", dateOfCommit: "")
+        
         return cell
     }
 }

@@ -73,4 +73,15 @@ extension FavoritesRepositoryListVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "favoritesRepositoryDetail", sender: tableView.cellForRow(at: indexPath))
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UITableViewCell {
+            let selectedIndex = self.tableView.indexPath(for: cell)!.row
+            if segue.identifier == "favoritesRepositoryDetail" {
+                let vc = segue.destination as! FavoriteRepositoryDetailVC
+                vc.viewModel = viewModel.repositoryList![selectedIndex]
+            }
+        }
+    }
 }

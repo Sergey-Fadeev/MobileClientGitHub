@@ -41,7 +41,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Save">
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                            <color key="baseBackgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50588238240000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
@@ -195,8 +195,5 @@
         <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
         <image name="trash.circle" catalog="system" width="128" height="121"/>
         <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

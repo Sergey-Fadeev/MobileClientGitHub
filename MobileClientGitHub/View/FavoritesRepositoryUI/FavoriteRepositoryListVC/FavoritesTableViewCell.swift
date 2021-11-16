@@ -21,7 +21,6 @@ class FavoritesTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        ownerName.text = "Иванов Иван Иванович"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,6 +34,10 @@ class FavoritesTableViewCell: UITableViewCell {
         self.ownerName.text = ownerName ?? ""
         self.projectName.text = projectName ?? ""
         self.ownerImage.image = UIImage(data: ownerImage!) ?? UIImage(systemName: "pencil.slash")
+        
+        self.ownerImage.layer.cornerRadius = self.ownerImage.frame.size.width / 2 - 10
+        self.ownerImage.clipsToBounds = true
+        
         self.languageName.text = languageName ?? ""
         self.projectDescription.text = projectDescription ?? ""
         if starsCount != nil{
