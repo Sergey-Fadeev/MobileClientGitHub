@@ -12,6 +12,7 @@ import Combine
 
 class RepositoryCellVM {
     
+    let provider = Provider()
     let model: RepositoryModel
     
     var login: String{
@@ -156,5 +157,10 @@ class RepositoryCellVM {
         if !model.commitsLoaded{
             model.loadCommits()
         }
+    }
+    
+    
+    func saveToFavorites(){
+        provider.saveToFavorites(repositoryModel: model)
     }
 }

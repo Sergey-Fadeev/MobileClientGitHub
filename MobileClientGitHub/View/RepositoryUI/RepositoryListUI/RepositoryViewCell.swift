@@ -18,6 +18,7 @@ class RepositoryViewCell: UITableViewCell {
     @IBOutlet weak var forkLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var saveButtonOutlet: UIButton!
     
     
     var VM: RepositoryCellVM!
@@ -26,6 +27,12 @@ class RepositoryViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    
+    @IBAction func saveButton(_ sender: Any) {
+        VM.saveToFavorites()
+        saveButtonOutlet.backgroundColor = .gray
     }
     
     

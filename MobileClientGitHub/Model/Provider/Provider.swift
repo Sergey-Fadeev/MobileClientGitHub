@@ -108,13 +108,15 @@ class Provider {
         results = realm.objects(RepositoryRealmObject.self)
         
         for item in results{
-            if item.userLogin == userLogin{
-                item.repositoryListRealm.append(RepositoryRealm.init(model: repositoryModel))
+            if item.userLogin == userLogin && !containsInFavorites(repositoryModel: repositoryModel){
+                try! realm.write{
+                    item.repositoryListRealm.append(RepositoryRealm.init(model: repositoryModel))
+                }
                 saved = true
             }
         }
         
-        if !saved{
+        if !saved && !containsInFavorites(repositoryModel: repositoryModel){
             let realmObject = RepositoryRealmObject()
             realmObject.userLogin = userLogin
             realmObject.repositoryListRealm.append(RepositoryRealm.init(model: repositoryModel))
@@ -122,6 +124,7 @@ class Provider {
                 realm.add(realmObject)
             }
         }
+        print("!!!!!!!!\(results)")
     }
     
     
@@ -175,9 +178,12 @@ class Provider {
             return contains
         }
         for item in results {
-            
-            if item.userLogin == userLogin && item.repositoryListRealm.contains(RepositoryRealm.init(model: repositoryModel)){
-                contains = true
+            if item.userLogin == userLogin{
+                for id in item.repositoryListRealm{
+                    if id.id == repositoryModel.json.id{
+                        contains = true
+                    }
+                }
             }
         }
         return contains
