@@ -16,8 +16,8 @@ class Defaults {
     let defaults = UserDefaults.standard
     
     
-    func get(key: String) -> String?{
-        return defaults.string(forKey: key)
+    func get(key: String) -> [String:Any]{
+        return defaults.dictionary(forKey: key)!
     }
     
     

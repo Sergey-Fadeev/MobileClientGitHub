@@ -25,10 +25,10 @@ class Auth {
     
     func changeStatus(entryStatus: Bool){
         if entryStatus == true{
-            Defaults().set(key: "entryStatus", value: ["in" : 1])
+            Defaults().set(key: "entryStatus", value: ["entryStatus" : 1])
         }
         else{
-            Defaults().set(key: "entryStatus", value: ["out" : 0])
+            Defaults().set(key: "entryStatus", value: ["entryStatus" : 0])
         }
     }
 }

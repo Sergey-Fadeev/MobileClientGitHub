@@ -17,7 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        showMainVC()
+        
+        let defaults = Defaults().defaults.object(forKey: "entryStatus")
+        
+        if defaults != nil{
+            if Defaults().get(key: "entryStatus")["entryStatus"] as! Int == 1{
+                showMainVC()
+            }
+        }
+        else{
+            Defaults().set(key: "entryStatus", value: ["entryStatus" : 0])
+        }
         return true
     }
     
