@@ -11,6 +11,7 @@ import UIKit
 class RepositoryListVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var userName: UILabel!
     
     
     var VM: RepositoryListVM!
@@ -19,7 +20,13 @@ class RepositoryListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
         self.VM = .init(model: modelSingleton.repositoriesList, UI: self)
+        userName.text = "   \(userLogin)"
+    }
+    
+    @IBAction func logout(_ sender: Any) {
     }
 }
 

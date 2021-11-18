@@ -69,10 +69,10 @@ class AuthVC: UIViewController {
                     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
                         return
                     }
-                    
                     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "navigation")
-                
                     appDelegate.window?.rootViewController = rootController
+                    userLogin = name
+                    
                 }
                 else{
                     alertUserIsRegistered()
