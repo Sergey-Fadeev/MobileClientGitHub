@@ -38,5 +38,8 @@ class FavoriteCommitTableViewCell: UITableViewCell {
     
         self.commitDescription.text = commitDescription ?? ""
         self.dateOfCommit.text = dateOfCommit ?? ""
+        
+        self.ownerAvatar.layer.cornerRadius = self.ownerAvatar.frame.size.width / 2
+        self.ownerAvatar.clipsToBounds = true
     }
 }

@@ -94,6 +94,7 @@ class CommitRealm: Object{
         if let avatar = model.avatar{
             self.avatarAuthor = avatar
         }
+        self.commitDescription = model.json.commit?.message ?? ""
     }
 }
 
