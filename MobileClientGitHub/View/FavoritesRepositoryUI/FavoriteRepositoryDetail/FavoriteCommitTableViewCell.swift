@@ -30,7 +30,7 @@ class FavoriteCommitTableViewCell: UITableViewCell {
             self.ownerAvatar.image = UIImage.init(data: ownerAvatar!)
         }
         else{
-            self.ownerAvatar.image = UIImage.init(systemName: "github")
+            self.ownerAvatar.image = UIImage.init(named: "avatar")
         }
     
         self.commitDescription.text = commitDescription ?? ""

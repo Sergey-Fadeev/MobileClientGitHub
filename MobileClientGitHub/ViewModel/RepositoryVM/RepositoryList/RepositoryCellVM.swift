@@ -83,7 +83,8 @@ class RepositoryCellVM {
             return UIImage.init(data: avatar)!
         }
         else{
-            return UIImage(named: "github")!
+//            return UIImage.init(named: "github")!
+            return UIImage.init(named: "avatar")!
         }
     }
     

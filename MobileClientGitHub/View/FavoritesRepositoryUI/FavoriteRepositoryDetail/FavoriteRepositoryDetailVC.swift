@@ -38,7 +38,7 @@ class FavoriteRepositoryDetailVC: UIViewController {
             self.imageOwner.image = UIImage.init(data: (viewModel?.owner?.avatar)!)
         }
         else{
-            self.imageOwner.image = UIImage.init(systemName: "pencil.slash")
+            self.imageOwner.image = UIImage.init(named: "avatar")
         }
         
         self.imageOwner.layer.cornerRadius = self.imageOwner.frame.size.width / 2
