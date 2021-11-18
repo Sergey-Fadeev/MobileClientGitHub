@@ -92,7 +92,7 @@ class RepositoryCellVM {
     
     
     private var avatalCancellable: Cancellable? = nil
-    
+    private var commitsCancellable: Cancellable? = nil
     
     private var detailInfoCancellable: Cancellable? = nil
     
@@ -121,12 +121,25 @@ class RepositoryCellVM {
                     }
                 }
             }
+        
+        commitsCancellable = model.$commits
+            .sink(receiveValue: { [weak self] _ in
+                DispatchQueue.main.async { [weak self] in
+//                    self?.UI.tableView.delegate = self?.UI
+//                    self?.UI.tableView.register(UINib(nibName: "CommitTableViewCell", bundle: nil), forCellReuseIdentifier: "commitCustomCell")
+//                    self?.UI.tableView.dataSource = self?.UI
+                    
+                    self!.loadCommitAvatar()
+                }
+            })
     }
     
     
     func updateUI(){
         loadAvatar()
         loadDetailInfo()
+        loadCommits()
+        loadCommitAvatar()
         
         UI.authorsFullName.text = login
         UI.projectNameLabel.text = title
@@ -172,6 +185,28 @@ class RepositoryCellVM {
             model.loadCommits()
         }
     }
+    
+    
+    
+//    func loadCommitAvatar(){
+//        if !model.owner.avatarLoaded{
+//            model.owner.loadAvatar(avatarStringURL: model.owner.json.avatarURL)
+//        }
+//    }
+    
+    func loadCommitAvatar(){
+        model.loadCommits()   //под вопросом
+        if model.commits != nil{
+            for commit in model.commits! {
+                commit.loadAvatar()
+            }
+        }
+        else{
+            model.loadCommits()
+        }
+        
+    }
+    
     
     
     func saveToFavorites(){
