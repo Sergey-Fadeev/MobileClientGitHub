@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--AuthorithationVC-->
+        <!--AuthVC-->
         <scene sceneID="ZHu-QO-DVm">
             <objects>
-                <viewController id="fAs-d7-DBc" customClass="AuthorithationVC" customModule="MobileClientGitHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fAs-d7-DBc" customClass="AuthVC" customModule="MobileClientGitHub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VHc-lf-s2J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,14 +26,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Регистрация/вход" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gW6-yo-PWO">
-                                                    <rect key="frame" x="55" y="272.5" width="304.5" height="43"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Регистрация" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gW6-yo-PWO">
+                                                    <rect key="frame" x="99.5" y="305" width="215" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
                                                     <color key="textColor" red="0.94424532859999999" green="0.94424532859999999" blue="0.94424532859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="97l-Cn-9Rn">
-                                                    <rect key="frame" x="16" y="360.5" width="382" height="175"/>
+                                                    <rect key="frame" x="16" y="393" width="382" height="110"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите имя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLI-2c-sGk">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="45"/>
@@ -43,16 +43,8 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nPP-af-I02">
-                                                            <rect key="frame" x="0.0" y="65" width="382" height="45"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="45" id="Tx1-eR-HYX"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G86-gu-f1X">
-                                                            <rect key="frame" x="0.0" y="130" width="382" height="45"/>
+                                                            <rect key="frame" x="0.0" y="65" width="382" height="45"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="45" id="qdU-sM-TC2"/>
                                                             </constraints>
@@ -61,38 +53,52 @@
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Уже есть аккаунт?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dN-4L-kTS">
-                                                    <rect key="frame" x="123" y="560.5" width="168.5" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LM-mj-eir">
-                                                    <rect key="frame" x="163" y="609.5" width="88" height="39.5"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7o-X1-eh8">
+                                                    <rect key="frame" x="114.5" y="513" width="185" height="35"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain">
                                                         <attributedString key="attributedTitle">
-                                                            <fragment content="Войти">
+                                                            <fragment content="Уже есть аккаунт?">
                                                                 <attributes>
+                                                                    <font key="NSFont" size="18" name="Helvetica"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="changeAction:" destination="fAs-d7-DBc" eventType="touchUpInside" id="vUX-l6-qwb"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LM-mj-eir">
+                                                    <rect key="frame" x="128.5" y="568" width="157" height="39.5"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain">
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="Регистрация">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                     <font key="NSFont" size="22" name="Helvetica"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
                                                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="enterButton:" destination="fAs-d7-DBc" eventType="touchUpInside" id="IvY-T8-H0d"/>
+                                                        <action selector="loginAction:" destination="fAs-d7-DBc" eventType="touchUpInside" id="XiS-d6-2Sx"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="gW6-yo-PWO" firstAttribute="centerX" secondItem="8nN-6b-lsq" secondAttribute="centerX" id="0rj-u3-3ck"/>
-                                                <constraint firstItem="4dN-4L-kTS" firstAttribute="top" secondItem="97l-Cn-9Rn" secondAttribute="bottom" constant="25" id="2Pe-er-VAu"/>
+                                                <constraint firstItem="4LM-mj-eir" firstAttribute="top" secondItem="c7o-X1-eh8" secondAttribute="bottom" constant="20" id="7Wi-iN-Rwj"/>
                                                 <constraint firstItem="97l-Cn-9Rn" firstAttribute="centerY" secondItem="8nN-6b-lsq" secondAttribute="centerY" id="Cxv-2t-mbe"/>
+                                                <constraint firstItem="c7o-X1-eh8" firstAttribute="centerX" secondItem="8nN-6b-lsq" secondAttribute="centerX" id="ISM-fo-YhG"/>
                                                 <constraint firstItem="97l-Cn-9Rn" firstAttribute="leading" secondItem="8nN-6b-lsq" secondAttribute="leading" constant="16" id="JAk-H8-Qjy"/>
-                                                <constraint firstItem="4LM-mj-eir" firstAttribute="centerX" secondItem="8nN-6b-lsq" secondAttribute="centerX" id="JS3-i3-pXY"/>
-                                                <constraint firstItem="4LM-mj-eir" firstAttribute="top" secondItem="4dN-4L-kTS" secondAttribute="bottom" constant="25" id="X6m-x5-Ygj"/>
-                                                <constraint firstItem="4dN-4L-kTS" firstAttribute="centerX" secondItem="8nN-6b-lsq" secondAttribute="centerX" id="djO-bC-dB5"/>
+                                                <constraint firstItem="4LM-mj-eir" firstAttribute="centerX" secondItem="8nN-6b-lsq" secondAttribute="centerX" id="NA9-RN-TtI"/>
+                                                <constraint firstItem="c7o-X1-eh8" firstAttribute="top" secondItem="97l-Cn-9Rn" secondAttribute="bottom" constant="10" id="WQJ-zz-GLA"/>
                                                 <constraint firstAttribute="trailing" secondItem="97l-Cn-9Rn" secondAttribute="trailing" constant="16" id="nCw-ZR-p21"/>
                                                 <constraint firstItem="97l-Cn-9Rn" firstAttribute="top" secondItem="gW6-yo-PWO" secondAttribute="bottom" constant="45" id="sIS-1e-ple"/>
                                             </constraints>
@@ -114,16 +120,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="nPP-af-I02" id="YhE-gc-NpE"/>
-                        <outlet property="enterButon" destination="4LM-mj-eir" id="JDG-mJ-4S2"/>
-                        <outlet property="nameTextField" destination="jLI-2c-sGk" id="82P-iz-sgT"/>
-                        <outlet property="passwordTextField" destination="G86-gu-f1X" id="g7N-Ow-vDh"/>
-                        <outlet property="titleLabel" destination="gW6-yo-PWO" id="ua6-Tq-JNo"/>
+                        <outlet property="changeButton" destination="c7o-X1-eh8" id="iz0-ve-WNK"/>
+                        <outlet property="logInButton" destination="4LM-mj-eir" id="nlJ-5m-qb2"/>
+                        <outlet property="nameTextField" destination="jLI-2c-sGk" id="Yt7-td-Z3h"/>
+                        <outlet property="passwordTextField" destination="G86-gu-f1X" id="kl5-23-M76"/>
+                        <outlet property="titleLabel" destination="gW6-yo-PWO" id="2Pg-Nb-hGh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xk0-iT-7q4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="945" y="-568"/>
+            <point key="canvasLocation" x="1074" y="-569"/>
         </scene>
         <!--Repository ListVC-->
         <scene sceneID="tne-QT-ifu">
