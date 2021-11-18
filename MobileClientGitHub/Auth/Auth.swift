@@ -1,0 +1,34 @@
+//
+//  Auth.swift
+//  MobileClientGitHub
+//
+//  Created by Sergey on 18.11.2021.
+//
+
+import Foundation
+
+class Auth {
+    
+    func registration(name: String, password: String){
+        let objectInRealmCount: Int = Array(realm.objects(RepositoryRealmObject.self)).count
+        Defaults().set(key: name, value: [password : objectInRealmCount + 1])
+    }
+
+    func containsInUserDefaults(name: String) -> Bool{
+        if Defaults().defaults.object(forKey: name) != nil{
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    func changeStatus(entryStatus: Bool){
+        if entryStatus == true{
+            Defaults().set(key: "entryStatus", value: ["in" : 1])
+        }
+        else{
+            Defaults().set(key: "entryStatus", value: ["out" : 0])
+        }
+    }
+}

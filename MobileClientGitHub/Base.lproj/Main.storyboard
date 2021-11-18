@@ -41,7 +41,7 @@
                                                                 <constraint firstAttribute="height" constant="45" id="hDQ-3B-5cO"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" textContentType="name"/>
                                                         </textField>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G86-gu-f1X">
                                                             <rect key="frame" x="0.0" y="65" width="382" height="45"/>
@@ -49,7 +49,7 @@
                                                                 <constraint firstAttribute="height" constant="45" id="qdU-sM-TC2"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="password"/>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -134,7 +134,7 @@
         <!--Repository ListVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RepositoryListVC" customModule="MobileClientGitHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RepositoryListVC" id="BYZ-38-t0r" customClass="RepositoryListVC" customModule="MobileClientGitHub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -561,7 +561,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Nbw-QT-PCQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Lh-hV-jXv" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigation" automaticallyAdjustsScrollViewInsets="NO" id="7Lh-hV-jXv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="p6C-ZX-weJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
