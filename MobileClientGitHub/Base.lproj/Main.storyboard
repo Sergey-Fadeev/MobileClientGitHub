@@ -11,7 +11,7 @@
         <!--AuthVC-->
         <scene sceneID="ZHu-QO-DVm">
             <objects>
-                <viewController id="fAs-d7-DBc" customClass="AuthVC" customModule="MobileClientGitHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registrationID" id="fAs-d7-DBc" customClass="AuthVC" customModule="MobileClientGitHub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VHc-lf-s2J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,9 +188,7 @@
                             <constraint firstItem="DQy-U7-nyV" firstAttribute="top" secondItem="8EI-zo-bAw" secondAttribute="bottom" id="tSS-FI-8PV"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="ZUb-pF-6sb">
-                        <color key="badgeColor" red="0.67333681639999998" green="0.80023960110000003" blue="0.77055229469999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="ZUb-pF-6sb"/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="uBf-aB-OWf"/>
                     <connections>
                         <outlet property="tableView" destination="DQy-U7-nyV" id="cu4-nu-yQW"/>

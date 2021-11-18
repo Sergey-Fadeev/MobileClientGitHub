@@ -91,6 +91,12 @@ class AuthVC: UIViewController {
                 }
                 else{
                     auth.changeStatus(entryStatus: true)
+                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+                        return
+                    }
+                    let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "navigation")
+                    appDelegate.window?.rootViewController = rootController
+                    userLogin = name
                 //делаем вход
                 }
             }

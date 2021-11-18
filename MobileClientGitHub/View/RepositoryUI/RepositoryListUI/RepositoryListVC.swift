@@ -27,6 +27,11 @@ class RepositoryListVC: UIViewController {
     }
     
     @IBAction func logout(_ sender: Any) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            return
+        }
+        let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "registrationID")
+        appDelegate.window?.rootViewController = rootController
     }
 }
 
