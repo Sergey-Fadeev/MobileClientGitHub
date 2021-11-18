@@ -40,19 +40,29 @@ class AuthVC: UIViewController {
         super.viewDidLoad()
         Defaults().defaults.set(["entryStatus" : 0], forKey: "entryStatus")
         alert.addAction(ok)
-
-        // Do any additional setup after loading the view.
     }
     
-
+    
     @IBAction func changeAction(_ sender: Any) {
         signUp = !signUp
     }
-    
     @IBAction func loginAction(_ sender: Any) {
         logIn()
     }
     
+    
+    func alertForEmptyField(){
+        alert.message = "Заполните все поля"
+        self.present(alert, animated: true, completion: nil)
+    }
+    func alertUserIsRegistered(){
+        alert.message = "Пользователь с таким именем уже зарегистрирован"
+        self.present(alert, animated: true, completion: nil)
+    }
+    func alertUserIsNotRegistered(){
+        alert.message = "Пользователь с таким именем не зарегистрирован"
+        self.present(alert, animated: true, completion: nil)
+    }
     
     
     func logIn() {
@@ -97,30 +107,11 @@ class AuthVC: UIViewController {
                     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "navigation")
                     appDelegate.window?.rootViewController = rootController
                     userLogin = name
-                //делаем вход
                 }
             }
             else{
                 alertForEmptyField()
             }
         }
-    }
-    
-    
-    
-    
-    func alertForEmptyField(){
-        alert.message = "Заполните все поля"
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func alertUserIsRegistered(){
-        alert.message = "Пользователь с таким именем уже зарегистрирован"
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func alertUserIsNotRegistered(){
-        alert.message = "Пользователь с таким именем не зарегистрирован"
-        self.present(alert, animated: true, completion: nil)
     }
 }

@@ -26,13 +26,13 @@
 		899108882746426A005E4858 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899108872746426A005E4858 /* AuthVC.swift */; };
 		8991088B27464EB8005E4858 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991088A27464EB8005E4858 /* Auth.swift */; };
 		8991088D274650AD005E4858 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991088C274650AD005E4858 /* Defaults.swift */; };
+		8991088F2746CE9F005E4858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8991088E2746CE9F005E4858 /* Assets.xcassets */; };
 		89A8DBE6273E5A8E001B1974 /* FavoritesRepositoryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8DBE5273E5A8E001B1974 /* FavoritesRepositoryListVC.swift */; };
 		89A8DBE9273E5AE3001B1974 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8DBE7273E5AE3001B1974 /* FavoritesTableViewCell.swift */; };
 		89A8DBEA273E5AE3001B1974 /* FavoritesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A8DBE8273E5AE3001B1974 /* FavoritesTableViewCell.xib */; };
 		89BE23D02727CFB900B44D5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE23CF2727CFB900B44D5A /* AppDelegate.swift */; };
 		89BE23D42727CFB900B44D5A /* RepositoryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE23D32727CFB900B44D5A /* RepositoryListVC.swift */; };
 		89BE23D72727CFB900B44D5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BE23D52727CFB900B44D5A /* Main.storyboard */; };
-		89BE23D92727CFBB00B44D5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BE23D82727CFBB00B44D5A /* Assets.xcassets */; };
 		89BE23DC2727CFBB00B44D5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BE23DA2727CFBB00B44D5A /* LaunchScreen.storyboard */; };
 		89BE23E72727D04500B44D5A /* GitHubJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE23E62727D04500B44D5A /* GitHubJSON.swift */; };
 		89BE23F12727DA7600B44D5A /* RepositoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE23EF2727DA7600B44D5A /* RepositoryViewCell.swift */; };
@@ -71,6 +71,7 @@
 		899108872746426A005E4858 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		8991088A27464EB8005E4858 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		8991088C274650AD005E4858 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		8991088E2746CE9F005E4858 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89A8DBE5273E5A8E001B1974 /* FavoritesRepositoryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRepositoryListVC.swift; sourceTree = "<group>"; };
 		89A8DBE7273E5AE3001B1974 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		89A8DBE8273E5AE3001B1974 /* FavoritesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewCell.xib; sourceTree = "<group>"; };
@@ -78,7 +79,6 @@
 		89BE23CF2727CFB900B44D5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89BE23D32727CFB900B44D5A /* RepositoryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListVC.swift; sourceTree = "<group>"; };
 		89BE23D62727CFB900B44D5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		89BE23D82727CFBB00B44D5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89BE23DB2727CFBB00B44D5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89BE23DD2727CFBB00B44D5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89BE23E62727D04500B44D5A /* GitHubJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubJSON.swift; sourceTree = "<group>"; };
@@ -272,8 +272,8 @@
 				89BE23E52727D01900B44D5A /* ViewModel */,
 				89BE23E42727D00B00B44D5A /* View */,
 				89BE23CF2727CFB900B44D5A /* AppDelegate.swift */,
+				8991088E2746CE9F005E4858 /* Assets.xcassets */,
 				89BE23D52727CFB900B44D5A /* Main.storyboard */,
-				89BE23D82727CFBB00B44D5A /* Assets.xcassets */,
 				89BE23DA2727CFBB00B44D5A /* LaunchScreen.storyboard */,
 				89BE23DD2727CFBB00B44D5A /* Info.plist */,
 			);
@@ -415,8 +415,8 @@
 				89BE23DC2727CFBB00B44D5A /* LaunchScreen.storyboard in Resources */,
 				89279440273E79B0009D05FB /* FavoriteCommitTableViewCell.xib in Resources */,
 				89BE23F22727DA7600B44D5A /* RepositoryViewCell.xib in Resources */,
-				89BE23D92727CFBB00B44D5A /* Assets.xcassets in Resources */,
 				89A8DBEA273E5AE3001B1974 /* FavoritesTableViewCell.xib in Resources */,
+				8991088F2746CE9F005E4858 /* Assets.xcassets in Resources */,
 				8927943C273E798A009D05FB /* CommitTableViewCell.xib in Resources */,
 				89BE23D72727CFB900B44D5A /* Main.storyboard in Resources */,
 			);

@@ -20,9 +20,7 @@ class RepositoryViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var saveButtonOutlet: UIButton!
     
-    
     var VM: RepositoryCellVM!
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,12 +32,12 @@ class RepositoryViewCell: UITableViewCell {
         if !VM.containsInFavorites(){
             VM.saveToFavorites()
             saveButtonOutlet.tintColor = UIColor.gray
-            saveButtonOutlet.setTitle("Added", for: .normal)
+            saveButtonOutlet.setTitle("Добавлено", for: .normal)
         }
         else{
             VM.deleteFromFavorites()
             saveButtonOutlet.tintColor = .systemGreen
-            saveButtonOutlet.setTitle("Add", for: .normal)
+            saveButtonOutlet.setTitle("Добавить", for: .normal)
         }
     }
     
@@ -56,5 +54,4 @@ class RepositoryViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }

@@ -17,13 +17,10 @@ class FavoriteCommitTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func configure(ownerName: String?, ownerAvatar: Data?, commitDescription: String?, dateOfCommit: String?){
@@ -33,7 +30,7 @@ class FavoriteCommitTableViewCell: UITableViewCell {
             self.ownerAvatar.image = UIImage.init(data: ownerAvatar!)
         }
         else{
-            self.ownerAvatar.image = UIImage.init(systemName: "trash.circle")
+            self.ownerAvatar.image = UIImage.init(systemName: "github")
         }
     
         self.commitDescription.text = commitDescription ?? ""

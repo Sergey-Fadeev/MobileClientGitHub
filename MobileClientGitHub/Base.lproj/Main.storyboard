@@ -208,8 +208,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PSv-7w-tCE">
-                                <rect key="frame" x="10" y="100.5" width="103.5" height="99"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github " translatesAutoresizingMaskIntoConstraints="NO" id="PSv-7w-tCE">
+                                <rect key="frame" x="10" y="98" width="103.5" height="103.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PSv-7w-tCE" secondAttribute="height" multiplier="1:1" id="6Sz-lM-gLO"/>
                                 </constraints>
@@ -246,8 +246,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMa-2p-6Nd" userLabel="StarStack">
                                                 <rect key="frame" x="0.0" y="0.0" width="116" height="31"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ef7-sN-av2">
-                                                        <rect key="frame" x="0.0" y="0.5" width="31" height="30"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starcount" translatesAutoresizingMaskIntoConstraints="NO" id="ef7-sN-av2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ef7-sN-av2" secondAttribute="height" multiplier="1:1" id="PD8-3x-4yy"/>
                                                         </constraints>
@@ -263,7 +263,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ij-Pn-6ew" userLabel="ForkStack">
                                                 <rect key="frame" x="116" y="0.0" width="174.5" height="31"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uA1-4d-pEb">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forkcount" translatesAutoresizingMaskIntoConstraints="NO" id="uA1-4d-pEb">
                                                         <rect key="frame" x="0.0" y="0.0" width="31.5" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="uA1-4d-pEb" secondAttribute="height" multiplier="1:1" id="uef-0i-gXs"/>
@@ -426,8 +426,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NIl-u3-D9n">
-                                <rect key="frame" x="10" y="88.5" width="103.5" height="102.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github " translatesAutoresizingMaskIntoConstraints="NO" id="NIl-u3-D9n">
+                                <rect key="frame" x="10" y="88" width="103.5" height="103.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NIl-u3-D9n" secondAttribute="height" multiplier="1:1" id="dg0-11-kOY"/>
                                 </constraints>
@@ -467,8 +467,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2c2-Gq-ahg" userLabel="StarStack">
                                                 <rect key="frame" x="0.0" y="0.0" width="132.5" height="31"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ubh-7c-pAg">
-                                                        <rect key="frame" x="0.0" y="0.5" width="31" height="30"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starcount" translatesAutoresizingMaskIntoConstraints="NO" id="ubh-7c-pAg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ubh-7c-pAg" secondAttribute="height" multiplier="1:1" id="Pgb-gZ-ihi"/>
                                                         </constraints>
@@ -484,7 +484,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7G5-Ig-83I" userLabel="ForkStack">
                                                 <rect key="frame" x="132.5" y="0.0" width="158" height="31"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tLn-Pa-sXq">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forkcount" translatesAutoresizingMaskIntoConstraints="NO" id="tLn-Pa-sXq">
                                                         <rect key="frame" x="0.0" y="0.0" width="31.5" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="tLn-Pa-sXq" secondAttribute="height" multiplier="1:1" id="xc3-w3-6ly"/>
@@ -637,10 +637,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pencil.slash" catalog="system" width="128" height="113"/>
+        <image name="forkcount" width="654" height="980"/>
+        <image name="github " width="400" height="400"/>
         <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
-        <image name="trash.circle" catalog="system" width="128" height="121"/>
-        <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="starcount" width="256" height="244"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

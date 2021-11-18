@@ -85,7 +85,7 @@ class RepositoryDetailVM {
             return UIImage.init(data: avatar)!
         }
         else{
-            return UIImage.init(systemName: "pencil.slash")!
+            return UIImage(named: "github")!
         }
     }
     
@@ -140,9 +140,6 @@ class RepositoryDetailVM {
         commitsCancellable = model.$commits
             .sink(receiveValue: { [weak self] _ in
                 DispatchQueue.main.async { [weak self] in
-//                    self?.UI.tableView.delegate = self?.UI
-//                    self?.UI.tableView.register(UINib(nibName: "CommitTableViewCell", bundle: nil), forCellReuseIdentifier: "commitCustomCell")
-//                    self?.UI.tableView.dataSource = self?.UI
                     
                     self?.UI.tableView.reloadData()
                 }

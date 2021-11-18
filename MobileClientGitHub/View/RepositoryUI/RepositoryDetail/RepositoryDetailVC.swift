@@ -17,13 +17,9 @@ class RepositoryDetailVC: UIViewController {
     @IBOutlet weak var forkLabel: UILabel!
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
-    
     @IBOutlet weak var tableView: UITableView!
     
-    
     var VM: RepositoryDetailVM!
-    
     
     func initialize(VM: RepositoryDetailVM){
         self.VM = VM
@@ -58,7 +54,6 @@ extension RepositoryDetailVC: UITableViewDelegate, UITableViewDataSource{
         let cellModel = VM.cellModel(at: indexPath)!
         let VM = CommitCellVM.init(model: cellModel)
         cell.initialize(VM: VM)
-        
         
         return cell
     }

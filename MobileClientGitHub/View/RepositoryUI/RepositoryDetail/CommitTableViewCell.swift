@@ -14,13 +14,10 @@ class CommitTableViewCell: UITableViewCell {
     @IBOutlet weak var commitDate: UILabel!
     @IBOutlet weak var authorAvatar: UIImageView!
     
-    
     var VM: CommitCellVM!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     

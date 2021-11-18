@@ -26,6 +26,7 @@ class RepositoryListVC: UIViewController {
         userName.text = "   \(userLogin)"
     }
     
+    
     @IBAction func logout(_ sender: Any) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             return
@@ -37,10 +38,6 @@ class RepositoryListVC: UIViewController {
 
 
 extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (VM.repositoryList?.count) ?? 1

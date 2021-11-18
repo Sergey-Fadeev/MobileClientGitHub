@@ -19,9 +19,6 @@ class FavoritesRepositoryListVC: UIViewController {
     
     var repositoryListRealm: List<RepositoryRealm>? = nil
     
-//    var listIshidden: Bool = false
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,17 +60,14 @@ extension FavoritesRepositoryListVC: UITableViewDelegate, UITableViewDataSource{
             cell.configureCell(ownerName: index.authorsName, projectName: index.projectName, ownerImage: index.owner?.avatar, languageName: index.languageName, starsCount: index.starsCount, forksCount: index.forksCount, projectDescription: index.projectdescription)
         }
         else{
-            let index = repositoryListRealm![indexPath.row]
             cell.configureCell(ownerName: nil, projectName: nil, ownerImage: nil, languageName: nil, starsCount: nil, forksCount: nil, projectDescription: nil)
         }
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "favoritesRepositoryDetail", sender: tableView.cellForRow(at: indexPath))
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell {

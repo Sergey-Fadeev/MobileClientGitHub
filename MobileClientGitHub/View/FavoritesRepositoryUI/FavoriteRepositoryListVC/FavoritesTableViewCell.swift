@@ -25,16 +25,15 @@ class FavoritesTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     
     func configureCell(ownerName: String?, projectName: String?, ownerImage: Data?, languageName: String?, starsCount: Int?, forksCount: Int?, projectDescription: String?){
+        
         self.ownerName.text = ownerName ?? ""
         self.projectName.text = projectName ?? ""
-        self.ownerImage.image = UIImage(data: ownerImage!) ?? UIImage(systemName: "pencil.slash")
         
+        self.ownerImage.image = UIImage(data: ownerImage!) ?? UIImage(named: "github")
         self.ownerImage.layer.cornerRadius = self.ownerImage.frame.size.width / 2 - 10
         self.ownerImage.clipsToBounds = true
         

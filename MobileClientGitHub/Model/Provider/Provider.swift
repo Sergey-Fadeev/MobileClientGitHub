@@ -140,7 +140,6 @@ class Provider {
             if item.userLogin == userLogin{
                 for value in item.repositoryListRealm{
                     if value.id == repositoryModel.json.id{
-//                        let index = item.repositoryListRealm.index{$0 === value}
                         try! realm.write{
                             realm.delete(value)
                         }

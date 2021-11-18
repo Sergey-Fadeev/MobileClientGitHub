@@ -40,6 +40,7 @@ class FavoriteRepositoryDetailVC: UIViewController {
         else{
             self.imageOwner.image = UIImage.init(systemName: "pencil.slash")
         }
+        
         self.imageOwner.layer.cornerRadius = self.imageOwner.frame.size.width / 2
         self.imageOwner.clipsToBounds = true
         
@@ -51,6 +52,7 @@ class FavoriteRepositoryDetailVC: UIViewController {
         else{
             self.starsCount.text = ""
         }
+        
         if let forks = viewModel?.forksCount{
             self.forksCount.text = String(forks)
         }
@@ -66,7 +68,7 @@ class FavoriteRepositoryDetailVC: UIViewController {
 extension FavoriteRepositoryDetailVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel?.commits.count ?? 3
+        return min(viewModel?.commits.count ?? 0, 10)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

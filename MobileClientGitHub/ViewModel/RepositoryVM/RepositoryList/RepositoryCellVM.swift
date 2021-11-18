@@ -83,7 +83,7 @@ class RepositoryCellVM {
             return UIImage.init(data: avatar)!
         }
         else{
-            return UIImage.init(systemName: "pencil.slash")!
+            return UIImage(named: "github")!
         }
     }
     

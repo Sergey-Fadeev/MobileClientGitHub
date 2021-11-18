@@ -35,7 +35,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGK-x6-56d">
-                                        <rect key="frame" x="263.5" y="5" width="75" height="38"/>
+                                        <rect key="frame" x="263.5" y="29" width="75" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="L9C-mt-HVd"/>
                                         </constraints>
@@ -52,13 +52,13 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="left" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="znY-ct-Qzo" userLabel="LanguageStack">
-                                <rect key="frame" x="10" y="48" width="328.5" height="35.5"/>
+                                <rect key="frame" x="0.0" y="48" width="338.5" height="35.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="W6D-VF-mTo">
                                         <rect key="frame" x="0.0" y="0.5" width="36" height="34.5"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swift" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lob-6r-aXu">
-                                        <rect key="frame" x="36" y="0.0" width="292.5" height="35.5"/>
+                                        <rect key="frame" x="36" y="0.0" width="302.5" height="35.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -66,19 +66,19 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvo-dO-bxe" userLabel="StarAndForkStack">
-                                <rect key="frame" x="170" y="83.5" width="168.5" height="36"/>
+                                <rect key="frame" x="0.0" y="83.5" width="338.5" height="36"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lfz-Ye-ie7" userLabel="StarStack">
-                                        <rect key="frame" x="0.0" y="0.0" width="67.5" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="135.5" height="36"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="82W-GA-XCl">
-                                                <rect key="frame" x="0.0" y="0.5" width="36" height="35"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starcount" translatesAutoresizingMaskIntoConstraints="NO" id="82W-GA-XCl">
+                                                <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="82W-GA-XCl" secondAttribute="height" multiplier="1:1" id="KPi-HL-Net"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Star" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTF-IL-3Ui">
-                                                <rect key="frame" x="36" y="0.0" width="31.5" height="36"/>
+                                                <rect key="frame" x="36" y="0.0" width="99.5" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -86,16 +86,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfk-ep-41e" userLabel="ForkStack">
-                                        <rect key="frame" x="67.5" y="0.0" width="101" height="36"/>
+                                        <rect key="frame" x="135.5" y="0.0" width="203" height="36"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DdX-XJ-XsM">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forkcount" translatesAutoresizingMaskIntoConstraints="NO" id="DdX-XJ-XsM">
                                                 <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="DdX-XJ-XsM" secondAttribute="height" multiplier="1:1" id="XdB-8u-9Zz"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fork" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpg-fU-tnY">
-                                                <rect key="frame" x="36" y="0.0" width="65" height="36"/>
+                                                <rect key="frame" x="36" y="0.0" width="167" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -108,10 +108,6 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="Jvo-dO-bxe" firstAttribute="leading" secondItem="Wa9-XR-Djb" secondAttribute="leading" constant="10" id="jXf-Hu-FYe"/>
-                            <constraint firstItem="znY-ct-Qzo" firstAttribute="leading" secondItem="Wa9-XR-Djb" secondAttribute="leading" constant="10" id="u89-4S-fmt"/>
-                        </constraints>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Project" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhT-Za-q5r">
                         <rect key="frame" x="10" y="129.5" width="468" height="47"/>
@@ -167,9 +163,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
+        <image name="forkcount" width="654" height="980"/>
         <image name="square.and.arrow.up.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="starcount" width="256" height="244"/>
         <image name="trash.circle" catalog="system" width="128" height="121"/>
-        <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
