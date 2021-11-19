@@ -12,13 +12,19 @@ class RepositoryListVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var userName: UILabel!
-    
+    @IBOutlet weak var internetConnectionLabel: UILabel!
     
     var VM: RepositoryListVM!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Reachability.isConnectedToNetwork(){
+            userName.isHidden = true
+        }else{
+            userName.isHidden = false
+        }
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()

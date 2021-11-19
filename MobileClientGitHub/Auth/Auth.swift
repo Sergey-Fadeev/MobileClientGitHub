@@ -12,6 +12,7 @@ class Auth {
     func registration(name: String, password: String){
         let objectInRealmCount: Int = Array(realm.objects(RepositoryRealmObject.self)).count
         Defaults().set(key: name, value: [password : objectInRealmCount + 1])
+        
     }
 
     func containsInUserDefaults(name: String) -> Bool{

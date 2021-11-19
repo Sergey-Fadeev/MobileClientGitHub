@@ -27,6 +27,7 @@
 		8991088B27464EB8005E4858 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991088A27464EB8005E4858 /* Auth.swift */; };
 		8991088D274650AD005E4858 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991088C274650AD005E4858 /* Defaults.swift */; };
 		8991088F2746CE9F005E4858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8991088E2746CE9F005E4858 /* Assets.xcassets */; };
+		899108F12747C275005E4858 /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899108F02747C275005E4858 /* NetworkConnection.swift */; };
 		89A8DBE6273E5A8E001B1974 /* FavoritesRepositoryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8DBE5273E5A8E001B1974 /* FavoritesRepositoryListVC.swift */; };
 		89A8DBE9273E5AE3001B1974 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8DBE7273E5AE3001B1974 /* FavoritesTableViewCell.swift */; };
 		89A8DBEA273E5AE3001B1974 /* FavoritesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A8DBE8273E5AE3001B1974 /* FavoritesTableViewCell.xib */; };
@@ -72,6 +73,7 @@
 		8991088A27464EB8005E4858 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		8991088C274650AD005E4858 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		8991088E2746CE9F005E4858 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		899108F02747C275005E4858 /* NetworkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnection.swift; sourceTree = "<group>"; };
 		89A8DBE5273E5A8E001B1974 /* FavoritesRepositoryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRepositoryListVC.swift; sourceTree = "<group>"; };
 		89A8DBE7273E5AE3001B1974 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		89A8DBE8273E5AE3001B1974 /* FavoritesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewCell.xib; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				89279445273FD3EF009D05FB /* RepositoryModel.swift */,
 				8991087127413A9B005E4858 /* RealmModel.swift */,
 				8991088C274650AD005E4858 /* Defaults.swift */,
+				899108F02747C275005E4858 /* NetworkConnection.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				89EB0ECB27280F88004F57A4 /* Model.swift in Sources */,
 				89EB0ECD27281773004F57A4 /* RepositoryListVM.swift in Sources */,
 				8991088D274650AD005E4858 /* Defaults.swift in Sources */,
+				899108F12747C275005E4858 /* NetworkConnection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

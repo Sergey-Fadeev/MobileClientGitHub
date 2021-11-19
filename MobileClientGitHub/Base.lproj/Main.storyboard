@@ -175,6 +175,12 @@
                                     <constraint firstItem="dMz-QU-hnN" firstAttribute="width" secondItem="8EI-zo-bAw" secondAttribute="width" multiplier="0.2" id="Ud6-UO-3Bj"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Отсутствует интернет-соединение" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUW-Fg-1gs">
+                                <rect key="frame" x="0.0" y="138" width="414" height="675"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.67333681639999998" green="0.80023960110000003" blue="0.77055229469999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -182,15 +188,20 @@
                             <constraint firstAttribute="bottom" secondItem="DQy-U7-nyV" secondAttribute="bottom" id="65P-jE-s8O"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DQy-U7-nyV" secondAttribute="trailing" id="A6i-wi-7sc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8EI-zo-bAw" secondAttribute="trailing" id="DDG-6u-cdc"/>
+                            <constraint firstItem="FUW-Fg-1gs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QqR-gN-JtS"/>
                             <constraint firstItem="8EI-zo-bAw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="REP-Yn-t4a"/>
                             <constraint firstItem="8EI-zo-bAw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RQe-iB-bPn"/>
                             <constraint firstItem="DQy-U7-nyV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xig-24-Wse"/>
+                            <constraint firstItem="FUW-Fg-1gs" firstAttribute="top" secondItem="8EI-zo-bAw" secondAttribute="bottom" id="Y1o-MR-7R2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FUW-Fg-1gs" secondAttribute="trailing" id="bFo-PF-MQq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FUW-Fg-1gs" secondAttribute="bottom" id="dWb-B9-40j"/>
                             <constraint firstItem="DQy-U7-nyV" firstAttribute="top" secondItem="8EI-zo-bAw" secondAttribute="bottom" id="tSS-FI-8PV"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="ZUb-pF-6sb"/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="uBf-aB-OWf"/>
                     <connections>
+                        <outlet property="internetConnectionLabel" destination="FUW-Fg-1gs" id="oSg-4i-RlC"/>
                         <outlet property="tableView" destination="DQy-U7-nyV" id="cu4-nu-yQW"/>
                         <outlet property="userName" destination="haM-dU-moq" id="m2s-uy-ZDo"/>
                         <segue destination="Ypi-5Z-BU7" kind="show" identifier="repositoryDetail" id="okH-hd-A30"/>
