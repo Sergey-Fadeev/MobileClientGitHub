@@ -16,7 +16,7 @@ class Auth {
     }
 
     func containsInUserDefaults(name: String) -> Bool{
-        if Defaults().defaults.object(forKey: name) != nil{
+        if Defaults().containsInUserDefaults(name: name){
             return true
         }
         else{
@@ -31,5 +31,9 @@ class Auth {
         else{
             Defaults().set(key: "entryStatus", value: ["entryStatus" : 0])
         }
+    }
+    
+    func setUpUser(name: String){
+        Defaults().setUpAuser(name: name)
     }
 }

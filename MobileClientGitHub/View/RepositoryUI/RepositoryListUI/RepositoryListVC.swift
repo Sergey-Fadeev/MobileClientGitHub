@@ -20,10 +20,12 @@ class RepositoryListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        userLogin = UserDefaults.standard.string(forKey: "user")!
+        
         if Reachability.isConnectedToNetwork(){
-            userName.isHidden = true
+            internetConnectionLabel.isHidden = true
         }else{
-            userName.isHidden = false
+            internetConnectionLabel.isHidden = false
         }
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

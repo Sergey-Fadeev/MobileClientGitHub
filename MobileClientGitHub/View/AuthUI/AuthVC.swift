@@ -76,6 +76,7 @@ class AuthVC: UIViewController {
                 if !contains{
                     auth.registration(name: name, password: password)
                     auth.changeStatus(entryStatus: true)
+                    auth.setUpUser(name: name)
                     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
                         return
                     }
@@ -100,13 +101,13 @@ class AuthVC: UIViewController {
                     alertUserIsNotRegistered()
                 }
                 else{
+                    auth.setUpUser(name: name)
                     auth.changeStatus(entryStatus: true)
                     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
                         return
                     }
                     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "navigation")
                     appDelegate.window?.rootViewController = rootController
-                    userLogin = name
                 }
             }
             else{
