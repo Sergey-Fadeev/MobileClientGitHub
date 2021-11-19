@@ -196,7 +196,7 @@ class RepositoryCellVM {
 //    }
     
     func loadCommitAvatar(){
-        model.loadCommits()   //под вопросом
+//        model.loadCommits()   //под вопросом
         if model.commits != nil{
             for commit in model.commits! {
                 commit.loadAvatar()

@@ -71,13 +71,12 @@ class CommitCellVM {
             return UIImage.init(data: avatar)!
         }
         else{
-            return UIImage(named: "avatar")!
+            return UIImage.init(named: "avatar")!
         }
     }
     
     
     func updateUI(){
-        loadAvatar()
         
         UI.authorName.text = authorName
         UI.commitDescription.text = commitDescription
@@ -86,12 +85,5 @@ class CommitCellVM {
         
         UI.authorAvatar.layer.cornerRadius = UI.authorAvatar.frame.size.width / 2
         UI.authorAvatar.clipsToBounds = true
-    }
-    
-    
-    func loadAvatar(){
-        if !model.avatarLoaded{
-            model.loadAvatar()
-        }
     }
 }
