@@ -294,6 +294,10 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ouG-MX-G3m" secondAttribute="trailing" id="8DU-jY-BcX"/>
+                                    <constraint firstItem="ouG-MX-G3m" firstAttribute="top" secondItem="nDk-fH-GWU" secondAttribute="bottom" id="Yzp-Ez-WpR"/>
+                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя проекта" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSb-HO-Jw1">
                                 <rect key="frame" x="10" y="201.5" width="404" height="40.5"/>

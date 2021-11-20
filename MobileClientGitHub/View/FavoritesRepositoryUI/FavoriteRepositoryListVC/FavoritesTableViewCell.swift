@@ -37,17 +37,26 @@ class FavoritesTableViewCell: UITableViewCell {
         self.ownerImage.layer.cornerRadius = self.ownerImage.frame.size.width / 2 - 10
         self.ownerImage.clipsToBounds = true
         
-        self.languageName.text = languageName ?? ""
+        self.languageName.text = "  " + (languageName ?? "")
         self.projectDescription.text = projectDescription ?? ""
         if starsCount != nil{
-            self.starsCount.text = String(starsCount!)
+            self.starsCount.text = "  " + String(starsCount!)
         }else{
             self.starsCount.text = ""
         }
         if forksCount != nil{
-            self.forksCount.text = String(forksCount!)
+            self.forksCount.text = " " + String(forksCount!)
         }else{
             self.forksCount.text = ""
+        }
+        
+        switch languageName {
+        case "JavaScript":
+            languageImage.image = UIImage.init(named: "javaScript")
+        case "Ruby":
+            languageImage.image = UIImage.init(named: "ruby")
+        default:
+            languageImage.image = UIImage.init(named: "empty")
         }
     }
     

@@ -151,6 +151,15 @@ class RepositoryDetailVM {
         loadAvatar()
         loadDetailInfo()
         
+        switch language {
+        case "JavaScript":
+            UI.languageImage.image = UIImage.init(named: "javaScript")
+        case "Ruby":
+            UI.languageImage.image = UIImage.init(named: "ruby")
+        default:
+            UI.languageImage.image = UIImage.init(named: "empty")
+        }
+        
         UI.authorsFullName.text = login
         UI.projectNameLabel.text = title
         UI.descriptionLabel.text = description
@@ -159,9 +168,9 @@ class RepositoryDetailVM {
         UI.ownersImageView.layer.cornerRadius = UI.ownersImageView.frame.size.width / 2
         UI.ownersImageView.clipsToBounds = true
         
-        UI.languageName.text = language
-        UI.starLabel.text = starCount
-        UI.forkLabel.text = forkCount
+        UI.languageName.text = "  " + language
+        UI.starLabel.text = "  " + starCount
+        UI.forkLabel.text = " " + forkCount
         
         loadCommits()
         UI.tableView.reloadData()
