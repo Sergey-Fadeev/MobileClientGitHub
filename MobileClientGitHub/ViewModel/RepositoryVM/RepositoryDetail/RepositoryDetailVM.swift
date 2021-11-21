@@ -85,7 +85,7 @@ class RepositoryDetailVM {
             return UIImage.init(data: avatar)!
         }
         else{
-            return UIImage(named: "github")!
+            return UIImage(named: "avatar")!
         }
     }
     
