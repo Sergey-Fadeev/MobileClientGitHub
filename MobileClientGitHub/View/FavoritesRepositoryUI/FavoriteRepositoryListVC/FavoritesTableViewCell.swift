@@ -16,7 +16,6 @@ class FavoritesTableViewCell: UITableViewCell {
     @IBOutlet private weak var forksCount: UILabel!
     @IBOutlet private weak var starsCount: UILabel!
     @IBOutlet private weak var projectName: UILabel!
-    
     @IBOutlet weak var projectDescription: UILabel!
     
     override func awakeFromNib() {
@@ -26,7 +25,6 @@ class FavoritesTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
     
     func configureCell(ownerName: String?, projectName: String?, ownerImage: Data?, languageName: String?, starsCount: Int?, forksCount: Int?, projectDescription: String?){
         

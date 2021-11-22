@@ -27,13 +27,13 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Регистрация" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gW6-yo-PWO">
-                                                    <rect key="frame" x="99.5" y="305" width="215" height="43"/>
+                                                    <rect key="frame" x="99.5" y="310" width="215" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
                                                     <color key="textColor" red="0.94424532859999999" green="0.94424532859999999" blue="0.94424532859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="97l-Cn-9Rn">
-                                                    <rect key="frame" x="16" y="393" width="382" height="110"/>
+                                                    <rect key="frame" x="16" y="398" width="382" height="110"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите имя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLI-2c-sGk">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="45"/>
@@ -54,7 +54,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7o-X1-eh8">
-                                                    <rect key="frame" x="114.5" y="513" width="185" height="35"/>
+                                                    <rect key="frame" x="114.5" y="518" width="185" height="35"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain">
@@ -72,7 +72,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LM-mj-eir">
-                                                    <rect key="frame" x="128.5" y="568" width="157" height="39.5"/>
+                                                    <rect key="frame" x="128.5" y="573" width="157" height="39.5"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain">
                                                         <attributedString key="attributedTitle">
@@ -94,12 +94,11 @@
                                             <constraints>
                                                 <constraint firstItem="gW6-yo-PWO" firstAttribute="centerX" secondItem="8nN-6b-lsq" secondAttribute="centerX" id="0rj-u3-3ck"/>
                                                 <constraint firstItem="4LM-mj-eir" firstAttribute="top" secondItem="c7o-X1-eh8" secondAttribute="bottom" constant="20" id="7Wi-iN-Rwj"/>
-                                                <constraint firstItem="97l-Cn-9Rn" firstAttribute="centerY" secondItem="8nN-6b-lsq" secondAttribute="centerY" id="Cxv-2t-mbe"/>
                                                 <constraint firstItem="c7o-X1-eh8" firstAttribute="centerX" secondItem="8nN-6b-lsq" secondAttribute="centerX" id="ISM-fo-YhG"/>
                                                 <constraint firstItem="97l-Cn-9Rn" firstAttribute="leading" secondItem="8nN-6b-lsq" secondAttribute="leading" constant="16" id="JAk-H8-Qjy"/>
                                                 <constraint firstItem="4LM-mj-eir" firstAttribute="centerX" secondItem="8nN-6b-lsq" secondAttribute="centerX" id="NA9-RN-TtI"/>
+                                                <constraint firstAttribute="trailing" secondItem="97l-Cn-9Rn" secondAttribute="trailing" constant="16" id="S4x-EL-tvX"/>
                                                 <constraint firstItem="c7o-X1-eh8" firstAttribute="top" secondItem="97l-Cn-9Rn" secondAttribute="bottom" constant="10" id="WQJ-zz-GLA"/>
-                                                <constraint firstAttribute="trailing" secondItem="97l-Cn-9Rn" secondAttribute="trailing" constant="16" id="nCw-ZR-p21"/>
                                                 <constraint firstItem="97l-Cn-9Rn" firstAttribute="top" secondItem="gW6-yo-PWO" secondAttribute="bottom" constant="45" id="sIS-1e-ple"/>
                                             </constraints>
                                         </view>
@@ -118,6 +117,9 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bhr-zV-gKF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="97l-Cn-9Rn" firstAttribute="centerY" secondItem="bhr-zV-gKF" secondAttribute="centerY" id="9Vo-u4-SHs"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="changeButton" destination="c7o-X1-eh8" id="iz0-ve-WNK"/>

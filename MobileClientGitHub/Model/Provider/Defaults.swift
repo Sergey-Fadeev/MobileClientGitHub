@@ -11,12 +11,10 @@ class Defaults {
     
     let defaults = UserDefaults.standard
     
-    
     func get(key: String) -> [String:Any]{
         userLogin = key
         return defaults.dictionary(forKey: key)!
     }
-    
     
     func set(key: String, value: [String:Int]) {
         defaults.set(value, forKey: key)

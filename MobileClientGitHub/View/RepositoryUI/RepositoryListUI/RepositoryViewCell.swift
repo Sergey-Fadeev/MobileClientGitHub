@@ -27,7 +27,6 @@ class RepositoryViewCell: UITableViewCell {
         // Initialization code
     }
     
-    
     @IBAction func saveButton(_ sender: Any) {
         if !VM.containsInFavorites(){
             VM.saveToFavorites()
@@ -41,13 +40,11 @@ class RepositoryViewCell: UITableViewCell {
         }
     }
     
-    
     func initialize(VM: RepositoryCellVM){
         self.VM = VM
         self.VM.UI = self
         VM.updateUI()
     }
-    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -14,11 +14,14 @@ import Combine
 class RepositoryDetailVM {
     
     let model: RepositoryModel
+    weak var UI: RepositoryDetailVC!
+    private var avatarCancellable: Cancellable? = nil
+    private var detailInfoCancellable: Cancellable? = nil
+    private var commitsCancellable: Cancellable? = nil
     
     var login: String{
         return model.owner.json.login
     }
-    
     
     var title: String{
         if let title = model.json.name{
@@ -29,7 +32,6 @@ class RepositoryDetailVM {
         }
     }
     
-    
     var description: String{
         if let description = model.json.description{
             return description
@@ -38,7 +40,6 @@ class RepositoryDetailVM {
             return ""
         }
     }
-    
     
     var fullName: String{
         if let fullName = model.json.fullName{
@@ -49,7 +50,6 @@ class RepositoryDetailVM {
         }
     }
     
-    
     var language: String{
         if let language = model.detailInfo?.language{
             return language
@@ -58,7 +58,6 @@ class RepositoryDetailVM {
             return ""
         }
     }
-    
     
     var starCount: String{
         if let starCount = model.detailInfo?.stargazersCount{
@@ -69,7 +68,6 @@ class RepositoryDetailVM {
         }
     }
     
-    
     var forkCount: String{
         if let forkCount = model.detailInfo?.forksCount{
             return String(forkCount)
@@ -78,7 +76,6 @@ class RepositoryDetailVM {
             return ""
         }
     }
-    
     
     var avatar: UIImage{
         if let avatar = model.owner.avatar{
@@ -89,7 +86,6 @@ class RepositoryDetailVM {
         }
     }
     
-    
     var commits: [CommitModel]{
         if let commits = model.commits{
             return commits
@@ -98,19 +94,6 @@ class RepositoryDetailVM {
             return []
         }
     }
-    
-    
-    weak var UI: RepositoryDetailVC!
-    
-    
-    private var avatarCancellable: Cancellable? = nil
-    
-    
-    private var detailInfoCancellable: Cancellable? = nil
-    
-    
-    private var commitsCancellable: Cancellable? = nil
-    
     
     init(model: RepositoryModel) {
         self.model = model
@@ -124,7 +107,6 @@ class RepositoryDetailVM {
                     }
                 }
             }
-        
         detailInfoCancellable = model.owner
             .objectWillChange
             .sink{ [self]_ in
@@ -136,7 +118,6 @@ class RepositoryDetailVM {
                     }
                 }
             }
-        
         commitsCancellable = model.$commits
             .sink(receiveValue: { [weak self] _ in
                 DispatchQueue.main.async { [weak self] in
@@ -145,7 +126,6 @@ class RepositoryDetailVM {
                 }
             })
     }
-    
     
     func updateUI(){
         loadAvatar()
@@ -176,11 +156,9 @@ class RepositoryDetailVM {
         UI.tableView.reloadData()
     }
     
-    
     func cellModel(at indexPath: IndexPath) -> CommitModel? {
         return commits[indexPath.row]
     }
-    
     
     func loadAvatar(){
         if !model.owner.avatarLoaded{
@@ -188,13 +166,11 @@ class RepositoryDetailVM {
         }
     }
     
-    
     func loadDetailInfo(){
         if !model.detailInfoLoaded{
             model.loadDetailInfo()
         }
     }
-    
     
     func loadCommits(){
         if !model.commitsLoaded{

@@ -16,10 +16,8 @@ class RepositoryListVC: UIViewController {
     
     var VM: RepositoryListVM!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         userLogin = UserDefaults.standard.string(forKey: "user")!
         
         if Reachability.isConnectedToNetwork(){
@@ -35,7 +33,6 @@ class RepositoryListVC: UIViewController {
         tableView.reloadData()
     }
     
-    
     @IBAction func logout(_ sender: Any) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             return
@@ -48,10 +45,6 @@ class RepositoryListVC: UIViewController {
 
 extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (VM.repositoryList?.count) ?? 1
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "repositoryDetail"{
             let destination = segue.destination as! RepositoryDetailVC
@@ -60,6 +53,10 @@ extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
             let VM = RepositoryDetailVM.init(model: model)
             destination.initialize(VM: VM)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (VM.repositoryList?.count) ?? 1
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

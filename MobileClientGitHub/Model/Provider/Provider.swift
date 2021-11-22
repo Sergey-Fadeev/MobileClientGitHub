@@ -14,16 +14,13 @@ let realm = try! Realm()
 class Provider {
     
     private let mainURL = URL(string: "https://Vasiliy-Vasilyev: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@api.github.com/repositories")
-    
     private let detailInfoURL = "https://Vasiliy-Vasilyev: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@api.github.com/repos/"
-    
     
     private func absoluteURL(fullName: String) -> URL? {
         let queryURL = URL(string: detailInfoURL + fullName)!
         
         return queryURL
     }
-    
     
     func fetchRepositories() -> AnyPublisher<FullJSON, Never> {
         guard let url = mainURL else {
@@ -39,7 +36,6 @@ class Provider {
             .eraseToAnyPublisher()
     }
     
-    
     func fetchAvatar(avatarStringURL: String?) -> AnyPublisher<Data, Never> {
         guard avatarStringURL != nil, let url = URL.init(string: avatarStringURL!) else {
             return Just(Data())
@@ -52,7 +48,6 @@ class Provider {
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
-    
     
     func fetchDetailInfo(fullNameRepository: String?) -> AnyPublisher<DetailJSON, Never> {
         
@@ -71,7 +66,6 @@ class Provider {
             .eraseToAnyPublisher()
     }
     
-    
     func fetchCommits(fullNameRepository: String?) -> AnyPublisher<CommitsJSONArray, Never> {
         
         let baseURL: String = "https://Vasiliy-Vasilyev:33KAlyAminA1922@api.github.com/repos/"
@@ -88,7 +82,6 @@ class Provider {
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
-    
     
     func saveToFavorites(repositoryModel: RepositoryModel){
         
@@ -126,7 +119,6 @@ class Provider {
         }
     }
     
-    
     func deleteFromFavorites(repositoryModel: RepositoryModel){
         
         guard !realm.isEmpty else{
@@ -149,7 +141,6 @@ class Provider {
         }
     }
     
-    
     func getRepositories() -> List<RepositoryRealm>?{
         var results: Results<RepositoryRealmObject>!
         results = realm.objects(RepositoryRealmObject.self)
@@ -167,7 +158,6 @@ class Provider {
         }
         return repositoriesModelArray
     }
-    
     
     func containsInFavorites(repositoryModel: RepositoryModel)->Bool {
         var contains: Bool = false

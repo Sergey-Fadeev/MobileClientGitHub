@@ -20,16 +20,13 @@ class CommitTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    
     func initialize(VM: CommitCellVM){
         self.VM = VM
         self.VM.UI = self
         VM.updateUI()
     }
-    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
 }

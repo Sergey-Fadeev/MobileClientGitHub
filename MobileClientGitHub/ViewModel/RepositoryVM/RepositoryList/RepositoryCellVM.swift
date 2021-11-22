@@ -14,11 +14,14 @@ class RepositoryCellVM {
     
     let provider = Provider()
     let model: RepositoryModel
+    weak var UI: RepositoryViewCell!
+    private var avatalCancellable: Cancellable? = nil
+    private var commitsCancellable: Cancellable? = nil
+    private var detailInfoCancellable: Cancellable? = nil
     
     var login: String{
         return model.owner.json.login
     }
-    
     
     var title: String{
         if let title = model.json.name{
@@ -29,7 +32,6 @@ class RepositoryCellVM {
         }
     }
     
-    
     var description: String{
         if let description = model.json.description{
             return description
@@ -38,7 +40,6 @@ class RepositoryCellVM {
             return ""
         }
     }
-    
     
     var fullName: String{
         if let fullName = model.json.fullName{
@@ -49,7 +50,6 @@ class RepositoryCellVM {
         }
     }
     
-    
     var language: String{
         if let language = model.detailInfo?.language{
             return language
@@ -58,7 +58,6 @@ class RepositoryCellVM {
             return ""
         }
     }
-    
     
     var starCount: String{
         if let starCount = model.detailInfo?.stargazersCount{
@@ -87,19 +86,8 @@ class RepositoryCellVM {
         }
     }
     
-    
-    weak var UI: RepositoryViewCell!
-    
-    
-    private var avatalCancellable: Cancellable? = nil
-    private var commitsCancellable: Cancellable? = nil
-    
-    private var detailInfoCancellable: Cancellable? = nil
-    
-    
     init(model: RepositoryModel) {
         self.model = model
-        
         avatalCancellable = model.owner
             .objectWillChange
             .sink{ [self]_ in
@@ -120,8 +108,6 @@ class RepositoryCellVM {
                     }
                 }
             }
-        
-        
         commitsCancellable = model.$commits
             .sink(receiveValue: { [weak self] _ in
                 DispatchQueue.main.async { [weak self] in
@@ -130,7 +116,6 @@ class RepositoryCellVM {
                 }
             })
     }
-    
     
     func updateUI(){
         loadAvatar()
@@ -149,8 +134,6 @@ class RepositoryCellVM {
         UI.starLabel.text = "  " + starCount
         UI.forkLabel.text = " " + forkCount
         
-        
-        
         if !containsInFavorites(){
             UI.saveButtonOutlet.tintColor = UIColor.systemGreen
             UI.saveButtonOutlet.setTitle("Add", for: .normal)
@@ -159,17 +142,14 @@ class RepositoryCellVM {
             UI.saveButtonOutlet.tintColor = UIColor.gray
             UI.saveButtonOutlet.setTitle("Added", for: .normal)
         }
-        
         UI.reloadInputViews()
     }
-    
     
     func loadAvatar(){
         if !model.owner.avatarLoaded{
             model.owner.loadAvatar(avatarStringURL: model.owner.json.avatarURL)
         }
     }
-    
     
     func loadDetailInfo(){
         if !model.detailInfoLoaded{

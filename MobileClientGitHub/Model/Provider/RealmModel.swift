@@ -50,16 +50,12 @@ class RepositoryRealm: Object{
 
 class OwnerRealm: Object{
     
-    
     @Persisted var id: Int
     @Persisted var name: String
-    
     @Persisted var avatar: Data? = nil
-    
     
     convenience init(model: OwnerModel) {
         self.init()
-        
         self.id = model.json.id
         self.name = model.json.login
         self.avatar = model.avatar
@@ -72,13 +68,10 @@ class CommitRealm: Object{
     @Persisted var nameAuthor: String
     @Persisted var commitDescription: String
     @Persisted var dateCommit: String
-    
     @Persisted var avatarAuthor: Data?
-    
     
     convenience init(model: CommitModel) {
         self.init()
-        
         self.nameAuthor = model.json.author?.login ?? ""
         self.dateCommit = model.json.commit?.author.date ?? ""
         if let avatar = model.avatar{

@@ -20,16 +20,13 @@ class FavoriteRepositoryDetailVC: UIViewController {
     @IBOutlet weak var projectDescription: UILabel!
     @IBOutlet weak var tableViewCommit: UITableView!
     
-    
     var viewModel: RepositoryRealm? = nil
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewCommit.delegate = self
         tableViewCommit.dataSource = self
         tableViewCommit.register(UINib(nibName: "FavoriteCommitTableViewCell", bundle: nil), forCellReuseIdentifier: "favoriteCommitCell")
-        
         
         self.nameOwner.text = viewModel?.owner?.name
         self.projectName.text = viewModel?.projectName
@@ -43,9 +40,7 @@ class FavoriteRepositoryDetailVC: UIViewController {
         
         self.imageOwner.layer.cornerRadius = self.imageOwner.frame.size.width / 2
         self.imageOwner.clipsToBounds = true
-        
         self.languageName.text = viewModel?.languageName ?? ""
-        
         if let stars = viewModel?.starsCount{
             self.starsCount.text = String(stars)
         }
@@ -60,7 +55,6 @@ class FavoriteRepositoryDetailVC: UIViewController {
             self.forksCount.text = ""
         }
         self.projectDescription.text = viewModel?.projectdescription ?? ""
-        
     }
 }
 
@@ -74,7 +68,6 @@ extension FavoriteRepositoryDetailVC: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewCommit.dequeueReusableCell(withIdentifier: "favoriteCommitCell") as! FavoriteCommitTableViewCell
         cell.configure(ownerName: viewModel?.commits[indexPath.row].nameAuthor, ownerAvatar: viewModel?.commits[indexPath.row].avatarAuthor, commitDescription: viewModel?.commits[indexPath.row].commitDescription, dateOfCommit: viewModel?.commits[indexPath.row].dateCommit)
-        
         return cell
     }
 }

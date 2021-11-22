@@ -13,17 +13,11 @@ import Combine
 class CommitCellVM {
     
     let model: CommitModel
-    
-    
     weak var UI: CommitTableViewCell!
-    
-    
     private var avatalCancellable: Cancellable? = nil
-    
     
     init(model: CommitModel) {
         self.model = model
-        
         avatalCancellable = model
             .objectWillChange
             .sink{ [self]_ in
@@ -40,7 +34,6 @@ class CommitCellVM {
             }
     }
     
-    
     var authorName: String{
         if let value = model.json.author?.login{
             return String(value)
@@ -49,7 +42,6 @@ class CommitCellVM {
             return ""
         }
     }
-    
     
     var commitDescription: String{
         if let value = model.json.commit?.message{
@@ -60,7 +52,6 @@ class CommitCellVM {
         }
     }
     
-    
     var commitDate: String{
         if let value = model.json.commit?.author.date{
             return String(value)
@@ -69,7 +60,6 @@ class CommitCellVM {
             return ""
         }
     }
-    
     
     var avatar: UIImage{
         if let avatar = model.avatar{
@@ -80,14 +70,12 @@ class CommitCellVM {
         }
     }
     
-    
     func updateUI(){
         
         UI.authorName.text = authorName
         UI.commitDescription.text = commitDescription
         UI.commitDate.text = commitDate
         UI.authorAvatar.image = avatar
-        
         UI.authorAvatar.layer.cornerRadius = UI.authorAvatar.frame.size.width / 2
         UI.authorAvatar.clipsToBounds = true
     }

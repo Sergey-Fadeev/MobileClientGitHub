@@ -16,7 +16,6 @@ class FavoritesRepositoryListVC: UIViewController {
     
     var viewModel: FavoriteRepositoryListVM!
     var viewModelCancellable: Cancellable? = nil
-    
     var repositoryListRealm: List<RepositoryRealm>? = nil
     
     override func viewDidLoad() {
@@ -40,7 +39,6 @@ class FavoritesRepositoryListVC: UIViewController {
                     }
                 }
             })
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "FavoritesTableViewCell", bundle: nil), forCellReuseIdentifier: "customFavoriteCell")
@@ -49,6 +47,17 @@ class FavoritesRepositoryListVC: UIViewController {
 
 
 extension FavoritesRepositoryListVC: UITableViewDelegate, UITableViewDataSource{
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UITableViewCell {
+            let selectedIndex = self.tableView.indexPath(for: cell)!.row
+            if segue.identifier == "favoritesRepositoryDetail" {
+                let vc = segue.destination as! FavoriteRepositoryDetailVC
+                vc.viewModel = viewModel.repositoryList![selectedIndex]
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         repositoryListRealm?.count ?? 0
     }
@@ -67,15 +76,5 @@ extension FavoritesRepositoryListVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "favoritesRepositoryDetail", sender: tableView.cellForRow(at: indexPath))
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let cell = sender as? UITableViewCell {
-            let selectedIndex = self.tableView.indexPath(for: cell)!.row
-            if segue.identifier == "favoritesRepositoryDetail" {
-                let vc = segue.destination as! FavoriteRepositoryDetailVC
-                vc.viewModel = viewModel.repositoryList![selectedIndex]
-            }
-        }
     }
 }

@@ -10,6 +10,16 @@ import UIKit
 
 class AuthVC: UIViewController {
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var changeButton: UIButton!
+    @IBOutlet weak var logInButton: UIButton!
+    
+    let auth = Auth()
+    var alert = UIAlertController(title: "Ошибка", message: "I am an alert message you cannot dissmiss.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default)
+    
     var signUp:Bool = true {
         willSet{
             if newValue{
@@ -24,17 +34,6 @@ class AuthVC: UIViewController {
             }
         }
     }
-    
-    let auth = Auth()
-    
-    var alert = UIAlertController(title: "Ошибка", message: "I am an alert message you cannot dissmiss.", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .default)
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var changeButton: UIButton!
-    @IBOutlet weak var logInButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,14 +41,12 @@ class AuthVC: UIViewController {
         alert.addAction(ok)
     }
     
-    
     @IBAction func changeAction(_ sender: Any) {
         signUp = !signUp
     }
     @IBAction func loginAction(_ sender: Any) {
         logIn()
     }
-    
     
     func alertForEmptyField(){
         alert.message = "Заполните все поля"
@@ -64,14 +61,11 @@ class AuthVC: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    
     func logIn() {
         let name = nameTextField.text!
         let password = passwordTextField.text!
         let contains = Auth().containsInUserDefaults(name: name)
-            
         if (signUp){
-            
             if (!name.isEmpty && !password.isEmpty){
                 if !contains{
                     auth.registration(name: name, password: password)
@@ -83,7 +77,6 @@ class AuthVC: UIViewController {
                     let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "navigation")
                     appDelegate.window?.rootViewController = rootController
                     userLogin = name
-                    
                 }
                 else{
                     alertUserIsRegistered()
@@ -95,7 +88,6 @@ class AuthVC: UIViewController {
             }
         }
         else{ 
-            
             if (!name.isEmpty && !password.isEmpty){
                 if !contains{
                     alertUserIsNotRegistered()

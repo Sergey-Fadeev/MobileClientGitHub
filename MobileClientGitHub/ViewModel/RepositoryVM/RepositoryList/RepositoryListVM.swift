@@ -13,14 +13,9 @@ import Combine
 
 class RepositoryListVM {
     
-    
     var repositoryList: [RepositoryModel]?
     var repositoryListCancellable: Cancellable? = nil
-    
-    
     var VMCancellable: Cancellable? = nil
-    
-    
     weak var UI: RepositoryListVC!
     
     
@@ -47,10 +42,8 @@ class RepositoryListVM {
                     self?.UI.tableView.reloadData()
                 }
             })
-        
         addRepositories()
     }
-    
     
     func numberOfRowsInSection(section: Int) -> Int {
         guard repositoryList != nil else{
@@ -62,14 +55,12 @@ class RepositoryListVM {
         return repositoryList!.count
     }
     
-    
     func cellForRowAt(indexPath: IndexPath) -> RepositoryModel {
         guard repositoryList != nil else{
             return RepositoryModel.init(json: ElementJSON.placeholder)
         }
         return (repositoryList?[indexPath.row])!
     }
-    
     
     func addRepositories(){
         modelSingleton.initializeRepositories()
