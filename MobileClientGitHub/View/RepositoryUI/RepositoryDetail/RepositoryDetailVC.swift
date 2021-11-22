@@ -22,7 +22,6 @@ class RepositoryDetailVC: UIViewController {
     var VM: RepositoryDetailVM!
     
     override func viewDidLoad() {
-        VM.delegate = self
         super.viewDidLoad()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -33,6 +32,7 @@ class RepositoryDetailVC: UIViewController {
     
     func initialize(VM: RepositoryDetailVM){
         self.VM = VM
+        VM.delegate = self
         self.VM.initialize()
     }
     

@@ -30,6 +30,7 @@ class RepositoryViewCell: UITableViewCell {
     
     func initialize(VM: RepositoryCellVM){
         self.VM = VM
+        VM.delegate = self
         VM.initialise()
         initUI()
     }
