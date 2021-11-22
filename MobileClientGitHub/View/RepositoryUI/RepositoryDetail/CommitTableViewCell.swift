@@ -19,16 +19,17 @@ class CommitTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        updateUI()
+        
     }
     
     func initialize(VM: CommitCellVM){
         self.VM = VM
         self.VM.delegate = self
+        initUI()
     }
     
     
-    func updateUI(){
+    func initUI(){
         authorName.text = VM.authorName
         commitDescription.text = VM.commitDescription
         commitDate.text = VM.commitDate

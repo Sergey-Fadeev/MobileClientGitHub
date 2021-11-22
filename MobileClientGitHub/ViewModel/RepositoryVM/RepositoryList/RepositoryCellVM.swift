@@ -147,7 +147,9 @@ class RepositoryCellVM {
     func loadCommitAvatar(){
         if model.commits != nil{
             for commit in model.commits! {
-                commit.loadAvatar()
+                if !commit.avatarLoaded{
+                    commit.loadAvatar()
+                }
             }
         }
         else{

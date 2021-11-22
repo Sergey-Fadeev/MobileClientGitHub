@@ -38,8 +38,17 @@ class RepositoryViewCell: UITableViewCell {
     func initUI(){
         authorsFullName.text = VM.login
         projectNameLabel.text = VM.title
-        descriptionLabel.text = description
+        descriptionLabel.text = VM.description
         ownersImageView.image = VM.avatar
+        
+        switch VM.language {
+        case "JavaScript":
+            languageImage.image = UIImage.init(named: "javaScript")
+        case "Ruby":
+            languageImage.image = UIImage.init(named: "ruby")
+        default:
+            languageImage.image = UIImage.init(named: "empty")
+        }
         
         ownersImageView.layer.cornerRadius = ownersImageView.frame.size.width / 2 - 10
         ownersImageView.clipsToBounds = true

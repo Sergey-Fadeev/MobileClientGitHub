@@ -32,8 +32,6 @@ class RepositoryListVC: UIViewController {
             internetConnectionLabel.isHidden = false
         }
         
-        
-        //binding
         repositoriesCancellable = VM.$repositoryList.sink(receiveValue: {
             r in
             guard r != nil else {
@@ -48,16 +46,10 @@ class RepositoryListVC: UIViewController {
             }
         })
         
-//        self.tableView.delegate = self
-//        self.tableView.register(UINib(nibName: "RepositoryViewCell", bundle: nil), forCellReuseIdentifier: "repositoryCustomCell")
-//        self.tableView.dataSource = self
-        
-        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
         userName.text = "   \(userLogin)"
-//        tableView.reloadData()
     }
     
     @IBAction func logout(_ sender: Any) {

@@ -27,7 +27,7 @@ class RepositoryDetailVC: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        updateUI()
+        initUI()
     }
     
     
@@ -37,7 +37,7 @@ class RepositoryDetailVC: UIViewController {
     }
     
     
-    func updateUI(){
+    func initUI(){
         switch VM.language {
         case "JavaScript":
             languageImage.image = UIImage.init(named: "javaScript")
