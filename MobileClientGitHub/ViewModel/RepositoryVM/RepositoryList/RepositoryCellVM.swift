@@ -10,11 +10,18 @@ import UIKit
 import Combine
 
 
+protocol RepositoryCellVM_Delegate: AnyObject{
+    func ownerHasChanged()
+    
+    
+}
+
+
 class RepositoryCellVM {
     
     let provider = Provider()
     let model: RepositoryModel
-    weak var UI: RepositoryViewCell!
+    
     private var avatalCancellable: Cancellable? = nil
     private var commitsCancellable: Cancellable? = nil
     private var detailInfoCancellable: Cancellable? = nil
@@ -86,6 +93,10 @@ class RepositoryCellVM {
         }
     }
     
+    
+    weak var delegate: RepositoryCellVM_Delegate? = nil
+    
+    
     init(model: RepositoryModel) {
         self.model = model
         avatalCancellable = model.owner
@@ -93,57 +104,26 @@ class RepositoryCellVM {
             .sink{ [self]_ in
                 DispatchQueue.main.async { [weak self] in
                     if self != nil{
-                        self!.UI.ownersImageView.image = avatar
-                        self?.UI.languageName.text = self?.language
-                        self?.UI.starLabel.text = self?.starCount
-                        self?.UI.forkLabel.text = self?.forkCount
-                        switch self?.language {
-                        case "JavaScript":
-                            self!.UI.languageImage.image = UIImage.init(named: "javaScript")
-                        case "Ruby":
-                            self!.UI.languageImage.image = UIImage.init(named: "ruby")
-                        default:
-                            self!.UI.languageImage.image = UIImage.init(named: "empty")
-                        }
+                        delegate?.ownerHasChanged()
                     }
                 }
             }
+        
         commitsCancellable = model.$commits
             .sink(receiveValue: { [weak self] _ in
                 DispatchQueue.main.async { [weak self] in
-                    
                     self!.loadCommitAvatar()
                 }
             })
     }
     
-    func updateUI(){
+    
+    func initialise(){
         loadAvatar()
         loadDetailInfo()
         loadCommits()
-        
-        UI.authorsFullName.text = login
-        UI.projectNameLabel.text = title
-        UI.descriptionLabel.text = description
-        UI.ownersImageView.image = avatar
-        
-        UI.ownersImageView.layer.cornerRadius = UI.ownersImageView.frame.size.width / 2 - 10
-        UI.ownersImageView.clipsToBounds = true
-        
-        UI.languageName.text = "  " + language
-        UI.starLabel.text = "  " + starCount
-        UI.forkLabel.text = " " + forkCount
-        
-        if !containsInFavorites(){
-            UI.saveButtonOutlet.tintColor = UIColor.systemGreen
-            UI.saveButtonOutlet.setTitle("Add", for: .normal)
-        }
-        else{
-            UI.saveButtonOutlet.tintColor = UIColor.gray
-            UI.saveButtonOutlet.setTitle("Added", for: .normal)
-        }
-        UI.reloadInputViews()
     }
+    
     
     func loadAvatar(){
         if !model.owner.avatarLoaded{

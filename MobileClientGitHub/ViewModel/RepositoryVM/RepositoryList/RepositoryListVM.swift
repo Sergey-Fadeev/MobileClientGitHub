@@ -13,21 +13,16 @@ import Combine
 
 class RepositoryListVM {
     
-    var repositoryList: [RepositoryModel]?
+    @Published var repositoryList: [RepositoryModel]? = nil
+    
+    
     var repositoryListCancellable: Cancellable? = nil
-    var VMCancellable: Cancellable? = nil
-    weak var UI: RepositoryListVC!
     
     
-    init(model: [RepositoryModel]?, UI: RepositoryListVC) {
+    init(model: [RepositoryModel]?) {
         if let model = model{
             repositoryList = model
-            UI.tableView.delegate = UI
-            UI.tableView.register(UINib(nibName: "RepositoryViewCell", bundle: nil), forCellReuseIdentifier: "repositoryCustomCell")
-            UI.tableView.dataSource = UI
         }
-        
-        self.UI = UI
         
         repositoryListCancellable = modelSingleton
             .objectWillChange
@@ -35,15 +30,12 @@ class RepositoryListVM {
                 DispatchQueue.main.async { [weak self] in
                     self?.repositoryList = modelSingleton.repositoriesList
                     
-                    self?.UI.tableView.delegate = self?.UI
-                    self?.UI.tableView.register(UINib(nibName: "RepositoryViewCell", bundle: nil), forCellReuseIdentifier: "repositoryCustomCell")
-                    self?.UI.tableView.dataSource = self?.UI
-                    
-                    self?.UI.tableView.reloadData()
                 }
             })
+        
         addRepositories()
     }
+    
     
     func numberOfRowsInSection(section: Int) -> Int {
         guard repositoryList != nil else{
@@ -55,11 +47,16 @@ class RepositoryListVM {
         return repositoryList!.count
     }
     
-    func cellForRowAt(indexPath: IndexPath) -> RepositoryModel {
-        guard repositoryList != nil else{
-            return RepositoryModel.init(json: ElementJSON.placeholder)
+    
+    func VMforRowAt(indexPath: IndexPath) -> RepositoryCellVM? {
+        if repositoryList != nil{
+            let model = (repositoryList?[indexPath.row])!
+            let vm = RepositoryCellVM.init(model: model)
+            return vm
         }
-        return (repositoryList?[indexPath.row])!
+        else{
+            return nil
+        }
     }
     
     func addRepositories(){

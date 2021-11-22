@@ -11,13 +11,19 @@ import UIKit
 import Combine
 
 
+protocol RepositoryDetailVM_Delegate: AnyObject{
+    func ownerHasChanged()
+    func commitsHasChanged()
+}
+
+
 class RepositoryDetailVM {
     
     let model: RepositoryModel
-    weak var UI: RepositoryDetailVC!
     private var avatarCancellable: Cancellable? = nil
-    private var detailInfoCancellable: Cancellable? = nil
     private var commitsCancellable: Cancellable? = nil
+    
+    var delegate: RepositoryDetailVM_Delegate?
     
     var login: String{
         return model.owner.json.login
@@ -95,6 +101,7 @@ class RepositoryDetailVM {
         }
     }
     
+    
     init(model: RepositoryModel) {
         self.model = model
         
@@ -102,59 +109,25 @@ class RepositoryDetailVM {
             .objectWillChange
             .sink{ [self]_ in
                 DispatchQueue.main.async { [weak self] in
-                    if self != nil{
-                        self!.UI.ownersImageView.image = avatar
-                    }
+                    self?.delegate?.ownerHasChanged()
                 }
             }
-        detailInfoCancellable = model.owner
-            .objectWillChange
-            .sink{ [self]_ in
-                DispatchQueue.main.async { [weak self] in
-                    if self != nil{
-                        self?.UI.languageName.text = self?.language
-                        self?.UI.starLabel.text = self?.starCount
-                        self?.UI.forkLabel.text = self?.forkCount
-                    }
-                }
-            }
+
         commitsCancellable = model.$commits
             .sink(receiveValue: { [weak self] _ in
                 DispatchQueue.main.async { [weak self] in
-                    
-                    self?.UI.tableView.reloadData()
+                    self?.delegate?.commitsHasChanged()
                 }
             })
     }
     
-    func updateUI(){
+    
+    func initialize(){
         loadAvatar()
         loadDetailInfo()
-        
-        switch language {
-        case "JavaScript":
-            UI.languageImage.image = UIImage.init(named: "javaScript")
-        case "Ruby":
-            UI.languageImage.image = UIImage.init(named: "ruby")
-        default:
-            UI.languageImage.image = UIImage.init(named: "empty")
-        }
-        
-        UI.authorsFullName.text = login
-        UI.projectNameLabel.text = title
-        UI.descriptionLabel.text = description
-        UI.ownersImageView.image = avatar
-        
-        UI.ownersImageView.layer.cornerRadius = UI.ownersImageView.frame.size.width / 2
-        UI.ownersImageView.clipsToBounds = true
-        
-        UI.languageName.text = "  " + language
-        UI.starLabel.text = "  " + starCount
-        UI.forkLabel.text = " " + forkCount
-        
         loadCommits()
-        UI.tableView.reloadData()
     }
+    
     
     func cellModel(at indexPath: IndexPath) -> CommitModel? {
         return commits[indexPath.row]

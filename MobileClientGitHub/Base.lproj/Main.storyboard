@@ -112,14 +112,12 @@
                                     <constraint firstItem="stq-qk-WcX" firstAttribute="top" secondItem="gm6-KH-Cb9" secondAttribute="top" id="NAC-t6-17h"/>
                                     <constraint firstAttribute="bottom" secondItem="stq-qk-WcX" secondAttribute="bottom" id="i9H-6W-bia"/>
                                     <constraint firstItem="stq-qk-WcX" firstAttribute="trailing" secondItem="i2s-Eu-hh5" secondAttribute="trailing" id="vuh-Ua-ffY"/>
+                                    <constraint firstItem="97l-Cn-9Rn" firstAttribute="centerY" secondItem="i2s-Eu-hh5" secondAttribute="centerY" id="yy8-5o-C5B"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bhr-zV-gKF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="97l-Cn-9Rn" firstAttribute="centerY" secondItem="bhr-zV-gKF" secondAttribute="centerY" id="9Vo-u4-SHs"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="changeButton" destination="c7o-X1-eh8" id="iz0-ve-WNK"/>
