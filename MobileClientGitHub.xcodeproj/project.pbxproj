@@ -240,6 +240,13 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		899108F3274AE624005E4858 /* AuthVM */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AuthVM;
+			sourceTree = "<group>";
+		};
 		89A8DBE4273E5543001B1974 /* FavoritesRepositoryUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +312,7 @@
 		89BE23E52727D01900B44D5A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				899108F3274AE624005E4858 /* AuthVM */,
 				8991087327427FF6005E4858 /* RepositoryVM */,
 				8991087427428024005E4858 /* FavorireRepositoryVM */,
 			);

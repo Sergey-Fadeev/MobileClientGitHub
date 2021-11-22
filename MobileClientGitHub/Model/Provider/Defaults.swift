@@ -8,10 +8,6 @@
 import Foundation
 
 class Defaults {
-//    enum defaultsKeys: String {
-//        case keyModel = "model"
-//    }
-    
     
     let defaults = UserDefaults.standard
     

@@ -70,7 +70,7 @@ class AuthVC: UIViewController {
         let password = passwordTextField.text!
         let contains = Auth().containsInUserDefaults(name: name)
             
-        if (signUp){              //для регистрации
+        if (signUp){
             
             if (!name.isEmpty && !password.isEmpty){
                 if !contains{
@@ -94,7 +94,7 @@ class AuthVC: UIViewController {
                 return
             }
         }
-        else{                  //для входа
+        else{ 
             
             if (!name.isEmpty && !password.isEmpty){
                 if !contains{

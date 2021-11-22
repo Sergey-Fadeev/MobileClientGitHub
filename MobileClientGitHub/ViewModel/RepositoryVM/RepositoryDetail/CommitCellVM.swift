@@ -29,7 +29,12 @@ class CommitCellVM {
             .sink{ [self]_ in
                 DispatchQueue.main.async { [weak self] in
                     if self != nil{
-                        self?.UI.authorAvatar.image = avatar
+                        if self?.UI?.authorAvatar.image != nil{
+                            self?.UI.authorAvatar.image = avatar
+                        }
+                        else{
+                            self?.UI?.authorAvatar.image = UIImage.init(named: "avatar")
+                        }
                     }
                 }
             }

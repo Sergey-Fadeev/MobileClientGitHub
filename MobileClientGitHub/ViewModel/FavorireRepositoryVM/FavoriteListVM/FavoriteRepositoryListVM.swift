@@ -20,7 +20,6 @@ class FavoriteRepositoryListVM: ObservableObject {
     init() {
         let results = realm.objects(RepositoryRealmObject.self)
         notificationToken = results.observe { _ in
-//            self.repositoryList = self.provider.getRepositories()
             self.getRepositoryList()
         }
     }

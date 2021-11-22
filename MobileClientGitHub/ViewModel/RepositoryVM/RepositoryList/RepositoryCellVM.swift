@@ -83,7 +83,6 @@ class RepositoryCellVM {
             return UIImage.init(data: avatar)!
         }
         else{
-//            return UIImage.init(named: "github")!
             return UIImage.init(named: "avatar")!
         }
     }
@@ -107,28 +106,25 @@ class RepositoryCellVM {
                 DispatchQueue.main.async { [weak self] in
                     if self != nil{
                         self!.UI.ownersImageView.image = avatar
+                        self?.UI.languageName.text = self?.language
+                        self?.UI.starLabel.text = self?.starCount
+                        self?.UI.forkLabel.text = self?.forkCount
+                        switch self?.language {
+                        case "JavaScript":
+                            self!.UI.languageImage.image = UIImage.init(named: "javaScript")
+                        case "Ruby":
+                            self!.UI.languageImage.image = UIImage.init(named: "ruby")
+                        default:
+                            self!.UI.languageImage.image = UIImage.init(named: "empty")
+                        }
                     }
                 }
             }
         
-        detailInfoCancellable = model.owner
-            .objectWillChange
-            .sink{ [self]_ in
-                DispatchQueue.main.async { [weak self] in
-                    if self != nil{
-                        self?.UI.languageName.text = self?.language
-                        self?.UI.starLabel.text = self?.starCount
-                        self?.UI.forkLabel.text = self?.forkCount
-                    }
-                }
-            }
         
         commitsCancellable = model.$commits
             .sink(receiveValue: { [weak self] _ in
                 DispatchQueue.main.async { [weak self] in
-//                    self?.UI.tableView.delegate = self?.UI
-//                    self?.UI.tableView.register(UINib(nibName: "CommitTableViewCell", bundle: nil), forCellReuseIdentifier: "commitCustomCell")
-//                    self?.UI.tableView.dataSource = self?.UI
                     
                     self!.loadCommitAvatar()
                 }
@@ -140,16 +136,6 @@ class RepositoryCellVM {
         loadAvatar()
         loadDetailInfo()
         loadCommits()
-        loadCommitAvatar()
-        
-        switch language {
-        case "JavaScript":
-            UI.languageImage.image = UIImage.init(named: "javaScript")
-        case "Ruby":
-            UI.languageImage.image = UIImage.init(named: "ruby")
-        default:
-            UI.languageImage.image = UIImage.init(named: "empty")
-        }
         
         UI.authorsFullName.text = login
         UI.projectNameLabel.text = title
@@ -162,6 +148,8 @@ class RepositoryCellVM {
         UI.languageName.text = "  " + language
         UI.starLabel.text = "  " + starCount
         UI.forkLabel.text = " " + forkCount
+        
+        
         
         if !containsInFavorites(){
             UI.saveButtonOutlet.tintColor = UIColor.systemGreen
@@ -196,16 +184,7 @@ class RepositoryCellVM {
         }
     }
     
-    
-    
-//    func loadCommitAvatar(){
-//        if !model.owner.avatarLoaded{
-//            model.owner.loadAvatar(avatarStringURL: model.owner.json.avatarURL)
-//        }
-//    }
-    
     func loadCommitAvatar(){
-//        model.loadCommits()   //под вопросом
         if model.commits != nil{
             for commit in model.commits! {
                 commit.loadAvatar()
@@ -214,10 +193,7 @@ class RepositoryCellVM {
         else{
             model.loadCommits()
         }
-        
     }
-    
-    
     
     func saveToFavorites(){
         provider.saveToFavorites(repositoryModel: model)

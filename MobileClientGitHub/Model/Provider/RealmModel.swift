@@ -17,7 +17,7 @@ class RepositoryRealmObject: Object{
 
 class RepositoryRealm: Object{
     
-    @Persisted var id: Int                      //JSONElement
+    @Persisted var id: Int
     @Persisted var authorsName: String
     @Persisted var languageName: String
     @Persisted var projectName: String
@@ -25,7 +25,7 @@ class RepositoryRealm: Object{
     @Persisted var starsCount: Int?
     @Persisted var forksCount: Int?
     @Persisted var owner: OwnerRealm?
-    @Persisted var commits: List<CommitRealm>//list<объекты релм>
+    @Persisted var commits: List<CommitRealm>
     
     convenience init(model: RepositoryModel) {
         self.init()
@@ -45,23 +45,13 @@ class RepositoryRealm: Object{
             self.commits.append(objectsIn: commitsJSON)
         }
     }
-    
-    
-//    func toModel() -> RepositoryModel{
-//        let jsonObject = try! JSONSerialization.jsonObject(with: json) as! ElementJSON
-//        let model = RepositoryModel.init(json: jsonObject)
-//        model.owner.avatar = owner?.avatar ?? nil
-//        model.commits = Array(_immutableCocoaArray: commits)
-//
-//        return model
-//    }
 }
 
 
 class OwnerRealm: Object{
     
     
-    @Persisted var id: Int                      //JSONElement
+    @Persisted var id: Int
     @Persisted var name: String
     
     @Persisted var avatar: Data? = nil

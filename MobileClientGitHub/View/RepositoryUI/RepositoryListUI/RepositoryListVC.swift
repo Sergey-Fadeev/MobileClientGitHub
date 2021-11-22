@@ -32,6 +32,7 @@ class RepositoryListVC: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         self.VM = .init(model: modelSingleton.repositoriesList, UI: self)
         userName.text = "   \(userLogin)"
+        tableView.reloadData()
     }
     
     
