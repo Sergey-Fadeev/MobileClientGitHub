@@ -13,23 +13,17 @@ class Auth {
         let objectInRealmCount: Int = Array(realm.objects(RepositoryRealmObject.self)).count
         Defaults().set(key: name, value: [password : objectInRealmCount + 1])
     }
-
+    
     func containsInUserDefaults(name: String) -> Bool{
-        if Defaults().containsInUserDefaults(name: name){
-            return true
-        }
-        else{
+        guard Defaults().containsInUserDefaults(name: name) else{
             return false
         }
+        return true
     }
     
     func changeStatus(entryStatus: Bool){
-        if entryStatus == true{
+        entryStatus == true ? Defaults().set(key: "entryStatus", value: ["entryStatus" : 1]) : Defaults().set(key: "entryStatus", value: ["entryStatus" : 0])
             Defaults().set(key: "entryStatus", value: ["entryStatus" : 1])
-        }
-        else{
-            Defaults().set(key: "entryStatus", value: ["entryStatus" : 0])
-        }
     }
     
     func setUpUser(name: String){

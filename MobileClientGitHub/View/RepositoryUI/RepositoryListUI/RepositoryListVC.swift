@@ -28,7 +28,7 @@ class RepositoryListVC: UIViewController {
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        self.VM = .init(model: modelSingleton.repositoriesList, UI: self)
+        self.VM = .init(model: modelSingleton.repositoriesList, UI: self) //делегат
         userName.text = "   \(userLogin)"
         tableView.reloadData()
     }

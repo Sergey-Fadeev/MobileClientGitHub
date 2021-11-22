@@ -13,7 +13,6 @@ class FavoriteCommitTableViewCell: UITableViewCell {
     @IBOutlet private weak var ownerAvatar: UIImageView!
     @IBOutlet private weak var commitDescription: UILabel!
     @IBOutlet private weak var dateOfCommit: UILabel!
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,7 +34,6 @@ class FavoriteCommitTableViewCell: UITableViewCell {
     
         self.commitDescription.text = commitDescription ?? ""
         self.dateOfCommit.text = dateOfCommit ?? ""
-        
         self.ownerAvatar.layer.cornerRadius = self.ownerAvatar.frame.size.width / 2
         self.ownerAvatar.clipsToBounds = true
     }
