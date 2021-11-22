@@ -28,6 +28,15 @@ class FavoriteRepositoryDetailVC: UIViewController {
         tableViewCommit.dataSource = self
         tableViewCommit.register(UINib(nibName: "FavoriteCommitTableViewCell", bundle: nil), forCellReuseIdentifier: "favoriteCommitCell")
         
+        switch viewModel?.languageName {
+        case "JavaScript":
+            imageLanguage.image = UIImage.init(named: "javaScript")
+        case "Ruby":
+            imageLanguage.image = UIImage.init(named: "ruby")
+        default:
+            imageLanguage.image = UIImage.init(named: "empty")
+        }
+        
         self.nameOwner.text = viewModel?.owner?.name
         self.projectName.text = viewModel?.projectName
         
@@ -40,9 +49,9 @@ class FavoriteRepositoryDetailVC: UIViewController {
         
         self.imageOwner.layer.cornerRadius = self.imageOwner.frame.size.width / 2
         self.imageOwner.clipsToBounds = true
-        self.languageName.text = viewModel?.languageName ?? ""
+        self.languageName.text = "  " + (viewModel?.languageName ?? "")
         if let stars = viewModel?.starsCount{
-            self.starsCount.text = String(stars)
+            self.starsCount.text = "  \(String(stars))"
         }
         else{
             self.starsCount.text = ""
