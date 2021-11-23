@@ -42,15 +42,18 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled">
                                             <attributedString key="attributedTitle">
-                                                <fragment content="Добавлено">
+                                                <fragment content="Удалить">
                                                     <attributes>
                                                         <font key="NSFont" size="12" name="Helvetica"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
-                                            <color key="baseBackgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50588238240000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="baseBackgroundColor" red="0.50487357869590688" green="0.16460314645457644" blue="0.12745132865049333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="deleteButton:" destination="meP-sz-Vsj" eventType="touchUpInside" id="wl6-E0-liG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

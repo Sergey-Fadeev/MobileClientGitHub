@@ -119,7 +119,7 @@ class Provider {
         }
     }
     
-    func deleteFromFavorites(repositoryModel: RepositoryModel){
+    func deleteFromFavorites(repositoryID: Int){
         
         guard !realm.isEmpty else{
             return
@@ -131,7 +131,7 @@ class Provider {
         for item in results{
             if item.userLogin == userLogin{
                 for value in item.repositoryListRealm{
-                    if value.id == repositoryModel.json.id{
+                    if value.id == repositoryID{
                         try! realm.write{
                             realm.delete(value)
                         }

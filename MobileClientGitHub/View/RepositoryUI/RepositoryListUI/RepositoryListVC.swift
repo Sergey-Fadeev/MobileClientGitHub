@@ -82,4 +82,3 @@ extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
-

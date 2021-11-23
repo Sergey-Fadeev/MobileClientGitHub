@@ -18,16 +18,25 @@ class FavoritesTableViewCell: UITableViewCell {
     @IBOutlet private weak var projectName: UILabel!
     @IBOutlet weak var projectDescription: UILabel!
     
+    var VM: FavoriteRepositoryCellVM!
+    var repositoryID: Int? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        VM = .init()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func configureCell(ownerName: String?, projectName: String?, ownerImage: Data?, languageName: String?, starsCount: Int?, forksCount: Int?, projectDescription: String?){
+    @IBAction func deleteButton(_ sender: Any) {
+        VM.deleteFromFavorites(repositoryID: repositoryID!)
+    }
+    
+    func configureCell(ownerName: String?, projectName: String?, ownerImage: Data?, languageName: String?, starsCount: Int?, forksCount: Int?, projectDescription: String?, repositoryID: Int?){
         
+        self.repositoryID = repositoryID
         self.ownerName.text = ownerName ?? ""
         self.projectName.text = projectName ?? ""
         

@@ -62,11 +62,11 @@ class RepositoryViewCell: UITableViewCell {
         
         if !VM.containsInFavorites(){
             saveButtonOutlet.tintColor = UIColor.systemGreen
-            saveButtonOutlet.setTitle("Add", for: .normal)
+            saveButtonOutlet.setTitle("Сохранить", for: .normal)
         }
         else{
             saveButtonOutlet.tintColor = UIColor.gray
-            saveButtonOutlet.setTitle("Added", for: .normal)
+            saveButtonOutlet.setTitle("Сохранено", for: .normal)
         }
         reloadInputViews()
     }
@@ -75,12 +75,12 @@ class RepositoryViewCell: UITableViewCell {
         if !VM.containsInFavorites(){
             VM.saveToFavorites()
             saveButtonOutlet.tintColor = UIColor.gray
-            saveButtonOutlet.setTitle("Добавлено", for: .normal)
+            saveButtonOutlet.setTitle("Сохранено", for: .normal)
         }
         else{
             VM.deleteFromFavorites()
             saveButtonOutlet.tintColor = .systemGreen
-            saveButtonOutlet.setTitle("Добавить", for: .normal)
+            saveButtonOutlet.setTitle("Сохранить", for: .normal)
         }
     }
 }

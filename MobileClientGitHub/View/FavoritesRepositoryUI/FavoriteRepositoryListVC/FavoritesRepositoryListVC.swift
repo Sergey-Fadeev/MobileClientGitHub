@@ -64,10 +64,10 @@ extension FavoritesRepositoryListVC: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "customFavoriteCell") as! FavoritesTableViewCell
         if repositoryListRealm != nil{
             let index = repositoryListRealm![indexPath.row]
-            cell.configureCell(ownerName: index.authorsName, projectName: index.projectName, ownerImage: index.owner?.avatar, languageName: index.languageName, starsCount: index.starsCount, forksCount: index.forksCount, projectDescription: index.projectdescription)
+            cell.configureCell(ownerName: index.authorsName, projectName: index.projectName, ownerImage: index.owner?.avatar, languageName: index.languageName, starsCount: index.starsCount, forksCount: index.forksCount, projectDescription: index.projectdescription, repositoryID: index.id)
         }
         else{
-            cell.configureCell(ownerName: nil, projectName: nil, ownerImage: nil, languageName: nil, starsCount: nil, forksCount: nil, projectDescription: nil)
+            cell.configureCell(ownerName: nil, projectName: nil, ownerImage: nil, languageName: nil, starsCount: nil, forksCount: nil, projectDescription: nil, repositoryID: nil)
         }
         return cell
     }

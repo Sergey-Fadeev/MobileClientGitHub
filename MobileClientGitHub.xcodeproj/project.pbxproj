@@ -19,6 +19,8 @@
 		89279440273E79B0009D05FB /* FavoriteCommitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8927943E273E79B0009D05FB /* FavoriteCommitTableViewCell.xib */; };
 		89279446273FD3EF009D05FB /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89279445273FD3EF009D05FB /* RepositoryModel.swift */; };
 		89279448273FDF21009D05FB /* RepositoryCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89279447273FDF21009D05FB /* RepositoryCellVM.swift */; };
+		898F849A274CD13800D71DDB /* FavoriteRepositoryCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F8499274CD13800D71DDB /* FavoriteRepositoryCellVM.swift */; };
+		898F849D274CED5A00D71DDB /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F849C274CED5A00D71DDB /* TabBarVC.swift */; };
 		8991086E27413A4D005E4858 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 8991086D27413A4D005E4858 /* Realm */; };
 		8991087027413A4D005E4858 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8991086F27413A4D005E4858 /* RealmSwift */; };
 		8991087227413A9B005E4858 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991087127413A9B005E4858 /* RealmModel.swift */; };
@@ -67,6 +69,8 @@
 		8927943E273E79B0009D05FB /* FavoriteCommitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCommitTableViewCell.xib; sourceTree = "<group>"; };
 		89279445273FD3EF009D05FB /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 		89279447273FDF21009D05FB /* RepositoryCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellVM.swift; sourceTree = "<group>"; };
+		898F8499274CD13800D71DDB /* FavoriteRepositoryCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryCellVM.swift; sourceTree = "<group>"; };
+		898F849C274CED5A00D71DDB /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		8991087127413A9B005E4858 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		8991087627428091005E4858 /* FavoriteRepositoryListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositoryListVM.swift; sourceTree = "<group>"; };
 		899108872746426A005E4858 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
@@ -199,6 +203,14 @@
 			path = Provider;
 			sourceTree = "<group>";
 		};
+		898F849B274CED1800D71DDB /* TabBarUI */ = {
+			isa = PBXGroup;
+			children = (
+				898F849C274CED5A00D71DDB /* TabBarVC.swift */,
+			);
+			path = TabBarUI;
+			sourceTree = "<group>";
+		};
 		8991087327427FF6005E4858 /* RepositoryVM */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				8991087627428091005E4858 /* FavoriteRepositoryListVM.swift */,
+				898F8499274CD13800D71DDB /* FavoriteRepositoryCellVM.swift */,
 			);
 			path = FavoriteListVM;
 			sourceTree = "<group>";
@@ -295,6 +308,7 @@
 		89BE23E42727D00B00B44D5A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				898F849B274CED1800D71DDB /* TabBarUI */,
 				899108862746423B005E4858 /* AuthUI */,
 				89BE23E82727D5FC00B44D5A /* RepositoryUI */,
 				89A8DBE4273E5543001B1974 /* FavoritesRepositoryUI */,
@@ -448,11 +462,13 @@
 				89BE23F12727DA7600B44D5A /* RepositoryViewCell.swift in Sources */,
 				89279436273E78C6009D05FB /* RepositoryDetailVC.swift in Sources */,
 				89BE23D42727CFB900B44D5A /* RepositoryListVC.swift in Sources */,
+				898F849D274CED5A00D71DDB /* TabBarVC.swift in Sources */,
 				89279448273FDF21009D05FB /* RepositoryCellVM.swift in Sources */,
 				89279446273FD3EF009D05FB /* RepositoryModel.swift in Sources */,
 				89EB0EC927280896004F57A4 /* Provider.swift in Sources */,
 				8915F7E827410F19002B584A /* RepositoryDetailVM.swift in Sources */,
 				8991088B27464EB8005E4858 /* Auth.swift in Sources */,
+				898F849A274CD13800D71DDB /* FavoriteRepositoryCellVM.swift in Sources */,
 				89A8DBE6273E5A8E001B1974 /* FavoritesRepositoryListVC.swift in Sources */,
 				89BE23D02727CFB900B44D5A /* AppDelegate.swift in Sources */,
 				8991087227413A9B005E4858 /* RealmModel.swift in Sources */,

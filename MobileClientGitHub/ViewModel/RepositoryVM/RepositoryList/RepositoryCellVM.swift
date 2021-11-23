@@ -155,6 +155,6 @@ class RepositoryCellVM {
     }
     
     func deleteFromFavorites(){
-        provider.deleteFromFavorites(repositoryModel: model)
+        provider.deleteFromFavorites(repositoryID: model.json.id!)
     }
 }

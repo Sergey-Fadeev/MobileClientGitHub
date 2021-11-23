@@ -623,7 +623,7 @@
         <!--Mobile Client GitHub-->
         <scene sceneID="o57-lb-KiJ">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="LgU-3k-hqn" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="LgU-3k-hqn" customClass="TabBarVC" customModule="MobileClientGitHub" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Mobile Client GitHub" id="Ac5-oH-dCW"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uPY-xb-0Fj">
