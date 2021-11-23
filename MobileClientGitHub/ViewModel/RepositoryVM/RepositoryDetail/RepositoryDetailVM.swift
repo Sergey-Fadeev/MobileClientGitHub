@@ -16,13 +16,11 @@ protocol RepositoryDetailVM_Delegate: AnyObject{
     func commitsHasChanged()
 }
 
-
 class RepositoryDetailVM {
     
     let model: RepositoryModel
     private var avatarCancellable: Cancellable? = nil
     private var commitsCancellable: Cancellable? = nil
-    
     var delegate: RepositoryDetailVM_Delegate?
     
     var login: String{
@@ -104,7 +102,6 @@ class RepositoryDetailVM {
     
     init(model: RepositoryModel) {
         self.model = model
-        
         avatarCancellable = model.owner
             .objectWillChange
             .sink{ [self]_ in
@@ -112,7 +109,6 @@ class RepositoryDetailVM {
                     self?.delegate?.ownerHasChanged()
                 }
             }
-
         commitsCancellable = model.$commits
             .sink(receiveValue: { [weak self] _ in
                 DispatchQueue.main.async { [weak self] in
@@ -121,13 +117,11 @@ class RepositoryDetailVM {
             })
     }
     
-    
     func initialize(){
         loadAvatar()
         loadDetailInfo()
         loadCommits()
     }
-    
     
     func cellModel(at indexPath: IndexPath) -> CommitModel? {
         return commits[indexPath.row]

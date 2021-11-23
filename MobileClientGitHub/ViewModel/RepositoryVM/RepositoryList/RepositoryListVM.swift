@@ -9,33 +9,24 @@ import Foundation
 import UIKit
 import Combine
 
-
-
 class RepositoryListVM {
     
     @Published var repositoryList: [RepositoryModel]? = nil
-    
-    
     var repositoryListCancellable: Cancellable? = nil
-    
     
     init(model: [RepositoryModel]?) {
         if let model = model{
             repositoryList = model
         }
-        
         repositoryListCancellable = modelSingleton
             .objectWillChange
             .sink(receiveValue: {[weak self] in
                 DispatchQueue.main.async { [weak self] in
                     self?.repositoryList = modelSingleton.repositoriesList
-                    
                 }
             })
-        
         addRepositories()
     }
-    
     
     func numberOfRowsInSection(section: Int) -> Int {
         guard repositoryList != nil else{
@@ -46,7 +37,6 @@ class RepositoryListVM {
         }
         return repositoryList!.count
     }
-    
     
     func VMforRowAt(indexPath: IndexPath) -> RepositoryCellVM? {
         if repositoryList != nil{

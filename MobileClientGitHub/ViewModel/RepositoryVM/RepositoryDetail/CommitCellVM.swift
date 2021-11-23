@@ -13,13 +13,11 @@ protocol CommitCellVM_Delegate: AnyObject{
     func avatarHasChanged()
 }
 
-
 class CommitCellVM {
     
     let model: CommitModel
     weak var delegate: CommitCellVM_Delegate? = nil
     private var avatarCancellable: Cancellable? = nil
-    
     
     var authorName: String{
         if let value = model.json.author?.login{
@@ -57,7 +55,6 @@ class CommitCellVM {
         }
     }
     
-    
     init(model: CommitModel) {
         self.model = model
         
@@ -69,7 +66,4 @@ class CommitCellVM {
                 }
             }
     }
-    
-    
-    
 }

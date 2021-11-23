@@ -14,15 +14,12 @@ class RepositoryListVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var internetConnectionLabel: UILabel!
-    
     var VM: RepositoryListVM!
-    
     var repositoriesCancellable: Cancellable? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.VM = .init(model: modelSingleton.repositoriesList) //делегат
-    
+        self.VM = .init(model: modelSingleton.repositoriesList)
         userLogin = UserDefaults.standard.string(forKey: "user")!
         
         if Reachability.isConnectedToNetwork(){
@@ -37,7 +34,6 @@ class RepositoryListVC: UIViewController {
             guard r != nil else {
                 return
             }
-            
             DispatchQueue.main.async {
                 self.tableView.delegate = self
                 self.tableView.register(UINib(nibName: "RepositoryViewCell", bundle: nil), forCellReuseIdentifier: "repositoryCustomCell")
@@ -45,10 +41,8 @@ class RepositoryListVC: UIViewController {
                 self.tableView.reloadData()
             }
         })
-        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        
         userName.text = "   \(userLogin)"
     }
     
@@ -67,7 +61,6 @@ extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "repositoryDetail"{
             let destination = segue.destination as! RepositoryDetailVC
-            
             let model = (sender as! RepositoryViewCell).VM.model
             let VM = RepositoryDetailVM.init(model: model)
             destination.initialize(VM: VM)
@@ -84,10 +77,8 @@ extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCustomCell") as! RepositoryViewCell
-        
         let cellVM = VM.VMforRowAt(indexPath: indexPath)
         cell.initialize(VM: cellVM!)
-        
         return cell
     }
 }

@@ -20,9 +20,7 @@ class FavoritesRepositoryListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewModel = .init()
-        
         self.favoritesIsEmptyLabel.isHidden = false
         viewModelCancellable =  viewModel?
             .objectWillChange

@@ -25,7 +25,6 @@ class RepositoryDetailVC: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        
         initUI()
     }
     
@@ -58,8 +57,6 @@ class RepositoryDetailVC: UIViewController {
         languageName.text = "  " + VM.language
         starLabel.text = "  " + VM.starCount
         forkLabel.text = " " + VM.forkCount
-        
-//        tableView.reloadData()
     }
 }
 
@@ -78,7 +75,6 @@ extension RepositoryDetailVC: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
 }
-
 
 
 extension RepositoryDetailVC: RepositoryDetailVM_Delegate{

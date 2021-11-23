@@ -18,8 +18,6 @@ class CommitTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
     }
     
     func initialize(VM: CommitCellVM){
@@ -27,7 +25,6 @@ class CommitTableViewCell: UITableViewCell {
         self.VM.delegate = self
         initUI()
     }
-    
     
     func initUI(){
         authorName.text = VM.authorName

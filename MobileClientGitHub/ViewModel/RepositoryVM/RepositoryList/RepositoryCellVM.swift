@@ -12,19 +12,16 @@ import Combine
 
 protocol RepositoryCellVM_Delegate: AnyObject{
     func ownerHasChanged()
-    
-    
 }
-
 
 class RepositoryCellVM {
     
     let provider = Provider()
     let model: RepositoryModel
-    
     private var avatalCancellable: Cancellable? = nil
     private var commitsCancellable: Cancellable? = nil
     private var detailInfoCancellable: Cancellable? = nil
+    weak var delegate: RepositoryCellVM_Delegate? = nil
     
     var login: String{
         return model.owner.json.login
@@ -93,10 +90,6 @@ class RepositoryCellVM {
         }
     }
     
-    
-    weak var delegate: RepositoryCellVM_Delegate? = nil
-    
-    
     init(model: RepositoryModel) {
         self.model = model
         avatalCancellable = model.owner
@@ -108,7 +101,6 @@ class RepositoryCellVM {
                     }
                 }
             }
-        
         commitsCancellable = model.$commits
             .sink(receiveValue: { [weak self] _ in
                 DispatchQueue.main.async { [weak self] in
@@ -117,13 +109,11 @@ class RepositoryCellVM {
             })
     }
     
-    
     func initialise(){
         loadAvatar()
         loadDetailInfo()
         loadCommits()
     }
-    
     
     func loadAvatar(){
         if !model.owner.avatarLoaded{
@@ -136,7 +126,6 @@ class RepositoryCellVM {
             model.loadDetailInfo()
         }
     }
-    
     
     func loadCommits(){
         if !model.commitsLoaded{
