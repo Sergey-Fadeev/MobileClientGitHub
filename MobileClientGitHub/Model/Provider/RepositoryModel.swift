@@ -29,7 +29,7 @@ class RepositoryModel: ObservableObject{
     
     func loadDetailInfo(){
         guard let url = json.fullName else { return }
-        detailInfoCancellable = modelSingleton.provider.fetchDetailInfo(fullNameRepository: url).sink(receiveValue: {
+        detailInfoCancellable = Model.shared.provider.fetchDetailInfo(fullNameRepository: url).sink(receiveValue: {
             json in
             self.detailInfo = json
             self.detailInfoLoaded = true
@@ -38,7 +38,7 @@ class RepositoryModel: ObservableObject{
     
     func loadCommits(){
         guard let url = json.fullName else { return }
-        commitsCancellable = modelSingleton.provider.fetchCommits(fullNameRepository: url).sink(receiveValue: {
+        commitsCancellable = Model.shared.provider.fetchCommits(fullNameRepository: url).sink(receiveValue: {
             json in
             self.commits = json.map({ CommitModel.init(json: $0)})
             self.commitsLoaded = true
@@ -59,7 +59,7 @@ class OwnerModel: ObservableObject{
     }
     
     func loadAvatar(avatarStringURL: String){
-        avatarCancellable = modelSingleton.provider.fetchAvatar(avatarStringURL: avatarStringURL).sink { imageData in
+        avatarCancellable = Model.shared.provider.fetchAvatar(avatarStringURL: avatarStringURL).sink { imageData in
             self.avatar = imageData
             self.avatarLoaded = true
         }
@@ -80,7 +80,7 @@ class CommitModel: ObservableObject{
     
     func loadAvatar(){
         guard let url = json.author?.avatarURL else { return }
-        avatarCancellable = modelSingleton.provider.fetchAvatar(avatarStringURL: url).sink { imageData in
+        avatarCancellable = Model.shared.provider.fetchAvatar(avatarStringURL: url).sink { imageData in
             self.avatar = imageData
             self.avatarLoaded = true
         }

@@ -14,7 +14,6 @@ class Model: ObservableObject {
     
     let provider = Provider()
     
-    
     var providerCancellable: Cancellable? = nil
     
     @Published var repositoriesList: [RepositoryModel]? = nil
@@ -22,6 +21,12 @@ class Model: ObservableObject {
     
     init() {
     }
+    
+    
+    static var shared: Model = {
+        let instanse = Model()
+        return instanse
+    }()
     
     
     func initializeRepositories() {

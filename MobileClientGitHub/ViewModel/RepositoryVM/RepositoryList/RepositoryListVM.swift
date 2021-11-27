@@ -18,11 +18,11 @@ class RepositoryListVM {
         if let model = model{
             repositoryList = model
         }
-        repositoryListCancellable = modelSingleton
+        repositoryListCancellable = Model.shared
             .objectWillChange
             .sink(receiveValue: {[weak self] in
                 DispatchQueue.main.async { [weak self] in
-                    self?.repositoryList = modelSingleton.repositoriesList
+                    self?.repositoryList = Model.shared.repositoriesList
                 }
             })
         addRepositories()
@@ -50,6 +50,6 @@ class RepositoryListVM {
     }
     
     func addRepositories(){
-        modelSingleton.initializeRepositories()
+        Model.shared.initializeRepositories()
     }
 }

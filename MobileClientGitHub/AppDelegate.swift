@@ -7,7 +7,6 @@
 
 import UIKit
 
-let modelSingleton = Model()
 var userLogin: String = "User"
 
 @main

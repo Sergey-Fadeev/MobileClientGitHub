@@ -19,7 +19,7 @@ class RepositoryListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.VM = .init(model: modelSingleton.repositoriesList)
+        self.VM = .init(model: Model.shared.repositoriesList)
         userLogin = UserDefaults.standard.string(forKey: "user")!
         
         if Reachability.isConnectedToNetwork(){
