@@ -14,23 +14,23 @@ class CommitTableViewCell: UITableViewCell {
     @IBOutlet weak var commitDate: UILabel!
     @IBOutlet weak var authorAvatar: UIImageView!
     
-    var VM: CommitCellVM!
+    var viewModel: CommitCellVM!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     func initialize(VM: CommitCellVM){
-        self.VM = VM
-        self.VM.delegate = self
+        self.viewModel = VM
+        self.viewModel.delegate = self
         initUI()
     }
     
     func initUI(){
-        authorName.text = VM.authorName
-        commitDescription.text = VM.commitDescription
-        commitDate.text = VM.commitDate
-        authorAvatar.image = VM.avatar
+        authorName.text = viewModel.authorName
+        commitDescription.text = viewModel.commitDescription
+        commitDate.text = viewModel.commitDate
+        authorAvatar.image = viewModel.avatar
         authorAvatar.layer.cornerRadius = authorAvatar.frame.size.width / 2
         authorAvatar.clipsToBounds = true
     }
@@ -44,7 +44,7 @@ class CommitTableViewCell: UITableViewCell {
 extension CommitTableViewCell: CommitCellVM_Delegate{
     func avatarHasChanged() {
         if authorAvatar.image != nil{
-            authorAvatar.image = VM.avatar
+            authorAvatar.image = viewModel.avatar
         }
         else{
             authorAvatar.image = UIImage.init(named: "avatar")

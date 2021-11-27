@@ -11,7 +11,7 @@ import UIKit
 import Combine
 
 
-protocol RepositoryDetailVM_Delegate: AnyObject{
+protocol RepositoryDetailViewModelDelegate: AnyObject{
     func ownerHasChanged()
     func commitsHasChanged()
 }
@@ -21,7 +21,7 @@ class RepositoryDetailVM {
     let model: RepositoryModel
     private var avatarCancellable: Cancellable? = nil
     private var commitsCancellable: Cancellable? = nil
-    var delegate: RepositoryDetailVM_Delegate?
+    var delegate: RepositoryDetailViewModelDelegate?
     
     var login: String{
         return model.owner.json.login

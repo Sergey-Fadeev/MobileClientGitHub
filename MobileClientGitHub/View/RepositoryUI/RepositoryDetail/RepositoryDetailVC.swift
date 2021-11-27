@@ -19,7 +19,7 @@ class RepositoryDetailVC: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var VM: RepositoryDetailVM!
+    var viewModel: RepositoryDetailVM!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +30,14 @@ class RepositoryDetailVC: UIViewController {
     
     
     func initialize(VM: RepositoryDetailVM){
-        self.VM = VM
+        self.viewModel = VM
         VM.delegate = self
-        self.VM.initialize()
+        self.viewModel.initialize()
     }
     
     
     func initUI(){
-        switch VM.language {
+        switch viewModel.language {
         case "JavaScript":
             languageImage.image = UIImage.init(named: "javaScript")
         case "Ruby":
@@ -46,17 +46,17 @@ class RepositoryDetailVC: UIViewController {
             languageImage.image = UIImage.init(named: "empty")
         }
         
-        authorsFullName.text = VM.login
-        projectNameLabel.text = VM.title
-        descriptionLabel.text = VM.description
-        ownersImageView.image = VM.avatar
+        authorsFullName.text = viewModel.login
+        projectNameLabel.text = viewModel.title
+        descriptionLabel.text = viewModel.description
+        ownersImageView.image = viewModel.avatar
         
         ownersImageView.layer.cornerRadius = ownersImageView.frame.size.width / 2
         ownersImageView.clipsToBounds = true
         
-        languageName.text = "  " + VM.language
-        starLabel.text = "  " + VM.starCount
-        forkLabel.text = " " + VM.forkCount
+        languageName.text = "  " + viewModel.language
+        starLabel.text = "  " + viewModel.starCount
+        forkLabel.text = " " + viewModel.forkCount
     }
 }
 
@@ -64,12 +64,12 @@ class RepositoryDetailVC: UIViewController {
 extension RepositoryDetailVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return min(VM.commits.count, 10)
+        return min(viewModel.commits.count, 10)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "commitCustomCell") as! CommitTableViewCell
-        let cellModel = VM.cellModel(at: indexPath)!
+        let cellModel = viewModel.cellModel(at: indexPath)!
         let VM = CommitCellVM.init(model: cellModel)
         cell.initialize(VM: VM)
         return cell
@@ -77,13 +77,13 @@ extension RepositoryDetailVC: UITableViewDelegate, UITableViewDataSource{
 }
 
 
-extension RepositoryDetailVC: RepositoryDetailVM_Delegate{
+extension RepositoryDetailVC: RepositoryDetailViewModelDelegate{
     func ownerHasChanged() {
-        self.ownersImageView.image = VM.avatar
+        self.ownersImageView.image = viewModel.avatar
         
-        self.languageName.text = self.VM.language
-        self.starLabel.text = self.VM.starCount
-        self.forkLabel.text = self.VM.forkCount
+        self.languageName.text = self.viewModel.language
+        self.starLabel.text = self.viewModel.starCount
+        self.forkLabel.text = self.viewModel.forkCount
     }
     
     

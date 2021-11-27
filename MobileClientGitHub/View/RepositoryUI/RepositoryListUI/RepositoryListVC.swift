@@ -14,31 +14,23 @@ class RepositoryListVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var internetConnectionLabel: UILabel!
-    var VM: RepositoryListVM!
+    var viewModel: RepositoryListVM?
     var repositoriesCancellable: Cancellable? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.VM = .init(model: Model.shared.repositoriesList)
+        configureTableView()
+        self.viewModel = .init(model: Model.shared.repositoriesList)
         userLogin = UserDefaults.standard.string(forKey: "user")!
-        
-        if Reachability.isConnectedToNetwork(){
-            internetConnectionLabel.isHidden = true
-        }
-        else{
-            internetConnectionLabel.isHidden = false
-        }
-        
-        repositoriesCancellable = VM.$repositoryList.sink(receiveValue: {
-            r in
-            guard r != nil else {
+        checkConnection()
+        guard viewModel != nil else{return}
+        repositoriesCancellable = viewModel!.$repositoryList.sink(receiveValue: {
+            publisher in
+            guard publisher != nil else {
                 return
             }
-            DispatchQueue.main.async {
-                self.tableView.delegate = self
-                self.tableView.register(UINib(nibName: "RepositoryViewCell", bundle: nil), forCellReuseIdentifier: "repositoryCustomCell")
-                self.tableView.dataSource = self
-                self.tableView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
             }
         })
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -53,6 +45,21 @@ class RepositoryListVC: UIViewController {
         let rootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "registrationID")
         appDelegate.window?.rootViewController = rootController
     }
+    
+    private func checkConnection(){
+        if Reachability.isConnectedToNetwork(){
+            internetConnectionLabel.isHidden = true
+        }
+        else{
+            internetConnectionLabel.isHidden = false
+        }
+    }
+    
+    func configureTableView(){
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "RepositoryViewCell", bundle: nil), forCellReuseIdentifier: "repositoryCustomCell")
+        tableView.dataSource = self
+    }
 }
 
 
@@ -61,14 +68,15 @@ extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "repositoryDetail"{
             let destination = segue.destination as! RepositoryDetailVC
-            let model = (sender as! RepositoryViewCell).VM.model
+            guard viewModel != nil else{return}
+            let model = (sender as! RepositoryViewCell).viewModel!.model
             let VM = RepositoryDetailVM.init(model: model)
             destination.initialize(VM: VM)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (VM.repositoryList?.count) ?? 1
+        return (viewModel?.repositoryList?.count) ?? 1
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -77,7 +85,8 @@ extension RepositoryListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCustomCell") as! RepositoryViewCell
-        let cellVM = VM.VMforRowAt(indexPath: indexPath)
+        let cellVM = viewModel?.VMforRowAt(indexPath: indexPath)
+        guard cellVM != nil else{return cell}
         cell.initialize(VM: cellVM!)
         return cell
     }

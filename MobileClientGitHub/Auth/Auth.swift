@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import RealmSwift
 
 class Auth {
+    
+    let realm = try! Realm()
     
     func registration(name: String, password: String){
         let objectInRealmCount: Int = Array(realm.objects(RepositoryRealmObject.self)).count

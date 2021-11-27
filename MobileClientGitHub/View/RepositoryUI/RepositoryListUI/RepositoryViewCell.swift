@@ -10,17 +10,17 @@ import UIKit
 
 class RepositoryViewCell: UITableViewCell {
     
-    @IBOutlet weak var ownersImageView: UIImageView!
-    @IBOutlet weak var authorsFullName: UILabel!
-    @IBOutlet weak var languageName: UILabel!
-    @IBOutlet weak var languageImage: UIImageView!
-    @IBOutlet weak var starLabel: UILabel!
-    @IBOutlet weak var forkLabel: UILabel!
-    @IBOutlet weak var projectNameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var saveButtonOutlet: UIButton!
+    @IBOutlet private weak var ownersImageView: UIImageView!
+    @IBOutlet private weak var authorsFullName: UILabel!
+    @IBOutlet private weak var languageName: UILabel!
+    @IBOutlet private weak var languageImage: UIImageView!
+    @IBOutlet private weak var starLabel: UILabel!
+    @IBOutlet private weak var forkLabel: UILabel!
+    @IBOutlet private weak var projectNameLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var saveButtonOutlet: UIButton!
     
-    var VM: RepositoryCellVM!
+    var viewModel: RepositoryCellVM?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,19 +32,20 @@ class RepositoryViewCell: UITableViewCell {
     
 
     func initialize(VM: RepositoryCellVM){
-        self.VM = VM
+        self.viewModel = VM
         VM.delegate = self
         VM.initialise()
         initUI()
     }
     
     func initUI(){
-        authorsFullName.text = VM.login
-        projectNameLabel.text = VM.title
-        descriptionLabel.text = VM.description
-        ownersImageView.image = VM.avatar
+        guard viewModel != nil else{return}
+        authorsFullName.text = viewModel?.login
+        projectNameLabel.text = viewModel?.title
+        descriptionLabel.text = viewModel?.description
+        ownersImageView.image = viewModel?.avatar
         
-        switch VM.language {
+        switch viewModel?.language {
         case "JavaScript":
             languageImage.image = UIImage.init(named: "javaScript")
         case "Ruby":
@@ -56,11 +57,11 @@ class RepositoryViewCell: UITableViewCell {
         ownersImageView.layer.cornerRadius = ownersImageView.frame.size.width / 2 - 10
         ownersImageView.clipsToBounds = true
         
-        languageName.text = "  " + VM.language
-        starLabel.text = "  " + VM.starCount
-        forkLabel.text = " " + VM.forkCount
+        languageName.text = "  " + viewModel!.language
+        starLabel.text = "  " + viewModel!.starCount
+        forkLabel.text = " " + viewModel!.forkCount
         
-        if !VM.containsInFavorites(){
+        if !viewModel!.containsInFavorites(){
             saveButtonOutlet.tintColor = UIColor.systemGreen
             saveButtonOutlet.setTitle("Сохранить", for: .normal)
         }
@@ -72,13 +73,14 @@ class RepositoryViewCell: UITableViewCell {
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        if !VM.containsInFavorites(){
-            VM.saveToFavorites()
+        guard viewModel != nil else{return}
+        if !viewModel!.containsInFavorites(){
+            viewModel!.saveToFavorites()
             saveButtonOutlet.tintColor = UIColor.gray
             saveButtonOutlet.setTitle("Сохранено", for: .normal)
         }
         else{
-            VM.deleteFromFavorites()
+            viewModel?.deleteFromFavorites()
             saveButtonOutlet.tintColor = .systemGreen
             saveButtonOutlet.setTitle("Сохранить", for: .normal)
         }
@@ -90,17 +92,17 @@ extension RepositoryViewCell: RepositoryCellVM_Delegate{
     
     
     func ownerHasChanged() {
-        self.ownersImageView.image = VM.avatar
-        self.languageName.text = self.VM.language
-        self.starLabel.text = self.VM.starCount
-        self.forkLabel.text = self.VM.forkCount
-        switch self.VM.language {
+        ownersImageView.image = viewModel?.avatar
+        languageName.text = viewModel?.language
+        starLabel.text = viewModel?.starCount
+        forkLabel.text = viewModel?.forkCount
+        switch viewModel?.language {
         case "JavaScript":
-            self.languageImage.image = UIImage.init(named: "javaScript")
+            languageImage.image = UIImage.init(named: "javaScript")
         case "Ruby":
-            self.languageImage.image = UIImage.init(named: "ruby")
+            languageImage.image = UIImage.init(named: "ruby")
         default:
-            self.languageImage.image = UIImage.init(named: "empty")
+            languageImage.image = UIImage.init(named: "empty")
         }
     }
     

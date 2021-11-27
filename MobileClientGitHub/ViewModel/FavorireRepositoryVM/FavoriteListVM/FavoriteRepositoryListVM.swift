@@ -12,6 +12,7 @@ import RealmSwift
 
 class FavoriteRepositoryListVM: ObservableObject {
     
+    let realm = try! Realm()
     let provider = Provider()
     @Published var repositoryList: List<RepositoryRealm>? = nil
     var notificationToken: NotificationToken? = nil

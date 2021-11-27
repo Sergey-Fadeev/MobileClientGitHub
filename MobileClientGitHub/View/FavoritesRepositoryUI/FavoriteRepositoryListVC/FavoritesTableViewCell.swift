@@ -18,12 +18,12 @@ class FavoritesTableViewCell: UITableViewCell {
     @IBOutlet private weak var projectName: UILabel!
     @IBOutlet weak var projectDescription: UILabel!
     
-    var VM: FavoriteRepositoryCellVM!
+    var viewModel: FavoriteRepositoryCellVM!
     var repositoryID: Int? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        VM = .init()
+        viewModel = .init()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,7 +31,7 @@ class FavoritesTableViewCell: UITableViewCell {
     }
     
     @IBAction func deleteButton(_ sender: Any) {
-        VM.deleteFromFavorites(repositoryID: repositoryID!)
+        viewModel.deleteFromFavorites(repositoryID: repositoryID!)
     }
     
     func configureCell(ownerName: String?, projectName: String?, ownerImage: Data?, languageName: String?, starsCount: Int?, forksCount: Int?, projectDescription: String?, repositoryID: Int?){
